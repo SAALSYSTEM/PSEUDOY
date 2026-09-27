@@ -1,0 +1,4 @@
+# Local QA captures
+qa-*.png
+.DS_Store
+Thumbs.db
