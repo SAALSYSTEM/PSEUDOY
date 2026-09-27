@@ -4,10 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="description" content="PSEUDO Y – ScrollCraft-Vorschau für die lokale Vorbereitung sensibler Controlling-Daten.">
-  <meta name="theme-color" content="#ffffff">
-  <title>PSEUDO Y · ScrollCraft V2</title>
+  <meta name="theme-color" content="#fbfaf6">
+  <title>PSEUDO Y · ScrollCraft V3</title>
   <link rel="stylesheet" href="scrollcraft/engine/scrollcraft.css">
   <link rel="stylesheet" href="css/scrollcraft-v2.css?v=2">
+  <link rel="stylesheet" href="css/scrollcraft-v3.css?v=3">
 </head>
 <body>
 <a class="skip" href="#main">Zum Inhalt springen</a>
@@ -27,36 +28,25 @@
       <a href="#preise">Preise</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <div class="menu-meta"><strong>19,99 € / Monat</strong>Pro · Beta, 1 Lizenz.<br>Team ab 79 € / Monat.<br><a href="security.html">Datenfluss & Sicherheit</a></div>
+    <div class="menu-meta"><strong>PSEUDO Y</strong>Die lokale Schutzschicht zwischen Excel und KI.<br><a href="security.html">Datenfluss & Sicherheit</a></div>
   </div>
 </div>
 
 <main id="main">
   <section class="hero" id="top">
-    <svg class="hero-ghost-y" viewBox="0 0 760 900" aria-hidden="true"><path d="M380 820V500C380 430 345 382 290 338L120 205"/><path d="M380 500C380 430 415 382 470 338L640 205"/></svg>
-    <div class="shell hero-grid">
+    <div class="hero-grid">
       <div class="hero-copy">
-        <p class="hero-kicker">Local-first für Controlling</p>
-        <h1>Sensible Daten.<span class="accent">Kontrolliert vorbereitet.</span></h1>
+        <h1>
+          <span class="hero-static">Sensible Daten.</span>
+          <span class="hero-type-shell"><span class="hero-type" id="heroTyped">Kontrolliert vorbereitet.</span><span class="hero-cursor" aria-hidden="true"></span></span>
+        </h1>
       </div>
-      <div class="hero-side">
-        <p>Die lokale Schutzschicht zwischen Excel und KI.</p>
-        <a class="cta" href="#prozess">Erleben</a>
-      </div>
-    </div>
-    <div class="hero-bottom"><div class="shell"><span>CSV & XLSX</span><span>lokale Verarbeitung</span><span>keine automatische KI-Weitergabe</span></div></div>
-  </section>
-
-  <section class="statement" data-sc-act="flow">
-    <div class="shell statement-inner" data-sc-in data-sc-stagger="70">
-      <div class="statement-label">Der Gedanke</div>
-      <h2>Die Analyse soll bleiben. <em>Die Originalwerte nicht.</em></h2>
     </div>
   </section>
 
   <section class="y-story" id="prozess">
     <div class="y-stage" id="yStage">
-      <div class="y-title"><small>Der PSEUDO Y Datenfluss</small><h2>Ein Datensatz. Zwei getrennte Wege.</h2></div>
+      <div class="y-title"><h2>Ein Datensatz. Zwei getrennte Wege.</h2></div>
 
       <svg class="y-core" viewBox="0 0 760 900" aria-hidden="true">
         <path class="base" d="M380 820V500C380 430 345 382 290 338L120 205"/>
@@ -70,7 +60,11 @@
         <div class="card-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span><strong>Kundenanalyse_Q3.xlsx</strong><small>Sensible Daten</small></div>
         <table class="data-table">
           <thead><tr><th>Kundenname</th><th>Region</th><th>Umsatz</th><th>Marge</th></tr></thead>
-          <tbody><tr><td class="sensitive">Anna Müller</td><td>NRW</td><td class="sensitive">10.000 €</td><td>18,4 %</td></tr><tr><td class="sensitive">Max Schmidt</td><td>Nord</td><td class="sensitive">25.450 €</td><td>21,1 %</td></tr><tr><td class="sensitive">Lisa Wagner</td><td>Süd</td><td class="sensitive">7.500 €</td><td>16,8 %</td></tr></tbody>
+          <tbody>
+            <tr><td class="sensitive">Anna Müller</td><td>NRW</td><td class="sensitive">10.000 €</td><td>18,4 %</td></tr>
+            <tr><td class="sensitive">Max Schmidt</td><td>Nord</td><td class="sensitive">25.450 €</td><td>21,1 %</td></tr>
+            <tr><td class="sensitive">Lisa Wagner</td><td>Süd</td><td class="sensitive">7.500 €</td><td>16,8 %</td></tr>
+          </tbody>
         </table>
       </article>
 
@@ -140,6 +134,6 @@
 
 <script src="scrollcraft/engine/scrollcraft.js"></script>
 <script>ScrollCraft.mount(document.body);</script>
-<script src="js/scrollcraft-v2.js?v=2" defer></script>
+<script src="js/scrollcraft-v3.js?v=3" defer></script>
 </body>
 </html>
