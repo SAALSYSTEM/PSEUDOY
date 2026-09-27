@@ -1,0 +1,98 @@
+:root{--hero-paper:#fbfaf6;--hero-ink:#171714;--hero-accent:#7f8956}
+
+/* V3: visual reset on top of the ScrollCraft V2 build. */
+body{background:#fff}
+
+/* Header: one floating object, no price, no extra chrome. */
+.site-header{top:18px;left:18px;right:18px;height:72px;border:1px solid #e7e5de;border-radius:999px;background:rgba(255,255,255,.96);box-shadow:0 14px 38px rgba(34,32,27,.055);backdrop-filter:blur(14px);pointer-events:auto}
+.header-inner{width:100%;padding:0 18px;margin:0}
+.brand{gap:11px}.brand-mark{font-size:26px}.brand-name{font-family:"Iowan Old Style","Palatino Linotype",Georgia,serif;font-size:18px;letter-spacing:.14em;color:var(--hero-ink);font-weight:500}
+.menu-button{width:48px;height:48px;background:#fff;border-color:#dfddd6;box-shadow:none}
+.menu-button span{width:22px;height:2px}
+.menu-overlay{z-index:95;background:var(--hero-paper)}
+.menu-panel{padding-top:100px}
+
+/* Hero: nothing except the headline. Fixed type area means zero layout shift. */
+.hero{min-height:100svh;background:var(--hero-paper);padding:116px 24px 52px;display:grid;place-items:center;overflow:hidden}
+.hero-ghost-y,.hero-bottom,.hero-kicker,.hero-side{display:none!important}
+.hero-grid{display:block;width:min(1060px,100%);margin:auto;text-align:center}
+.hero-copy{display:grid;place-items:center;width:100%}
+.hero h1{font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Georgia,serif;font-size:clamp(76px,8.8vw,142px);font-weight:400;letter-spacing:-.055em;line-height:.9;max-width:9.4ch;margin:0;color:var(--hero-ink);text-wrap:balance}
+.hero-static{display:block}
+.hero-type-shell{display:block;color:var(--hero-accent);height:1.9em;overflow:hidden;position:relative}
+.hero-type{display:inline}
+.hero-cursor{display:inline-block;width:2px;height:.8em;background:currentColor;margin-left:.05em;vertical-align:-.03em;animation:heroBlink .9s steps(1,end) infinite}
+@keyframes heroBlink{50%{opacity:0}}
+
+/* The signature move starts immediately after the hero. */
+.y-story{height:600svh;background:#fff}
+.y-stage{background:#fff;--y-title:0;--y-draw:0;--y-focus:0;--y-scale:1.7;--source-o:0;--source-s:1;--source-x:0px;--source-y:0px;--map-o:0;--map-note-o:0;--export-o:0;--caption-o:0}
+.y-title{top:7%}
+.y-title h2{font-family:"Iowan Old Style","Palatino Linotype",Georgia,serif;font-weight:400;font-size:clamp(54px,6vw,92px);letter-spacing:-.05em}
+.y-title small{display:none}
+.y-core{width:min(96vw,1180px);height:min(96svh,1080px)}
+.y-core path.base{stroke:#e9e9e5;stroke-width:74}
+.y-core path.live{stroke:var(--hero-accent);stroke-width:20}
+.y-core .node{fill:#171714}.y-core .node-text{font-size:28px}
+
+.source-card{width:min(760px,76vw);border-radius:30px;box-shadow:0 34px 110px rgba(24,27,36,.16),0 5px 18px rgba(24,27,36,.06)}
+.card-top{height:60px}.card-top strong{font-size:13px}.card-top small{font-size:10px}
+.data-table{font-size:15px}.data-table th{height:48px}.data-table td{height:64px}
+.map-card{width:min(420px,34vw);right:5%;top:24%}
+.export-card{width:min(540px,44vw);right:6%;bottom:9%}
+.y-caption strong{font-family:"Iowan Old Style","Palatino Linotype",Georgia,serif;font-weight:400;font-size:clamp(46px,5vw,74px);letter-spacing:-.05em}
+
+/* Bigger text in the rest of the page. */
+.product-head h2,.transforms h2,.local h2,.pricing-head h2,.faq-grid>h2,.close h2{font-family:"Iowan Old Style","Palatino Linotype",Georgia,serif;font-weight:400}
+.product-head h2{font-size:clamp(64px,7vw,104px)}
+.transforms h2{font-size:clamp(64px,6.8vw,102px)}
+.local h2{font-size:clamp(64px,6.8vw,102px)}
+
+@media(max-width:900px){
+  .shell{width:min(100% - 28px,1240px)}
+  .site-header{top:14px;left:14px;right:14px;height:68px}
+  .header-inner{padding:0 16px}
+  .brand-name{font-size:16px;letter-spacing:.12em}
+  .brand-mark{font-size:23px}
+  .menu-button{width:46px;height:46px}
+  .menu-panel{width:calc(100% - 40px);padding-top:82px;display:block}
+  .menu-links a{font-size:clamp(46px,13vw,72px);line-height:1.02;padding:7px 0}
+  .menu-meta{margin-top:48px}
+
+  .hero{min-height:100svh;padding:104px 18px 36px}
+  .hero h1{font-size:clamp(58px,15.3vw,88px);line-height:.93;max-width:7.3ch;letter-spacing:-.05em}
+  .hero-type-shell{height:2.05em}
+
+  .y-story{height:650svh}
+  .y-title{top:9%;width:calc(100% - 28px)}
+  .y-title h2{font-size:clamp(42px,12vw,62px);line-height:.95}
+  .y-core{width:116vw;height:92svh}
+  .y-core path.base{stroke-width:66}
+  .y-core path.live{stroke-width:18}
+
+  .source-card{width:94vw;left:50%;top:53%;border-radius:22px}
+  .card-top{height:48px;padding:0 12px}.card-top strong{font-size:11px;max-width:50vw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.card-top small{font-size:8px}
+  .data-table{font-size:11px}.data-table th{font-size:8px;height:38px;padding:0 10px}.data-table td{height:48px;padding:0 10px;white-space:nowrap}
+  .map-card{width:62vw;right:4%;top:48%;padding:16px;border-radius:18px}
+  .map-pair{grid-template-columns:1fr;gap:4px}.map-pair i{display:none}.map-pair strong{font-size:11px}
+  .export-card{width:76vw;right:4%;bottom:9%;padding:17px;border-radius:18px}.export-row{grid-template-columns:1.25fr .55fr .7fr;gap:8px;font-size:10px;margin-top:10px}
+  .mapping-note{right:5%;top:60%;font-size:10px}
+  .y-caption{left:18px;right:18px;bottom:4%;max-width:none}.y-caption strong{font-size:42px;max-width:8.5ch}.y-caption p{font-size:14px;max-width:32ch}
+
+  .product{padding-top:100px}.product-head{grid-template-columns:1fr;gap:22px}.product-head h2{font-size:58px;max-width:8ch}.product-head p{font-size:18px}
+  .workbench-body{grid-template-columns:1fr}.panel{border-left:0;border-top:1px solid var(--line)}
+  .transforms h2,.local h2{font-size:58px}
+}
+
+@media(max-width:520px){
+  .hero h1{font-size:59px;max-width:6.7ch}
+  .hero-type-shell{height:2.15em}
+  .y-core{width:128vw}
+  .source-card{width:95vw}
+  .data-table th,.data-table td{padding-left:8px;padding-right:8px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .hero-cursor{animation:none}
+  .hero-type-shell{height:auto}
+}
