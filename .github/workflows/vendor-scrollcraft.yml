@@ -1,0 +1,42 @@
+name: Vendor ScrollCraft
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/vendor-scrollcraft.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  vendor:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PSEUDOY
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Fetch ScrollCraft original
+        run: |
+          git clone --depth=1 https://github.com/SAALSYSTEM/scroll-craft.git /tmp/scroll-craft
+
+      - name: Copy complete ScrollCraft skill snapshot
+        run: |
+          mkdir -p scrollcraft
+          cp -R /tmp/scroll-craft/plugins/nateherk-design/skills/scroll-craft/. scrollcraft/
+          git -C /tmp/scroll-craft rev-parse HEAD > scrollcraft/SOURCE_COMMIT.txt
+          printf '%s\n' 'Source of truth: SAALSYSTEM/scroll-craft' > scrollcraft/SOURCE_REPOSITORY.txt
+
+      - name: Commit vendored snapshot
+        run: |
+          if git diff --quiet -- scrollcraft && [ -z "$(git status --porcelain -- scrollcraft)" ]; then
+            echo "ScrollCraft snapshot already up to date."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add scrollcraft
+          git commit -m "Vendor complete ScrollCraft skill snapshot"
+          git push
