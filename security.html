@@ -1,0 +1,9 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Datenfluss & Sicherheit – PSEUDO Y</title><link rel="stylesheet" href="css/tokens.css"><link rel="stylesheet" href="css/base.css"><style>body{padding:48px 0}.doc{max-width:850px;margin:auto;background:white;border:1px solid var(--line);border-radius:32px;padding:32px}.doc h1{font:400 58px/.95 var(--serif);letter-spacing:-.04em}.doc h2{margin-top:36px}.doc p,.doc li{color:var(--muted);line-height:1.75}.flow{background:#f6f8fb;border-radius:20px;padding:18px;white-space:pre-line}a.back{display:inline-block;margin-bottom:24px}</style></head><body><main class="wrap"><article class="doc"><a class="back" href="index.html">← Zur Landingpage</a><div class="eyebrow">Datenfluss & Sicherheit</div><h1>Was lokal bleibt. Was nicht automatisch passiert.</h1><p>Diese Seite dokumentiert den kommunizierten MVP-Datenfluss. Technische Aussagen müssen mit der tatsächlichen Implementierung übereinstimmen und werden vor Produktivstart verifiziert.</p><h2>Grundfluss</h2><div class="flow">CSV / XLSX
+↓
+Browser auf Ihrem Gerät
+↓
+Transformation
+↓
+Vorschau
+↓
+Export auf Ihr Gerät</div><h2>Keine automatische KI-Weitergabe</h2><p>PSEUDO Y ist im MVP keine KI-Schnittstelle. Der Export wird nicht automatisch an ChatGPT, Claude, Gemini oder andere Anbieter übertragen.</p><h2>Mapping</h2><p>Das Mapping-Prinzip wird getrennt vom Arbeitsdatensatz behandelt. Speicher-, Export- und Re-Identifizierungsfunktionen werden erst als verfügbar dokumentiert, wenn sie technisch umgesetzt und getestet sind.</p><h2>XLSX-Grenzen</h2><p>Komplexe Arbeitsmappen können Formeln, versteckte Blätter, externe Verbindungen oder weitere Inhalte enthalten. Die finale Produktversion muss erkannte Einschränkungen transparent ausweisen.</p></article></main></body></html>
