@@ -3,144 +3,41 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="PSEUDO Y – ScrollCraft-Vorschau für die lokale Vorbereitung sensibler Controlling-Daten.">
   <meta name="theme-color" content="#fbfaf6">
-  <title>PSEUDO Y · ScrollCraft V4</title>
-  <link rel="stylesheet" href="scrollcraft/engine/scrollcraft.css">
-  <link rel="stylesheet" href="css/scrollcraft-v4.css?v=4">
+  <meta name="description" content="PSEUDO Y – Hero Preview">
+  <title>PSEUDO Y · Hero Preview</title>
+  <link rel="stylesheet" href="css/hero-v5.css?v=5">
 </head>
 <body>
-<a class="skip" href="#main">Zum Inhalt springen</a>
-
-<header class="site-header">
-  <div class="header-inner">
-    <a class="brand" href="#top" aria-label="PSEUDO Y Startseite"><span class="brand-mark">P|Y</span><span class="brand-name">PSEUDO Y</span></a>
-    <button class="menu-button" id="menuButton" type="button" aria-expanded="false" aria-controls="menuOverlay" aria-label="Menü öffnen"><span></span><span></span></button>
-  </div>
-</header>
-
-<div class="menu-overlay" id="menuOverlay" aria-hidden="true">
-  <div class="menu-panel">
-    <nav class="menu-links" aria-label="Hauptnavigation">
-      <a href="#prozess">Datenfluss</a>
-      <a href="#produkt">Produkt</a>
-      <a href="#preise">Preise</a>
-      <a href="#faq">FAQ</a>
-    </nav>
-    <div class="menu-meta"><strong>PSEUDO Y</strong>Die lokale Schutzschicht zwischen Excel und KI.<br><a href="security.html">Datenfluss & Sicherheit</a></div>
-  </div>
-</div>
-
-<main id="main">
-  <section class="hero" id="top">
-    <div class="hero-copy">
-      <h1>
-        <span class="hero-static">Sensible Daten.</span>
-        <span class="hero-type-shell"><span class="hero-type" id="heroTyped"></span><span class="hero-cursor" aria-hidden="true"></span></span>
-      </h1>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#" aria-label="PSEUDO Y Startseite">
+        <span class="brand-mark">P|Y</span>
+        <span class="brand-name">PSEUDO Y</span>
+      </a>
+      <button class="menu-button" type="button" aria-label="Menü öffnen">
+        <span></span><span></span>
+      </button>
     </div>
-  </section>
+  </header>
 
-  <section class="y-story" id="prozess">
-    <div class="y-stage" id="yStage">
-      <div class="y-bg" aria-hidden="true"></div>
-      <div class="y-title">Pseudonymisieren</div>
-
-      <svg class="y-core" viewBox="0 0 760 900" aria-hidden="true">
-        <defs>
-          <linearGradient id="yBand" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#dbe7ff"/>
-            <stop offset=".48" stop-color="#8eb7ff"/>
-            <stop offset="1" stop-color="#2d73f0"/>
-          </linearGradient>
-          <filter id="nodeShadow" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#1c4c9a" flood-opacity=".18"/></filter>
-        </defs>
-        <path class="band" d="M380 820V500C380 430 345 382 290 338L120 205"/>
-        <path class="band" d="M380 500C380 430 415 382 470 338L640 205"/>
-        <path class="shine" d="M380 820V500C380 430 345 382 290 338L120 205"/>
-        <path class="shine" d="M380 500C380 430 415 382 470 338L640 205"/>
-        <path class="live" pathLength="1" d="M120 205L290 338C345 382 380 430 380 500V820"/>
-        <path class="live" pathLength="1" d="M380 500C380 430 415 382 470 338L640 205"/>
-        <rect class="node-box" x="318" y="438" width="124" height="124" rx="28"/>
-        <text class="node-text" x="380" y="510">P|Y</text>
-      </svg>
-
-      <svg class="scene-routes" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true">
-        <defs>
-          <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2970eb"/></marker>
-          <marker id="arrowWarm" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#e76b70"/></marker>
-        </defs>
-        <path class="route-warm" pathLength="1" marker-end="url(#arrowWarm)" d="M245 330 C325 350,350 405,415 455"/>
-        <path pathLength="1" marker-end="url(#arrowBlue)" d="M585 455 C650 405,690 350,770 330"/>
-        <path pathLength="1" marker-end="url(#arrowBlue)" d="M500 570 C500 650,500 705,500 760"/>
-      </svg>
-
-      <article class="data-card source-card" aria-label="Sensible Ausgangsdaten">
-        <div class="card-head"><span class="card-icon">S</span><strong>Sensible Daten</strong><small>Original</small></div>
-        <table class="scene-table">
-          <thead><tr><th>Name</th><th>E-Mail</th><th>Geburtsdatum</th><th>Umsatz</th></tr></thead>
-          <tbody>
-            <tr><td>Anna Müller</td><td>anna@firma.de</td><td class="sensitive">03.06.1990</td><td class="sensitive">10.000 €</td></tr>
-            <tr><td>Max Schmidt</td><td>max@firma.de</td><td class="sensitive">12.11.1985</td><td class="sensitive">25.450 €</td></tr>
-            <tr><td>Lisa Wagner</td><td>lisa@firma.de</td><td class="sensitive">28.02.1992</td><td class="sensitive">7.500 €</td></tr>
-          </tbody>
-        </table>
-      </article>
-
-      <aside class="data-card map-card" aria-label="Separates Mapping">
-        <div class="card-head"><span class="card-icon">M</span><strong>Mapping</strong></div>
-        <div class="map-body">
-          <div class="map-row"><strong>Anna Müller</strong><i>↔</i><span>PERSON_Y_001</span></div>
-          <div class="map-row"><strong>anna@firma.de</strong><i>↔</i><span>mail_001@example.invalid</span></div>
-          <div class="map-row"><strong>03.06.1990</strong><i>↔</i><span>30–39 Jahre</span></div>
-        </div>
-        <div class="scene-sub">separat vom transformierten Export</div>
-      </aside>
-
-      <aside class="data-card export-card" aria-label="Transformierter Export">
-        <div class="card-head"><span class="card-icon">Y</span><strong>Transformierter Export</strong></div>
-        <table class="scene-table">
-          <thead><tr><th>Name</th><th>E-Mail</th><th>Alter</th><th>Umsatz</th></tr></thead>
-          <tbody>
-            <tr><td class="safe">PERSON_Y_001</td><td>mail_001@example.invalid</td><td>30–39 Jahre</td><td>Index 20,0</td></tr>
-            <tr><td class="safe">PERSON_Y_002</td><td>mail_002@example.invalid</td><td>30–39 Jahre</td><td>Index 50,9</td></tr>
-          </tbody>
-        </table>
-      </aside>
-
-      <div class="final-badges" aria-hidden="true"><span>XLSX</span><span>CSV</span></div>
-    </div>
-  </section>
-
-  <section class="product" id="produkt" data-sc-act="flow">
-    <div class="shell">
-      <div class="product-head" data-sc-in>
-        <h2>Die Tabelle bleibt das Zentrum.</h2>
-        <p>Spalte wählen. Regel setzen. Vorschau prüfen.</p>
+  <main>
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero-copy">
+        <h1 id="heroTitle">
+          <span class="hero-static">Sensible Daten.</span>
+          <span class="hero-type-shell">
+            <span class="hero-type" id="heroTyped">Lokal vorbereitet für KI.</span><span class="hero-cursor" aria-hidden="true"></span>
+          </span>
+        </h1>
       </div>
-      <div class="workbench" data-sc-reveal="up" data-sc-reveal-at="0.05 0.55">
-        <div class="workbench-bar"><div class="file">Kundenanalyse_Q3.xlsx</div><button class="export-btn" type="button">Exportieren</button></div>
-        <div class="workbench-body">
-          <div class="sheet"><table><thead><tr><th>Kundenname</th><th>Region</th><th>Umsatz</th><th>Marge</th></tr></thead><tbody id="demoBody"></tbody></table></div>
-          <aside class="panel"><small>Aktive Spalte</small><h3 id="demoColumn">Kundenname</h3><div class="panel-select" id="demoMethod">Pseudonymisieren <span>⌄</span></div><div class="preview-box"><small>Vorschau</small><strong id="demoBefore">Anna Müller</strong><strong id="demoAfter">PERSON_Y_001</strong></div><div class="demo-nav"><button type="button" class="active" data-demo="0">Name</button><button type="button" data-demo="1">Umsatz</button><button type="button" data-demo="2">Export</button></div></aside>
-        </div>
+
+      <div class="particle-arrow-wrap" aria-hidden="true">
+        <canvas id="particleArrow"></canvas>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <section class="transforms" data-sc-act="flow"><div class="shell"><h2 data-sc-in>Werte verändern. Struktur behalten.</h2><div class="transform-list" data-sc-in data-sc-stagger="50"><div class="transform-row"><span>Identität</span><strong>Anna Müller</strong><i>→</i><b>PERSON_Y_001</b></div><div class="transform-row"><span>E-Mail</span><strong>anna@firma.de</strong><i>→</i><b>mail_001@example.invalid</b></div><div class="transform-row"><span>Datum</span><strong>03.06.1990</strong><i>→</i><b>30–39 Jahre</b></div><div class="transform-row"><span>Kennzahl</span><strong>10.000 €</strong><i>→</i><b>Index 20,0</b></div></div></div></section>
-
-  <section class="local" data-sc-act="flow"><div class="shell local-grid"><div data-sc-in><h2>Local-first ist hier kein Nebensatz.</h2><p>Die eigentlichen Tabelleninhalte werden in der Browser-Version lokal verarbeitet. PSEUDO Y sendet sie im MVP nicht automatisch an KI-Anbieter.</p></div><div class="local-flow" data-sc-in data-sc-stagger="70"><div class="step"><strong>1 · Datei öffnen</strong><span>Browser</span></div><div class="step"><strong>2 · Regeln anwenden</strong><span>lokal</span></div><div class="step"><strong>3 · Export erstellen</strong><span>Sie entscheiden</span></div><div class="step blocked"><strong>ChatGPT / Claude / Gemini</strong><span>nicht automatisch verbunden</span></div></div></div></section>
-
-  <section class="pricing" id="preise"><div class="shell"><div class="pricing-head"><h2>Preise.</h2><p>Demo kostenlos mit synthetischen Beispieldaten. Produktive Exporte mit Lizenz.</p></div><div class="price-grid"><article class="price featured"><small>Pro · Beta</small><strong>19,99 €</strong><p>pro Monat · 1 Lizenz<br>191,90 € pro Jahr</p><a href="#produkt">Lokal ausprobieren</a></article><article class="price"><small>Team · 5 Lizenzen</small><strong>79 €</strong><p>pro Monat<br>jede weitere Lizenz 9,99 €</p></article><article class="price"><small>On-Premise</small><strong>Kontakt</strong><p>für eigene Infrastruktur und erhöhte IT-Anforderungen</p><a href="mailto:hallo@pseudoy.com">Kontakt aufnehmen</a></article></div></div></section>
-
-  <section class="faq" id="faq"><div class="shell faq-grid"><h2>Die wichtigsten Fragen.</h2><div><details open><summary>Werden Tabellen automatisch hochgeladen?</summary><p>Die Browser-Version ist darauf ausgelegt, die eigentlichen Tabelleninhalte lokal zu verarbeiten.</p></details><details><summary>Sendet PSEUDO Y Daten an ChatGPT oder Claude?</summary><p>Nein. Im MVP gibt es keine automatische Weitergabe an KI-Anbieter.</p></details><details><summary>Ist Pseudonymisierung dasselbe wie Anonymisierung?</summary><p>Nein. Pseudonymisierte Daten können weiterhin personenbezogene Daten sein.</p></details><details><summary>Gibt es einen kostenlosen Tarif?</summary><p>Nein. Es gibt eine kostenlose Demo mit synthetischen Beispieldaten.</p></details></div></div></section>
-
-  <section class="close"><div class="shell"><div class="close-mark">P|Y</div><h2>Zwischen Excel und KI gehört eine Entscheidung.</h2><a href="#produkt">Lokal ausprobieren</a><div class="close-meta"><span>CSV & XLSX</span><span>Local-first</span><span>© 2026 PSEUDO Y</span></div></div></section>
-</main>
-
-<script src="scrollcraft/engine/scrollcraft.js"></script>
-<script>ScrollCraft.mount(document.body);</script>
-<script src="js/scrollcraft-v4.js?v=4" defer></script>
+  <script src="js/hero-v5.js?v=5" defer></script>
 </body>
 </html>
