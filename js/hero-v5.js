@@ -1,13 +1,34 @@
 (() => {
   const lineOne = document.getElementById('heroLineOne');
-  const lineTwo = document.getElementById('heroLineTwo');
+  const lineTwoA = document.getElementById('heroLineTwoA');
+  const lineTwoB = document.getElementById('heroLineTwoB');
   const hero = document.querySelector('.hero');
   const arrowWrap = document.querySelector('.particle-arrow-wrap');
   const canvas = document.getElementById('particleArrow');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  const menuButton = document.getElementById('menuButton');
+  const menuOverlay = document.getElementById('menuOverlay');
+
   const textOne = 'Sensible Daten.';
-  const textTwo = 'Lokal vorbereitet für KI.';
+  const textTwoA = 'Lokal vorbereitet';
+  const textTwoB = 'für KI.';
+
+  function setMenu(open){
+    menuButton?.setAttribute('aria-expanded', String(open));
+    menuButton?.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
+    menuOverlay?.setAttribute('aria-hidden', String(!open));
+    menuOverlay?.classList.toggle('is-open', open);
+    document.body.classList.toggle('menu-open', open);
+  }
+
+  menuButton?.addEventListener('click', () => {
+    setMenu(menuButton.getAttribute('aria-expanded') !== 'true');
+  });
+  menuOverlay?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMenu(false)));
+  addEventListener('keydown', event => {
+    if(event.key === 'Escape') setMenu(false);
+  });
 
   const typeInto = (node, text, delay = 62) => new Promise((resolve) => {
     if (!node) return resolve();
@@ -25,20 +46,24 @@
   async function runHero(){
     if(reduced){
       if(lineOne) lineOne.textContent = textOne;
-      if(lineTwo) lineTwo.textContent = textTwo;
+      if(lineTwoA) lineTwoA.textContent = textTwoA;
+      if(lineTwoB) lineTwoB.textContent = textTwoB;
       hero?.classList.add('second-line-active','typing-complete');
       showArrow(true);
       return;
     }
 
     if(lineOne) lineOne.textContent = '';
-    if(lineTwo) lineTwo.textContent = '';
+    if(lineTwoA) lineTwoA.textContent = '';
+    if(lineTwoB) lineTwoB.textContent = '';
 
     await new Promise(r => setTimeout(r, 420));
     await typeInto(lineOne, textOne, 78);
     await new Promise(r => setTimeout(r, 250));
     hero?.classList.add('second-line-active');
-    await typeInto(lineTwo, textTwo, 64);
+    await typeInto(lineTwoA, textTwoA, 64);
+    await new Promise(r => setTimeout(r, 90));
+    await typeInto(lineTwoB, textTwoB, 64);
     hero?.classList.add('typing-complete');
     await new Promise(r => setTimeout(r, 320));
     showArrow(false);
