@@ -6,14 +6,13 @@
   <meta name="theme-color" content="#fbfaf6">
   <meta name="description" content="PSEUDO Y – Hero Preview">
   <title>PSEUDO Y · Hero Preview</title>
-  <link rel="stylesheet" href="css/hero-v5.css?v=5">
+  <link rel="stylesheet" href="css/hero-v5.css?v=6">
 </head>
 <body>
   <header class="site-header">
     <div class="header-inner">
       <a class="brand" href="#" aria-label="PSEUDO Y Startseite">
-        <span class="brand-mark">P|Y</span>
-        <span class="brand-name">PSEUDO Y</span>
+        <img class="brand-wordmark" src="assets/logo/pseudo-y-wordmark.webp" alt="PSEUDO Y">
       </a>
       <button class="menu-button" type="button" aria-label="Menü öffnen">
         <span></span><span></span>
@@ -25,9 +24,11 @@
     <section class="hero" aria-labelledby="heroTitle">
       <div class="hero-copy">
         <h1 id="heroTitle">
-          <span class="hero-static">Sensible Daten.</span>
-          <span class="hero-type-shell">
-            <span class="hero-type" id="heroTyped">Lokal vorbereitet für KI.</span><span class="hero-cursor" aria-hidden="true"></span>
+          <span class="hero-line hero-line-one">
+            <span id="heroLineOne" aria-label="Sensible Daten."></span><span class="hero-cursor hero-cursor-one" aria-hidden="true"></span>
+          </span>
+          <span class="hero-line hero-line-two">
+            <span id="heroLineTwo" aria-label="Lokal vorbereitet für KI."></span><span class="hero-cursor hero-cursor-two" aria-hidden="true"></span>
           </span>
         </h1>
       </div>
@@ -38,6 +39,6 @@
     </section>
   </main>
 
-  <script src="js/hero-v5.js?v=5" defer></script>
+  <script src="js/hero-v5.js?v=6" defer></script>
 </body>
 </html>
