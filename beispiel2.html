@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll-Craft: Horizontaler Text</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #0f172a;
+            color: #ffffff;
+            font-family: system-ui, sans-serif;
+        }
+        .spacer {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            background: #0f172a;
+        }
+        /* Container für den vorbeiziehenden Text */
+        .marquee-container {
+            height: 50vh;
+            background: #1e293b;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            white-space: nowrap;
+            border-y: 4px solid #38bdf8;
+        }
+        .marquee-text {
+            font-size: 8rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: #38bdf8;
+            
+            /* Verbindung zum Scrollbalken */
+            animation: von-links-nach-rechts linear both;
+            animation-timeline: scroll(root);
+        }
+        @keyframes von-links-nach-rechts {
+            from {
+                transform: translateX(-50%);
+            }
+            to {
+                transform: translateX(10%);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="spacer">
+        <h1>Scrolle runter für den Text-Ticker... ➡️</h1>
+    </div>
+
+    <div class="marquee-container">
+        <div class="marquee-text">SCROLL-CRAFT • KI-DESIGN • WEBDESIGN • SCROLL-CRAFT • KI-DESIGN</div>
+    </div>
+
+    <div class="spacer">
+        <h1>Perfekt! Das ist deine zweite Live-Seite. 🎉</h1>
+    </div>
+
+</body>
+</html>
