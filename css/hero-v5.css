@@ -51,19 +51,23 @@ button{font:inherit;color:inherit}
 .menu-overlay{position:fixed;inset:0;z-index:50;background:var(--paper);opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .24s ease,transform .24s ease,visibility .24s;overflow-y:auto;-webkit-overflow-scrolling:touch}
 .menu-overlay.is-open{opacity:1;visibility:visible;transform:none}
 .menu-inner{width:min(1120px,calc(100% - 44px));min-height:100svh;margin:0 auto;padding:132px 0 max(34px,env(safe-area-inset-bottom));display:flex;flex-direction:column}
-.menu-eyebrow{font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:800;color:#7A8295;margin-bottom:26px}
+.menu-eyebrow{font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:800;color:#7A8295;margin-bottom:24px}
+.menu-section{display:grid;gap:10px}
+.menu-section-label{font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:850;color:#929AAD}
 .menu-primary{display:grid;border-top:1px solid var(--line)}
-.menu-tool{display:grid;grid-template-columns:42px 1fr auto;gap:18px;align-items:center;padding:24px 0;border-bottom:1px solid var(--line)}
+.menu-tool{display:grid;grid-template-columns:42px 1fr auto;gap:18px;align-items:center;padding:22px 0;border-bottom:1px solid var(--line)}
 .menu-index{font-size:11px;font-weight:800;color:#97A0B3;letter-spacing:.08em}
-.menu-copy{display:grid;gap:5px}.menu-copy strong{font-family:var(--serif);font-size:clamp(30px,4.8vw,58px);line-height:.98;font-weight:400;letter-spacing:-.045em}.menu-copy small{font-size:13px;color:#697386;line-height:1.45}
+.menu-copy{display:grid;gap:5px}.menu-copy strong{font-family:var(--serif);font-size:clamp(30px,4.5vw,54px);line-height:.98;font-weight:400;letter-spacing:-.045em}.menu-copy small{font-size:13px;color:#697386;line-height:1.45}
 .menu-arrow{font-size:28px;color:var(--accent)}
-.menu-secondary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 26px;margin-top:30px}
-.menu-secondary a{font-size:15px;font-weight:650;padding:8px 0;border-bottom:1px solid transparent}.menu-secondary a:hover{border-color:currentColor}
-.menu-bottom{margin-top:auto;padding-top:44px;display:grid;justify-items:start}
+.menu-groups{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:34px}
+.menu-link-group{display:grid;gap:9px}
+.menu-link-group nav{display:grid;gap:2px}
+.menu-link-group a{font-size:15px;font-weight:650;padding:7px 0;border-bottom:1px solid transparent;width:max-content;max-width:100%}
+.menu-link-group a:hover{border-color:currentColor}
+.menu-bottom{margin-top:auto;padding-top:42px;display:grid;justify-items:start}
 .menu-cta{display:inline-flex;align-items:center;justify-content:space-between;gap:46px;min-width:min(100%,420px);padding:18px 22px;border-radius:999px;background:var(--accent);color:#fff;font-size:18px;font-weight:800;box-shadow:0 16px 34px rgba(47,107,255,.18)}
 .menu-cta span{font-size:24px;line-height:1}
 .menu-auth{display:flex;align-items:center;gap:12px;margin-top:18px;font-size:12px;font-weight:850;letter-spacing:.12em}.menu-auth span{color:#A6ADBB}.menu-auth a{border-bottom:1px solid transparent}.menu-auth a:hover{border-color:currentColor}
-.menu-bottom p{margin:10px 0 0;color:#7A8295;font-size:12px;line-height:1.45}
 
 @media (max-width:700px){
   .site-header{top:max(14px,env(safe-area-inset-top));left:14px;right:14px;height:68px}
@@ -83,12 +87,14 @@ button{font:inherit;color:inherit}
 
   .menu-inner{width:calc(100% - 34px);padding-top:112px}
   .menu-eyebrow{margin-bottom:14px}
-  .menu-tool{grid-template-columns:28px 1fr auto;gap:10px;padding:18px 0}
-  .menu-copy strong{font-size:clamp(30px,9vw,42px)}
+  .menu-section{gap:8px}
+  .menu-tool{grid-template-columns:28px 1fr auto;gap:10px;padding:17px 0}
+  .menu-copy strong{font-size:clamp(29px,8.6vw,40px)}
   .menu-copy small{font-size:12px;max-width:27ch}
   .menu-arrow{font-size:22px}
-  .menu-secondary{grid-template-columns:1fr 1fr;gap:4px 20px;margin-top:20px}
-  .menu-secondary a{font-size:14px;padding:7px 0}
+  .menu-groups{grid-template-columns:1fr 1fr;gap:24px;margin-top:24px}
+  .menu-link-group{gap:6px}
+  .menu-link-group a{font-size:14px;padding:6px 0;width:auto}
   .menu-bottom{padding-top:30px}
   .menu-cta{width:100%;min-width:0;font-size:17px;padding:17px 20px}
 }
@@ -104,6 +110,7 @@ button{font:inherit;color:inherit}
   .hero-copy{margin-top:186px}
   .particle-arrow-wrap{top:62vh;width:130px;height:194px}
   .menu-copy strong{font-size:29px}
+  .menu-groups{gap:18px}
 }
 
 @media (prefers-reduced-motion:reduce){
