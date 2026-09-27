@@ -6,7 +6,8 @@
   <meta name="theme-color" content="#F7F5F0">
   <meta name="description" content="PSEUDO Y – sensible Daten lokal für KI vorbereiten.">
   <title>PSEUDO Y · Hero Preview</title>
-  <link rel="stylesheet" href="css/hero-v5.css?v=9">
+  <link rel="stylesheet" href="css/hero-v5.css?v=10">
+  <link rel="stylesheet" href="css/y-story-v1.css?v=1">
 </head>
 <body>
   <header class="site-header">
@@ -88,8 +89,58 @@
         <canvas id="particleArrow"></canvas>
       </div>
     </section>
+
+    <section class="y-story" id="yStory" aria-label="So trennt PSEUDO Y Originalwerte, Pseudonyme und Mapping">
+      <div class="y-stage">
+        <svg class="story-y" viewBox="0 0 500 700" aria-hidden="true">
+          <path d="M82 110 L250 305 L418 110 M250 305 L250 620" />
+        </svg>
+
+        <div class="story-card story-original" data-story="original">
+          <div class="story-label story-label-red">SENSIBLE DATEN</div>
+          <div class="story-card-surface">
+            <div class="story-kicker">Kundenname</div>
+            <div class="story-value">Baufirma ABC GmbH</div>
+          </div>
+        </div>
+
+        <div class="story-flow story-flow-transform" aria-hidden="true">
+          <span class="flow-arrow">↓</span>
+          <span class="flow-caption">Pseudonymisierung</span>
+          <span class="flow-arrow">↓</span>
+        </div>
+
+        <div class="story-card story-pseudo" data-story="pseudo">
+          <div class="story-label story-label-blue">PSEUDONYMISIERT</div>
+          <div class="story-card-surface">
+            <div class="story-kicker">Kundenname</div>
+            <div class="story-value">KUNDE_Y_001</div>
+          </div>
+        </div>
+
+        <div class="story-card story-mapping" data-story="mapping">
+          <div class="story-label">MAPPING · VERSCHLÜSSELT</div>
+          <div class="story-card-surface mapping-surface">
+            <div class="mapping-row"><span>Baufirma ABC GmbH</span><b>↔</b><span>KUNDE_Y_001</span></div>
+            <div class="mapping-note">getrennt gespeichert</div>
+          </div>
+        </div>
+
+        <div class="story-node" aria-hidden="true">
+          <div class="node-arrows">↙ <span>↓</span> ↘</div>
+          <div class="node-icon">P|Y</div>
+        </div>
+
+        <div class="story-sources">CSV · XLSX · EXCEL</div>
+        <div class="story-targets" aria-label="Mögliche Weiterverwendung nach dem Export">
+          <span>ChatGPT</span><span>Claude</span><span>Gemini</span><span>Grok</span>
+        </div>
+        <div class="story-control-note">Sie entscheiden, was danach passiert.</div>
+      </div>
+    </section>
   </main>
 
   <script src="js/hero-v5.js?v=8" defer></script>
+  <script src="js/y-story-v1.js?v=1" defer></script>
 </body>
 </html>
