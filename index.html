@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="PSEUDO Y bereitet CSV- und Excel-Daten lokal im Browser für kontrollierte Weiterverwendung vor. Entwickelt für Controller und Finance-Teams im Mittelstand.">
+  <meta name="theme-color" content="#f6f5f1">
+  <title>PSEUDO Y – Die lokale Schutzschicht zwischen Excel und KI</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/motion.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+<header class="site-header" id="siteHeader">
+  <div class="wrap header-shell">
+    <a class="brand" href="#top" aria-label="PSEUDO Y Startseite">
+      <img class="brand-icon" src="assets/logo/py-icon.webp" width="42" height="42" alt="" aria-hidden="true">
+      <img class="brand-wordmark" src="assets/logo/pseudo-y-wordmark.webp" width="170" height="42" alt="PSEUDO Y">
+    </a>
+    <div class="header-actions">
+      <a class="btn small primary" href="#preise">Preise</a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menuPanel" aria-label="Menü öffnen">
+        <span class="menu-lines" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+  <nav class="menu-panel" id="menuPanel" aria-label="Hauptnavigation">
+    <div class="menu-grid">
+      <a href="#demo"><span>Tool</span><span aria-hidden="true">↗</span></a>
+      <a href="#prozess"><span>So funktioniert’s</span><span aria-hidden="true">↗</span></a>
+      <a href="#usecases"><span>Use Cases</span><span aria-hidden="true">↗</span></a>
+      <a href="#preise"><span>Preise</span><span aria-hidden="true">↗</span></a>
+      <a href="#faq"><span>FAQ</span><span aria-hidden="true">↗</span></a>
+      <a href="security.html"><span>Datenfluss & Sicherheit</span><span aria-hidden="true">↗</span></a>
+      <a href="blog.html"><span>Blog</span><span aria-hidden="true">↗</span></a>
+      <a href="docs.html"><span>Docs</span><span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="menu-meta">
+      <a href="#">Anmelden</a>
+      <a href="#demo">Konto erstellen</a>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="wrap hero-inner">
+      <span class="tag hero-kicker">Local-first · für Controller im Mittelstand</span>
+      <h1 id="hero-title">
+        Sensible Controlling‑Daten.
+        <span class="typed-line"><span id="typedText">Lokal vorbereitet für KI.</span><span class="type-cursor" aria-hidden="true"></span></span>
+      </h1>
+      <p class="hero-sub">PSEUDO Y verarbeitet CSV- und Excel-Dateien direkt im Browser. Schützen oder transformieren Sie sensible Spalten, prüfen Sie das Ergebnis und exportieren Sie anschließend eine Version für Ihre nächsten Analyseschritte.</p>
+      <div class="hero-flow" aria-label="Ablauf">
+        <span>CSV / XLSX</span><span class="arrow" aria-hidden="true">→</span>
+        <span>Spaltenregeln wählen</span><span class="arrow" aria-hidden="true">→</span>
+        <span>kontrolliert exportieren</span>
+      </div>
+      <div class="hero-actions">
+        <a class="btn primary" href="#demo">Lokal ausprobieren →</a>
+        <a class="btn" href="#prozess">So funktioniert’s</a>
+      </div>
+      <div class="hero-trust" aria-label="Vertrauensmerkmale">
+        <span>CSV & XLSX</span><span>lokale Verarbeitung</span><span>keine automatische KI-Weitergabe</span>
+      </div>
+      <div class="hero-down" aria-hidden="true">↓</div>
+    </div>
+  </section>
+
+  <section class="section" id="problem">
+    <div class="wrap problem-grid">
+      <div class="problem-copy reveal">
+        <div class="eyebrow">Das Problem</div>
+        <h2>KI ist schnell.<br>Rohdaten sind sensibel.</h2>
+        <p>Excel ist im Controlling schnell erstellt, aber nicht automatisch für externe Analyse- oder KI-Systeme geeignet. Namen, Kundennummern, Kostenstellen oder interne Bezeichnungen können mehr verraten als für die Analyse nötig ist.</p>
+        <p><strong>PSEUDO Y verändert gezielt nur die Felder, die Sie schützen möchten.</strong> Region, Marge oder andere analytisch relevante Werte können bewusst unverändert bleiben.</p>
+      </div>
+      <div class="problem-table-card reveal" id="problemCard">
+        <div class="fake-window" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="table-scroll">
+          <table class="data-table" aria-label="Beispiel für Controlling-Daten">
+            <thead><tr><th>Kundenname</th><th>Region</th><th>Umsatz</th><th>Marge</th><th>Kostenstelle</th></tr></thead>
+            <tbody>
+              <tr><td class="sensitive" data-sensitive>Anna Müller</td><td>NRW</td><td class="sensitive" data-sensitive>10.000 €</td><td>18,4 %</td><td class="sensitive" data-sensitive>KST-204</td></tr>
+              <tr><td class="sensitive" data-sensitive>Max Schmidt</td><td>Nord</td><td class="sensitive" data-sensitive>25.450 €</td><td>21,1 %</td><td class="sensitive" data-sensitive>KST-115</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="problem-note"><span class="tag">Nicht alles ändern</span><span><strong>Region und Marge</strong> bleiben hier bewusst erhalten.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="demo-section" id="demo" aria-labelledby="demo-title">
+    <div class="wrap demo-scene" id="demoScene">
+      <div class="demo-sticky">
+        <div class="demo-copy">
+          <div class="eyebrow">Live Surface · synthetische Beispieldaten</div>
+          <h2 id="demo-title">Spalte auswählen.<br>Regel setzen.<br>Ergebnis sehen.</h2>
+          <p>PSEUDO Y arbeitet direkt auf Tabellenebene. In der Demo wählen Sie eine Spalte und sehen, wie sich die Vorschau verändert. Der produktive Export ist später an Konto und Lizenz gekoppelt.</p>
+          <div class="demo-status" aria-label="Aktiver Demo-Zustand">
+            <span class="tag status active" data-demo-status="0">Datei geladen</span>
+            <span class="tag status" data-demo-status="1">Kundenname</span>
+            <span class="tag status" data-demo-status="2">Pseudonymisierung aktiv</span>
+            <span class="tag status" data-demo-status="3">Vorschau</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="live-surface" aria-label="Interaktive PSEUDO-Y-Demo">
+            <div class="live-top">
+              <div class="file-pill"><div class="file-icon" aria-hidden="true">X</div><div class="file-meta"><b>Kundenanalyse_Q3.xlsx</b><span>synthetische Demo · 4 Spalten</span></div></div>
+              <span class="demo-badge">Tabelleninhalt bleibt in dieser Demo lokal</span>
+            </div>
+            <div class="live-body">
+              <div class="demo-table-zone">
+                <div class="demo-table-wrap">
+                  <table class="demo-table" id="demoTable">
+                    <thead><tr>
+                      <th data-col="customer" class="active">Kundenname</th><th data-col="region">Region</th><th data-col="revenue">Umsatz</th><th data-col="margin">Marge</th>
+                    </tr></thead>
+                    <tbody id="demoBody"></tbody>
+                  </table>
+                </div>
+              </div>
+              <aside class="demo-drawer" aria-label="Demo Einstellungen">
+                <h3>Spalte konfigurieren</h3>
+                <div class="drawer-block"><span class="drawer-label">Spalte</span><div class="column-buttons"><button class="choice active" type="button" data-column="customer">Kundenname</button><button class="choice" type="button" data-column="revenue">Umsatz</button></div></div>
+                <div class="drawer-block"><span class="drawer-label">Methode</span><div class="method-buttons"><button class="choice active" type="button" data-method="pseudo">Pseudonymisieren</button><button class="choice" type="button" data-method="scale">Skalieren</button><button class="choice" type="button" data-method="keep">Unverändert</button></div></div>
+                <div class="preview-card" id="previewCard"><strong>Anna Müller</strong><br>→ PERSON_Y_001</div>
+              </aside>
+            </div>
+            <div class="demo-footer"><span><b>Demo:</b> sofort ausprobieren · synthetische Beispieldaten</span><span><b>Produktiver Export:</b> Konto & Lizenz erforderlich</span></div>
+          </div>
+          <figure class="product-asset reveal"><img src="assets/product/product-ui.webp" loading="lazy" width="1448" height="1086" alt="PSEUDO Y Produktansicht mit Dateiauswahl, Tabellenvorschau und Spaltenkonfiguration"></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="y-section" id="prozess" aria-labelledby="y-heading">
+    <div class="wrap y-scene" id="yScene"><div class="y-sticky"><div class="y-stage" id="yStage">
+      <div class="y-title"><div class="eyebrow">Signature Move</div><h2 id="y-heading">Das Y ist der Datenfluss.</h2><p id="ySubtitle">Originaldaten hinein. Transformation lokal. Mapping separat. Export unter Ihrer Kontrolle.</p></div>
+      <div class="y-simple-grid">
+        <article class="y-card input"><span class="tag">Originaldaten</span><h3>Anna Müller</h3><p>10.000 € · KST-204</p></article>
+        <div class="y-node" aria-label="PSEUDO Y Knoten">P|Y</div>
+        <article class="y-card mapping"><span class="tag">Mapping · separat</span><h3>Anna Müller ↔ PERSON_Y_001</h3><p>Nicht Teil des Arbeitsdatensatzes.</p></article>
+        <article class="y-card output"><span class="tag">Export</span><h3>PERSON_Y_001</h3><p>Umsatzindex 20,0 · Marge 18,4 %</p></article>
+      </div>
+      <div class="y-chapters" aria-hidden="true"><span class="active">Originaldaten</span><span>Trennung</span><span>Export</span></div>
+      <p class="y-final">PSEUDO Y bereitet vor. <strong>Sie entscheiden, was danach passiert.</strong></p>
+    </div></div></div>
+  </section>
+
+  <section class="section" id="local-first"><div class="wrap"><div class="local-box reveal"><div class="local-grid"><div><div class="eyebrow">Local-first</div><h2>Die Tabelleninhalte bleiben in Ihrem Browser.</h2><p class="section-lede">PSEUDO Y verarbeitet unterstützte CSV- und XLSX-Daten lokal auf Ihrem Gerät. Die Originaldatei wird nicht automatisch an PSEUDO-Y-Server oder KI-Anbieter übertragen.</p></div><div class="not-auto"><h3>Nicht automatisch verbunden</h3><div class="not-auto-list"><div class="not-auto-item">PSEUDO-Y-Server</div><div class="not-auto-item">ChatGPT</div><div class="not-auto-item">Claude</div><div class="not-auto-item">Gemini</div></div><a class="btn" style="margin-top:20px" href="security.html">Datenfluss & Sicherheit →</a></div></div></div></div></section>
+
+  <section class="section" id="usecases"><div class="wrap"><div class="section-head reveal"><div class="eyebrow">Controlling Use Cases</div><h2>Für typische Fragen aus dem Controlling vorbereitet.</h2></div><div class="use-grid"><article class="use-card reveal"><h3>Umsatz & Marge</h3><p>Kundenidentitäten verändern, Umsatz- und Margenstrukturen für Analysen erhalten.</p></article><article class="use-card reveal"><h3>Kundenprofitabilität</h3><p>Kundennamen pseudonymisieren, Deckungsbeiträge und Segmente weiter auswertbar lassen.</p></article><article class="use-card reveal"><h3>Forecast & Budget</h3><p>Interne Planungsdaten für externe Analyseschritte vorbereiten.</p></article><article class="use-card reveal"><h3>Kostenstellen</h3><p>Interne Kennungen transformieren und Abweichungen trotzdem vergleichen.</p></article><article class="use-card reveal"><h3>Filialvergleich</h3><p>Interne Filialkennungen schützen, operative KPIs im Datensatz belassen.</p></article><article class="use-card reveal"><h3>Power BI / SQL</h3><p>Datenexporte vor einer externen Weiterverwendung gezielt transformieren.</p></article></div></div></section>
+
+  <section class="section" id="preise"><div class="wrap"><div class="section-head center reveal"><div class="eyebrow">Preise</div><h2>Einfach starten.<br>Sauber wachsen.</h2><p class="section-lede">Kostenlose Demo mit synthetischen Beispieldaten. Produktive Workflows benötigen eine Lizenz.</p></div><div class="pricing-grid"><article class="price-card reveal"><h3>Pro · Beta</h3><div class="price-desc">Für einzelne Controller und produktive Browser-Workflows.</div><div class="price">19,99 € <small>/ Monat</small></div><div class="price-note">191,90 € / Jahr · 15,99 € / Monat · 20 % Rabatt</div><ul class="price-list"><li>1 Lizenz</li><li>CSV / XLSX Fokus</li><li>lokale Browser-Verarbeitung</li><li>Produktiver Export</li></ul><a class="btn primary" href="#demo">Lokal ausprobieren →</a></article><article class="price-card featured reveal"><h3>Team · 5 Lizenzen</h3><div class="price-desc">Mehrere individuelle Arbeitsplätze für kleine Controlling- und Finance-Teams.</div><div class="price">79 € <small>/ Monat</small></div><div class="price-note">jede weitere Lizenz: 9,99 € / Monat</div><ul class="price-list"><li>5 individuelle Lizenzen</li><li>gleicher lokaler Workflow je Arbeitsplatz</li></ul><a class="btn" href="#demo">Lokal ausprobieren →</a></article><article class="price-card reveal"><h3>On-Premise</h3><div class="price-desc">Für Unternehmen mit eigener Infrastruktur und erhöhten IT- oder Datenschutzanforderungen.</div><div class="price">Kontakt</div><div class="price-note">individuell statt öffentlichem Fixpreis</div><a class="btn primary" href="mailto:hallo@pseudoy.com">Kontakt aufnehmen →</a></article></div><p class="tax-note">Alle Preise zzgl. gesetzlicher Umsatzsteuer.</p></div></section>
+
+  <section class="section faq" id="faq"><div class="wrap faq-wrap"><div class="section-head center"><div class="eyebrow">FAQ</div><h2>Fragen, bevor Daten fließen.</h2></div><details open><summary>Werden meine Tabellen hochgeladen?</summary><div class="faq-answer">Die Browser-Version ist darauf ausgelegt, die eigentlichen Tabelleninhalte lokal zu verarbeiten.</div></details><details><summary>Sendet PSEUDO Y Daten an ChatGPT oder Claude?</summary><div class="faq-answer">Nein. Im MVP gibt es keine automatische Weitergabe an KI-Anbieter.</div></details><details><summary>Ist Pseudonymisierung dasselbe wie Anonymisierung?</summary><div class="faq-answer">Nein. Pseudonymisierte Daten können weiterhin personenbezogene Daten sein, wenn eine Zuordnung über zusätzliche Informationen möglich bleibt.</div></details><details><summary>Gibt es einen kostenlosen Tarif?</summary><div class="faq-answer">Nein. Es gibt eine kostenlose Demo mit synthetischen Beispieldaten.</div></details></div></section>
+
+  <section class="section" id="onpremise"><div class="wrap onpremise-box reveal"><img src="assets/onpremise/onpremise.webp" loading="lazy" width="1448" height="1086" alt="Visualisierung einer sicheren On-Premise-Infrastruktur"><div class="onpremise-copy"><div class="eyebrow">On-Premise</div><h2>PSEUDO Y in Ihrer eigenen Umgebung.</h2><p class="section-lede">Für Unternehmen mit eigener Infrastruktur und erhöhten IT- oder Datenschutzanforderungen.</p><a class="btn primary" style="margin-top:24px" href="mailto:hallo@pseudoy.com">Kontakt aufnehmen →</a></div></div></section>
+</main>
+
+<footer class="site-footer"><div class="wrap"><div class="footer-grid"><div><div class="footer-brand">P|Y&nbsp;&nbsp;PSEUDO Y</div><p class="footer-claim">Die lokale Schutzschicht zwischen Excel und KI. Daten vorbereiten, exportieren und selbst über die weitere Verwendung entscheiden.</p><a href="mailto:hallo@pseudoy.com">hallo@pseudoy.com ↗</a></div><div class="footer-cols"><div class="footer-col"><h4>Product</h4><a href="#demo">Tool</a><a href="#prozess">So funktioniert’s</a><a href="#preise">Preise</a><a href="#faq">FAQ</a></div><div class="footer-col"><h4>Solutions</h4><a href="#usecases">Controlling</a><a href="#demo">Excel & CSV</a><a href="#usecases">Power BI / SQL</a><a href="#onpremise">On-Premise</a></div><div class="footer-col"><h4>Resources</h4><a href="blog.html">Blog</a><a href="docs.html">Docs</a><a href="security.html">Datenfluss & Sicherheit</a></div><div class="footer-col"><h4>Legal</h4><a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">AGB</a><a href="#">Cookies</a></div></div></div><div class="footer-bottom"><span>© 2026 PSEUDO Y. All rights reserved.</span><span>DE · EN vorbereitet</span></div></div></footer>
+
+<script src="js/typewriter.js" defer></script>
+<script src="js/demo.js" defer></script>
+<script src="js/scroll.js" defer></script>
+<script src="js/main.js" defer></script>
+</body>
+</html>
