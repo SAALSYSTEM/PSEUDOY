@@ -3,192 +3,105 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="PSEUDO Y – visuelle ScrollCraft-Vorschau für die lokale Vorbereitung sensibler Controlling-Daten.">
+  <meta name="description" content="PSEUDO Y – ScrollCraft-Vorschau für die lokale Vorbereitung sensibler Controlling-Daten.">
   <meta name="theme-color" content="#ffffff">
-  <title>PSEUDO Y · ScrollCraft Preview</title>
+  <title>PSEUDO Y · ScrollCraft V2</title>
   <link rel="stylesheet" href="scrollcraft/engine/scrollcraft.css">
-  <link rel="stylesheet" href="css/scrollcraft-preview.css?v=1">
+  <link rel="stylesheet" href="css/scrollcraft-v2.css?v=2">
 </head>
 <body>
-<a class="skip-link" href="#main">Zum Inhalt springen</a>
+<a class="skip" href="#main">Zum Inhalt springen</a>
 
-<header class="site-header" id="siteHeader">
+<header class="site-header">
   <div class="shell header-inner">
-    <a class="brand" href="#top" aria-label="PSEUDO Y Startseite">
-      <span class="brand-mark">P|Y</span>
-      <span class="brand-name">PSEUDO Y</span>
-    </a>
-    <nav class="desktop-nav" aria-label="Hauptnavigation">
-      <a href="#demo">Produkt</a>
-      <a href="#prozess">Datenfluss</a>
-      <a href="#preise">Preise</a>
-    </nav>
-    <div class="header-actions">
-      <a class="header-price" href="#preise">19,99 €</a>
-      <button class="menu-button" id="menuButton" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Menü öffnen">
-        <span></span><span></span>
-      </button>
-    </div>
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="#demo">Produkt</a>
-      <a href="#prozess">Datenfluss</a>
-      <a href="#preise">Preise</a>
-      <a href="#faq">FAQ</a>
-      <a href="security.html">Datenfluss & Sicherheit</a>
-    </div>
+    <a class="brand" href="#top" aria-label="PSEUDO Y Startseite"><span class="brand-mark">P|Y</span><span class="brand-name">PSEUDO Y</span></a>
+    <button class="menu-button" id="menuButton" type="button" aria-expanded="false" aria-controls="menuOverlay" aria-label="Menü öffnen"><span></span><span></span></button>
   </div>
 </header>
 
+<div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+  <div class="menu-panel">
+    <nav class="menu-links" aria-label="Hauptnavigation">
+      <a href="#prozess">Datenfluss</a>
+      <a href="#produkt">Produkt</a>
+      <a href="#preise">Preise</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="menu-meta"><strong>19,99 € / Monat</strong>Pro · Beta, 1 Lizenz.<br>Team ab 79 € / Monat.<br><a href="security.html">Datenfluss & Sicherheit</a></div>
+  </div>
+</div>
+
 <main id="main">
-  <section class="hero" id="top" data-hero>
-    <div class="shell hero-layout">
+  <section class="hero" id="top">
+    <svg class="hero-ghost-y" viewBox="0 0 760 900" aria-hidden="true"><path d="M380 820V500C380 430 345 382 290 338L120 205"/><path d="M380 500C380 430 415 382 470 338L640 205"/></svg>
+    <div class="shell hero-grid">
       <div class="hero-copy">
         <p class="hero-kicker">Local-first für Controlling</p>
-        <h1>
-          <span>Sensible Controlling-Daten.</span>
-          <span class="type-shell" aria-live="polite"><span id="heroTyped">Lokal vorbereitet.</span><span class="type-cursor" aria-hidden="true"></span></span>
-        </h1>
-        <p class="hero-sub">Die lokale Schutzschicht zwischen Excel und KI.</p>
-        <a class="cta cta-dark" href="#demo">Lokal ausprobieren</a>
+        <h1>Sensible Daten.<span class="accent">Kontrolliert vorbereitet.</span></h1>
       </div>
-
-      <div class="data-scene" aria-label="Illustration des PSEUDO-Y-Datenflusses">
-        <svg class="hero-y" viewBox="0 0 620 680" aria-hidden="true">
-          <path d="M310 626V398C310 349 289 315 250 283L138 188"/>
-          <path d="M310 398C310 349 331 315 370 283L482 188"/>
-        </svg>
-
-        <section class="data-plane data-plane-raw" aria-label="Sensible Ausgangsdaten">
-          <div class="plane-bar"><span></span><span></span><span></span><strong>Kundenanalyse_Q3.xlsx</strong></div>
-          <div class="plane-grid plane-head"><span>Kunde</span><span>Region</span><span>Umsatz</span></div>
-          <div class="plane-grid"><b>Anna Müller</b><span>NRW</span><span>10.000 €</span></div>
-          <div class="plane-grid"><b>Max Schmidt</b><span>Nord</span><span>25.450 €</span></div>
-          <div class="plane-grid"><b>Lisa Wagner</b><span>Süd</span><span>7.500 €</span></div>
-        </section>
-
-        <aside class="data-plane data-plane-map">
-          <span class="plane-label">Mapping</span>
-          <strong>Anna Müller</strong>
-          <span class="map-line">↔</span>
-          <strong>PERSON_Y_001</strong>
-        </aside>
-
-        <aside class="data-plane data-plane-export">
-          <span class="plane-label">Export</span>
-          <div><strong>PERSON_Y_001</strong><span>NRW</span><span>Index 20,0</span></div>
-        </aside>
-
-        <div class="scene-node" aria-hidden="true">P|Y</div>
+      <div class="hero-side">
+        <p>Die lokale Schutzschicht zwischen Excel und KI.</p>
+        <a class="cta" href="#prozess">Erleben</a>
       </div>
+    </div>
+    <div class="hero-bottom"><div class="shell"><span>CSV & XLSX</span><span>lokale Verarbeitung</span><span>keine automatische KI-Weitergabe</span></div></div>
+  </section>
+
+  <section class="statement" data-sc-act="flow">
+    <div class="shell statement-inner" data-sc-in data-sc-stagger="70">
+      <div class="statement-label">Der Gedanke</div>
+      <h2>Die Analyse soll bleiben. <em>Die Originalwerte nicht.</em></h2>
     </div>
   </section>
 
-  <section class="trust-line" aria-label="Produkteigenschaften">
-    <div class="shell trust-inner">
-      <span>CSV & XLSX</span><span>lokale Verarbeitung</span><span>keine automatische KI-Weitergabe</span>
+  <section class="y-story" id="prozess">
+    <div class="y-stage" id="yStage">
+      <div class="y-title"><small>Der PSEUDO Y Datenfluss</small><h2>Ein Datensatz. Zwei getrennte Wege.</h2></div>
+
+      <svg class="y-core" viewBox="0 0 760 900" aria-hidden="true">
+        <path class="base" d="M380 820V500C380 430 345 382 290 338L120 205"/>
+        <path class="base" d="M380 500C380 430 415 382 470 338L640 205"/>
+        <path class="live" pathLength="1" d="M120 205L290 338C345 382 380 430 380 500V820"/>
+        <path class="live" pathLength="1" d="M380 500C380 430 415 382 470 338L640 205"/>
+        <circle class="node" cx="380" cy="500" r="58"/><text class="node-text" x="380" y="509">P|Y</text>
+      </svg>
+
+      <article class="data-card source-card" aria-label="Sensible Ausgangsdaten">
+        <div class="card-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span><strong>Kundenanalyse_Q3.xlsx</strong><small>Sensible Daten</small></div>
+        <table class="data-table">
+          <thead><tr><th>Kundenname</th><th>Region</th><th>Umsatz</th><th>Marge</th></tr></thead>
+          <tbody><tr><td class="sensitive">Anna Müller</td><td>NRW</td><td class="sensitive">10.000 €</td><td>18,4 %</td></tr><tr><td class="sensitive">Max Schmidt</td><td>Nord</td><td class="sensitive">25.450 €</td><td>21,1 %</td></tr><tr><td class="sensitive">Lisa Wagner</td><td>Süd</td><td class="sensitive">7.500 €</td><td>16,8 %</td></tr></tbody>
+        </table>
+      </article>
+
+      <aside class="data-card map-card"><span class="mini-label">Mapping · separat</span><div class="map-pair"><strong>Anna Müller</strong><i>↔</i><strong>PERSON_Y_001</strong></div></aside>
+      <div class="mapping-note">bleibt getrennt vom Export</div>
+      <aside class="data-card export-card"><span class="mini-label">Transformierter Export</span><div class="export-row"><strong>PERSON_Y_001</strong><span>NRW</span><span>Index 20,0</span></div><div class="export-row"><strong>PERSON_Y_002</strong><span>Nord</span><span>Index 50,9</span></div></aside>
+
+      <div class="y-caption"><strong>Originalwerte trennen sich vom Arbeitsdatensatz.</strong><p>Die transformierten Daten gehen weiter. Das Mapping zweigt separat ab.</p></div>
     </div>
   </section>
 
-  <section class="recognition sc-section" data-sc-act="flow">
-    <div class="shell recognition-grid">
-      <div class="recognition-copy" data-sc-in data-sc-stagger="60">
-        <p class="section-label">Der Moment davor</p>
-        <h2>Die Analyse soll bleiben. Die Originalwerte nicht.</h2>
-      </div>
-      <div class="before-after" data-sc-in>
-        <div class="value-stack raw-value">
-          <span class="value-label">Original</span>
-          <strong>Anna Müller</strong>
-          <small>Kunde 4711 · 10.000 €</small>
-        </div>
-        <div class="value-arrow" aria-hidden="true">→</div>
-        <div class="value-stack safe-value">
-          <span class="value-label">Transformiert</span>
-          <strong>PERSON_Y_001</strong>
-          <small>Kunde A17 · Index 20,0</small>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="demo-section" id="demo" data-sc-act="pin" data-sc-span="2.35">
-    <div data-sc-stage class="demo-stage">
-      <div class="shell demo-shell">
-        <div class="demo-intro">
-          <span class="section-label">Produktansicht</span>
-          <h2>Ein Klick verändert nur das, was Sie auswählen.</h2>
-          <p>Die Demo arbeitet mit synthetischen Beispieldaten.</p>
-          <div class="demo-steps" aria-label="Demo-Schritte">
-            <button type="button" class="demo-step is-active" data-demo-step="0"><span>1</span>Kundenname</button>
-            <button type="button" class="demo-step" data-demo-step="1"><span>2</span>Umsatz</button>
-            <button type="button" class="demo-step" data-demo-step="2"><span>3</span>Export prüfen</button>
-          </div>
-        </div>
-
-        <div class="workbench" aria-label="Interaktive PSEUDO-Y-Demo">
-          <div class="workbench-topbar">
-            <div class="workbench-file"><span class="file-dot"></span><strong>Kundenanalyse_Q3.xlsx</strong><small>synthetisch</small></div>
-            <button class="export-button" type="button">Exportieren</button>
-          </div>
-          <div class="workbench-body">
-            <div class="sheet-wrap">
-              <table class="workbench-table">
-                <thead><tr><th>Kundenname</th><th>Region</th><th>Umsatz</th><th>Marge</th></tr></thead>
-                <tbody id="previewDemoBody"></tbody>
-              </table>
-            </div>
-            <aside class="rule-panel">
-              <span class="rule-caption">Aktive Spalte</span>
-              <strong id="activeColumn">Kundenname</strong>
-              <div class="rule-select" id="ruleSelect">Pseudonymisieren <span>⌄</span></div>
-              <div class="rule-preview">
-                <span>Vorschau</span>
-                <strong id="ruleBefore">Anna Müller</strong>
-                <i>→</i>
-                <strong class="rule-result" id="ruleAfter">PERSON_Y_001</strong>
-              </div>
-              <div class="rule-status"><span></span> lokal angewendet</div>
-            </aside>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="y-section" id="prozess" data-y-section>
-    <div class="y-sticky" data-y-stage>
-      <div class="shell y-shell">
-        <div class="y-copy">
-          <span class="section-label section-label-light">Signature move</span>
-          <h2>Ein Datensatz.<br>Zwei getrennte Wege.</h2>
-          <p>PSEUDO Y bereitet vor. Sie entscheiden, was danach passiert.</p>
-        </div>
-
-        <div class="y-system" aria-label="Visualisierung von Export und getrenntem Mapping">
-          <svg class="y-lines" viewBox="0 0 760 700" aria-hidden="true">
-            <path class="y-base" d="M380 630V390C380 336 353 298 310 264L156 142"/>
-            <path class="y-base" d="M380 390C380 336 407 298 450 264L604 142"/>
-            <path class="y-active y-active-left" pathLength="1" d="M156 142L310 264C353 298 380 336 380 390V630"/>
-            <path class="y-active y-active-right" pathLength="1" d="M380 390C380 336 407 298 450 264L604 142"/>
-          </svg>
-
-          <div class="flow-chip chip-original"><span>Original</span><strong>Anna Müller</strong><small>10.000 €</small></div>
-          <div class="flow-chip chip-node">P|Y</div>
-          <div class="flow-chip chip-export"><span>Transformierter Export</span><strong>PERSON_Y_001</strong><small>Index 20,0</small></div>
-          <div class="flow-chip chip-mapping"><span>Mapping · separat</span><strong>Anna Müller ↔ PERSON_Y_001</strong><small>nicht Teil des Exports</small></div>
-          <div class="flow-dot dot-one"></div><div class="flow-dot dot-two"></div><div class="flow-dot dot-three"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="transformations sc-section" data-sc-act="flow">
+  <section class="product" id="produkt" data-sc-act="flow">
     <div class="shell">
-      <div class="transform-heading" data-sc-in>
-        <span class="section-label">Transformationen</span>
-        <h2>Schützen, ohne die Analyse unbrauchbar zu machen.</h2>
+      <div class="product-head" data-sc-in>
+        <h2>Die Tabelle bleibt das Zentrum.</h2>
+        <p>Spalte wählen. Regel setzen. Vorschau prüfen.</p>
       </div>
-      <div class="transform-list" data-sc-in data-sc-stagger="60">
+      <div class="workbench" data-sc-reveal="up" data-sc-reveal-at="0.05 0.55">
+        <div class="workbench-bar"><div class="file">Kundenanalyse_Q3.xlsx</div><button class="export-btn" type="button">Exportieren</button></div>
+        <div class="workbench-body">
+          <div class="sheet"><table><thead><tr><th>Kundenname</th><th>Region</th><th>Umsatz</th><th>Marge</th></tr></thead><tbody id="demoBody"></tbody></table></div>
+          <aside class="panel"><small>Aktive Spalte</small><h3 id="demoColumn">Kundenname</h3><div class="panel-select" id="demoMethod">Pseudonymisieren <span>⌄</span></div><div class="preview-box"><small>Vorschau</small><strong id="demoBefore">Anna Müller</strong><strong id="demoAfter">PERSON_Y_001</strong></div><div class="demo-nav"><button type="button" class="active" data-demo="0">Name</button><button type="button" data-demo="1">Umsatz</button><button type="button" data-demo="2">Export</button></div></aside>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="transforms" data-sc-act="flow">
+    <div class="shell">
+      <h2 data-sc-in>Werte verändern. Struktur behalten.</h2>
+      <div class="transform-list" data-sc-in data-sc-stagger="50">
         <div class="transform-row"><span>Identität</span><strong>Anna Müller</strong><i>→</i><b>PERSON_Y_001</b></div>
         <div class="transform-row"><span>E-Mail</span><strong>anna@firma.de</strong><i>→</i><b>mail_001@example.invalid</b></div>
         <div class="transform-row"><span>Datum</span><strong>03.06.1990</strong><i>→</i><b>30–39 Jahre</b></div>
@@ -197,68 +110,36 @@
     </div>
   </section>
 
-  <section class="local-section" id="local-first">
+  <section class="local" data-sc-act="flow">
     <div class="shell local-grid">
-      <div class="local-copy" data-sc-in>
-        <span class="section-label">Local-first</span>
-        <h2>Die Tabelle bleibt dort, wo Sie arbeiten.</h2>
-        <p>Die eigentlichen Tabelleninhalte werden in der Browser-Version lokal verarbeitet. Es gibt keine automatische Weitergabe an KI-Anbieter.</p>
-      </div>
-      <div class="local-diagram" data-sc-reveal="right" data-sc-reveal-at="0.1 0.66">
-        <div class="device-frame">
-          <div class="device-bar"><span></span><span></span><span></span></div>
-          <div class="device-content"><div class="mini-y">P|Y</div><strong>Browser</strong><small>Datei → Regeln → Export</small></div>
-        </div>
-        <div class="cloud-label cloud-one">PSEUDO-Y-Server <span>nicht automatisch</span></div>
-        <div class="cloud-label cloud-two">ChatGPT / Claude <span>nicht verbunden</span></div>
-      </div>
+      <div data-sc-in><h2>Local-first ist hier kein Nebensatz.</h2><p>Die eigentlichen Tabelleninhalte werden in der Browser-Version lokal verarbeitet. PSEUDO Y sendet sie im MVP nicht automatisch an KI-Anbieter.</p></div>
+      <div class="local-flow" data-sc-in data-sc-stagger="70"><div class="step"><strong>1 · Datei öffnen</strong><span>Browser</span></div><div class="step"><strong>2 · Regeln anwenden</strong><span>lokal</span></div><div class="step"><strong>3 · Export erstellen</strong><span>Sie entscheiden</span></div><div class="step blocked"><strong>ChatGPT / Claude / Gemini</strong><span>nicht automatisch verbunden</span></div></div>
     </div>
   </section>
 
-  <section class="pricing-section" id="preise">
+  <section class="pricing" id="preise">
     <div class="shell">
-      <div class="pricing-head" data-sc-in>
-        <span class="section-label">Preise</span>
-        <h2>Klar genug, um nicht darüber nachdenken zu müssen.</h2>
+      <div class="pricing-head"><h2>Preise.</h2><p>Demo kostenlos mit synthetischen Beispieldaten. Produktive Exporte mit Lizenz.</p></div>
+      <div class="price-grid">
+        <article class="price featured"><small>Pro · Beta</small><strong>19,99 €</strong><p>pro Monat · 1 Lizenz<br>191,90 € pro Jahr</p><a href="#produkt">Lokal ausprobieren</a></article>
+        <article class="price"><small>Team · 5 Lizenzen</small><strong>79 €</strong><p>pro Monat<br>jede weitere Lizenz 9,99 €</p></article>
+        <article class="price"><small>On-Premise</small><strong>Kontakt</strong><p>für eigene Infrastruktur und erhöhte IT-Anforderungen</p><a href="mailto:hallo@pseudoy.com">Kontakt aufnehmen</a></article>
       </div>
-      <div class="pricing-layout">
-        <article class="price-main">
-          <div><span class="price-tag">Pro · Beta</span><h3>19,99 €</h3><p>pro Monat · 1 Lizenz</p></div>
-          <div class="price-main-bottom"><span>191,90 € / Jahr · 20 % Rabatt</span><a class="cta cta-dark" href="#demo">Lokal ausprobieren</a></div>
-        </article>
-        <div class="price-side">
-          <article><span>Team · 5 Lizenzen</span><strong>79 €</strong><small>/ Monat</small><p>jede weitere Lizenz 9,99 € / Monat</p></article>
-          <article><span>On-Premise</span><strong>Kontakt</strong><p>für eigene Infrastruktur und erhöhte IT-Anforderungen</p><a href="mailto:hallo@pseudoy.com">Kontakt aufnehmen ↗</a></article>
-        </div>
-      </div>
-      <p class="vat">Alle Preise zzgl. gesetzlicher Umsatzsteuer.</p>
     </div>
   </section>
 
-  <section class="faq-section" id="faq">
+  <section class="faq" id="faq">
     <div class="shell faq-grid">
-      <div><span class="section-label">FAQ</span><h2>Vier Fragen reichen fürs Erste.</h2></div>
-      <div class="faq-list">
-        <details open><summary>Werden meine Tabellen hochgeladen?</summary><p>Die Browser-Version ist darauf ausgelegt, die eigentlichen Tabelleninhalte lokal zu verarbeiten.</p></details>
-        <details><summary>Sendet PSEUDO Y Daten an ChatGPT oder Claude?</summary><p>Nein. Im MVP gibt es keine automatische Weitergabe an KI-Anbieter.</p></details>
-        <details><summary>Ist Pseudonymisierung Anonymisierung?</summary><p>Nein. Pseudonymisierte Daten können weiterhin personenbezogene Daten sein.</p></details>
-        <details><summary>Gibt es einen kostenlosen Tarif?</summary><p>Nein. Es gibt eine kostenlose Demo mit synthetischen Beispieldaten.</p></details>
-      </div>
+      <h2>Die wichtigsten Fragen.</h2>
+      <div><details open><summary>Werden Tabellen automatisch hochgeladen?</summary><p>Die Browser-Version ist darauf ausgelegt, die eigentlichen Tabelleninhalte lokal zu verarbeiten.</p></details><details><summary>Sendet PSEUDO Y Daten an ChatGPT oder Claude?</summary><p>Nein. Im MVP gibt es keine automatische Weitergabe an KI-Anbieter.</p></details><details><summary>Ist Pseudonymisierung dasselbe wie Anonymisierung?</summary><p>Nein. Pseudonymisierte Daten können weiterhin personenbezogene Daten sein.</p></details><details><summary>Gibt es einen kostenlosen Tarif?</summary><p>Nein. Es gibt eine kostenlose Demo mit synthetischen Beispieldaten.</p></details></div>
     </div>
   </section>
 
-  <section class="close-section">
-    <div class="shell close-inner">
-      <div class="close-mark">P|Y</div>
-      <h2>Zwischen Excel und KI gehört eine Entscheidung.</h2>
-      <a class="cta cta-light" href="#demo">Lokal ausprobieren</a>
-      <div class="close-meta"><span>CSV & XLSX</span><span>Local-first</span><span>© 2026 PSEUDO Y</span></div>
-    </div>
-  </section>
+  <section class="close"><div class="shell"><div class="close-mark">P|Y</div><h2>Zwischen Excel und KI gehört eine Entscheidung.</h2><a href="#produkt">Lokal ausprobieren</a><div class="close-meta"><span>CSV & XLSX</span><span>Local-first</span><span>© 2026 PSEUDO Y</span></div></div></section>
 </main>
 
 <script src="scrollcraft/engine/scrollcraft.js"></script>
 <script>ScrollCraft.mount(document.body);</script>
-<script src="js/scrollcraft-preview.js?v=1" defer></script>
+<script src="js/scrollcraft-v2.js?v=2" defer></script>
 </body>
 </html>
