@@ -46,13 +46,13 @@
     const focus=ease(clamp((p-.04)/.18));
     const yShrink=ease(clamp((p-.16)/.22));
     const desktop=innerWidth>900;
-    const yScale=lerp(desktop?1.72:1.86,desktop?.82:.88,yShrink);
+    const yScale=lerp(desktop ? 1.72 : 1.86, desktop ? .82 : .88, yShrink);
 
     const sourceIn=ease(clamp((p-.28)/.13));
     const sourceDock=ease(clamp((p-.47)/.17));
-    const sourceScale=lerp(1,desktop?.56:.54,sourceDock);
-    const sourceX=desktop?lerp(0,-innerWidth*.28,sourceDock):lerp(0,-innerWidth*.20,sourceDock);
-    const sourceY=desktop?lerp(0,-innerHeight*.24,sourceDock):lerp(0,-innerHeight*.29,sourceDock);
+    const sourceScale=lerp(1, desktop ? .56 : .54, sourceDock);
+    const sourceX=desktop ? lerp(0,-innerWidth*.28,sourceDock) : lerp(0,-innerWidth*.20,sourceDock);
+    const sourceY=desktop ? lerp(0,-innerHeight*.24,sourceDock) : lerp(0,-innerHeight*.29,sourceDock);
 
     const mapIn=ease(clamp((p-.63)/.12));
     const exportIn=ease(clamp((p-.76)/.12));
