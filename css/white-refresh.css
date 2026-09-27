@@ -1,88 +1,263 @@
-/* White refresh — intentionally minimal, bright and mobile-first. */
+/* PSEUDO Y — bright editorial system. White-first, quiet, mobile-led. */
 
-body, .hero, .section, .demo-section, .y-section, .product-showcase, .asset-story { background:#fff !important; }
+:root{
+  --bg:#fff;
+  --surface:#fff;
+  --surface-strong:#fff;
+  --ink:#111214;
+  --muted:#6d7278;
+  --muted-strong:#4e545b;
+  --line:#e6e7e9;
+  --line-soft:#f0f1f2;
+  --blue:#2b67dc;
+  --blue-soft:#f3f7ff;
+  --olive:#808663;
+  --shadow-1:0 10px 30px rgba(20,28,40,.035);
+  --shadow-2:0 20px 55px rgba(20,28,40,.055);
+}
+
+html,body{background:#fff!important}
+body{background:#fff!important}
+body::before{display:none!important;content:none!important}
+.hero,.section,.demo-section,.y-section,.product-showcase,.asset-story{background:#fff!important}
 .hero::before,.hero::after{display:none!important;content:none!important}
 
-/* Header: one brand mark only, lighter and smaller. */
-.header-shell{height:70px!important;padding:8px 9px 8px 16px!important;background:rgba(255,255,255,.96)!important;border-color:#e6e7e9!important;box-shadow:0 10px 34px rgba(20,28,40,.055)!important}
-.site-header.is-scrolled .header-shell{height:64px!important;background:rgba(255,255,255,.985)!important}
-.brand img{display:none!important}
-.brand::before{content:"P|Y"!important;font-size:27px!important;letter-spacing:-.08em!important;font-weight:850!important}
-.brand::after{content:"PSEUDO Y"!important;margin-left:13px!important;font:400 23px/1 var(--serif)!important;letter-spacing:.12em!important}
-.header-actions{gap:8px!important}
-.header-actions .btn.small{min-height:46px!important;padding:0 18px!important}
-.menu-btn{width:48px!important;height:48px!important;background:#fff!important}
-.menu-panel{background:rgba(255,255,255,.985)!important;border-color:#e7e8ea!important;box-shadow:0 24px 70px rgba(20,28,40,.09)!important}
+/* Header — one wordmark, lots of air, no boxed logo. */
+.site-header{inset:14px 0 auto!important}
+.site-header .wrap{width:min(1180px,calc(100% - 32px))!important}
+.header-shell{
+  height:68px!important;
+  padding:7px 8px 7px 18px!important;
+  background:rgba(255,255,255,.97)!important;
+  border:1px solid #e4e5e7!important;
+  border-radius:999px!important;
+  box-shadow:0 8px 26px rgba(20,28,40,.045)!important;
+  backdrop-filter:blur(18px)!important;
+}
+.site-header.is-scrolled .header-shell{height:62px!important;background:rgba(255,255,255,.99)!important}
+.brand{gap:0!important}
+.brand img,.brand-icon-inline,.brand-wordmark-inline{display:none!important}
+.brand::before{content:"P|Y"!important;font:850 26px/1 var(--sans)!important;letter-spacing:-.08em!important;color:#111!important}
+.brand::after{content:"PSEUDO Y"!important;margin-left:14px!important;font:400 22px/1 var(--serif)!important;letter-spacing:.13em!important;color:#111!important}
+.header-actions{gap:7px!important}
+.header-actions .btn.small{min-height:44px!important;padding:0 18px!important;box-shadow:none!important}
+.menu-btn{width:46px!important;height:46px!important;background:#fff!important;border-color:#e4e5e7!important}
+.menu-panel{top:94px!important;background:rgba(255,255,255,.99)!important;border-color:#e6e7e9!important;box-shadow:0 24px 60px rgba(20,28,40,.08)!important}
+.menu-panel a:hover{background:#f7f8fa!important}
 
-/* Hero: more white, less scale, no clipping. */
-.hero{min-height:100svh!important;padding-top:102px!important;overflow:hidden!important}
-.hero-inner{padding:70px 0 84px!important}
-.hero-kicker{margin-bottom:28px!important;background:transparent!important;border:0!important;padding:0!important;min-height:auto!important;border-radius:0!important;color:#777c83!important;font-size:12px!important;letter-spacing:.08em!important;text-transform:uppercase!important;box-shadow:none!important}
-.hero h1{max-width:920px!important;font-size:clamp(54px,7.4vw,92px)!important;line-height:.96!important;letter-spacing:-.045em!important;text-wrap:balance!important;overflow-wrap:normal!important;word-break:normal!important}
-.typed-line{min-height:1.08em!important;color:#2467dc!important;margin-top:6px!important}
-.hero-sub{max-width:700px!important;margin-top:30px!important;font-size:17px!important;line-height:1.68!important;color:#73777d!important}
-.hero-flow{max-width:720px!important;margin-top:30px!important;gap:12px!important}
-.hero-flow span:not(.arrow){background:#fff!important;border-color:#e7e8ea!important;box-shadow:none!important}
-.hero-flow .arrow{color:#9ba0a6!important}
-.hero-actions{margin-top:30px!important}
-.hero-trust{margin-top:18px!important;color:#7a7e84!important}
-.hero-down{margin-top:42px!important;border-color:#e4e6e8!important;color:#2467dc!important}
+/* Hero — text first. No giant decorative shapes, no clipped typography. */
+.hero{min-height:100svh!important;padding-top:98px!important;overflow:hidden!important;display:grid!important;align-items:center!important}
+.hero-inner{padding:76px 0 92px!important;text-align:center!important}
+.hero-kicker{
+  margin:0 auto 28px!important;
+  padding:0!important;
+  min-height:0!important;
+  border:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  color:#777c82!important;
+  font-size:11px!important;
+  line-height:1.4!important;
+  letter-spacing:.13em!important;
+  text-transform:uppercase!important;
+}
+.hero h1{
+  width:min(900px,100%)!important;
+  max-width:900px!important;
+  margin:0 auto!important;
+  font-size:clamp(54px,7.2vw,88px)!important;
+  line-height:.94!important;
+  letter-spacing:-.05em!important;
+  text-wrap:balance!important;
+  overflow-wrap:normal!important;
+  word-break:normal!important;
+}
+.typed-line{
+  display:block!important;
+  min-height:1.05em!important;
+  margin-top:7px!important;
+  color:#2b67dc!important;
+}
+.type-cursor{height:.86em!important;margin-left:4px!important}
+.hero-sub{
+  max-width:650px!important;
+  margin:28px auto 0!important;
+  color:#73777d!important;
+  font-size:16px!important;
+  line-height:1.7!important;
+}
+.hero-flow{
+  max-width:620px!important;
+  margin:28px auto 0!important;
+  gap:12px!important;
+  color:#73777d!important;
+}
+.hero-flow span:not(.arrow){
+  padding:0!important;
+  border:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  backdrop-filter:none!important;
+  font-size:12px!important;
+  font-weight:700!important;
+}
+.hero-flow .arrow{color:#b0b4b9!important;font-size:15px!important}
+.hero-actions{margin-top:30px!important;gap:10px!important}
+.hero-actions .btn{min-height:54px!important;min-width:190px!important;box-shadow:none!important}
+.hero-actions .btn:not(.primary){border-color:transparent!important;background:transparent!important}
+.hero-actions .btn:not(.primary):hover{background:#f7f8fa!important}
+.hero-trust{margin-top:18px!important;color:#85898e!important;font-size:12px!important}
+.hero-down{display:none!important}
 
-/* Keep all surfaces white and quiet. */
-.problem-table-card,.live-surface,.y-data-card,.y-mapping-card,.datatype-card,.price-card,.local-box,.onpremise-box,.product-showcase .product-asset{background:#fff!important;border-color:#e7e8ea!important;box-shadow:0 12px 34px rgba(20,28,40,.045)!important}
-.price-card.featured{background:#111!important;border-color:#111!important;box-shadow:none!important}
-.demo-drawer{background:#fbfbfb!important}
+/* White surfaces. Border before shadow. */
+.problem-table-card,.live-surface,.y-data-card,.y-mapping-card,.datatype-card,.price-card,.local-box,.onpremise-box,.product-showcase .product-asset{
+  background:#fff!important;
+  border-color:#e7e8ea!important;
+  box-shadow:0 10px 30px rgba(20,28,40,.035)!important;
+}
+.problem-table-card,.live-surface{border-radius:26px!important}
+.demo-drawer{background:#fafafa!important}
 .choice,.demo-table-wrap,.y-data-table,.mapping-mini{background:#fff!important}
-.y-stage{background:#fff!important}
-.y-node{background:linear-gradient(145deg,#f3f7ff,#cfe0ff)!important;border-color:#dce7fb!important;box-shadow:0 18px 46px rgba(36,103,220,.12)!important;color:#111!important}
-.y-node::before{opacity:.42!important}
-.local-box,.onpremise-box{padding:40px!important}
 
-/* Make product artwork breathe instead of feeling like cards on cards. */
-.product-showcase{padding-top:30px!important;padding-bottom:70px!important}
-.product-showcase .product-asset{padding:8px!important;border-radius:26px!important}
-.datatype-card{border-radius:24px!important}
+/* Sections breathe — less container-on-container styling. */
+.section{padding-top:120px!important;padding-bottom:120px!important}
+.problem-grid{gap:76px!important}
+.problem-copy p{color:#70757b!important}
+.problem-note .tag{background:#fff!important}
+.demo-section{padding-top:76px!important}
+.live-surface{box-shadow:0 18px 48px rgba(20,28,40,.05)!important}
+.product-showcase{padding-top:64px!important;padding-bottom:100px!important}
+.product-showcase-shell{gap:48px!important}
+.product-showcase .product-asset{padding:8px!important;border-radius:24px!important}
+.product-showcase .product-asset img{border-radius:18px!important}
+
+/* Signature Y — still special, but clean rather than glowing/cinematic. */
+.y-section{padding:108px 0 0!important;background:#fff!important}
+.y-stage{background:#fff!important;box-shadow:none!important}
+.y-aura{display:none!important}
+.y-flow-svg{filter:none!important}
+.y-base{stroke:#edf2fa!important;opacity:1!important}
+.y-node{
+  background:#fff!important;
+  border:1px solid #bfd2f5!important;
+  box-shadow:0 12px 34px rgba(43,103,220,.09)!important;
+  color:#111!important;
+}
+.y-node::before{display:none!important}
+.y-data-card,.y-mapping-card{box-shadow:0 10px 28px rgba(20,28,40,.04)!important}
+.y-chapters span{background:#fff!important}
+.y-chapters span.active{background:#111!important;color:#fff!important;border-color:#111!important}
+
+/* Datatype visuals use the actual brand artwork and stay quiet. */
+.datatypes-grid{gap:14px!important}
+.datatype-card{border-radius:22px!important;box-shadow:none!important}
+.datatype-card:hover{transform:none!important;box-shadow:none!important}
+.datatype-card img{background:#fff!important}
+.transform-groups article{padding:24px 18px!important}
+
+/* Local-first becomes an editorial panel, not a giant card. */
+.local-box,.onpremise-box{padding:40px!important;border-radius:28px!important;box-shadow:none!important}
+.not-auto{background:#fafafa!important;border-radius:20px!important;padding:22px!important;border-left:0!important}
+.not-auto-item{background:#fff!important;border-style:solid!important}
+
+/* Pricing — mostly white. Black belongs to buttons/footer, not a whole wall. */
+.pricing-grid{gap:14px!important}
+.price-card,.price-card.featured,.price-card.team-card{
+  background:#fff!important;
+  color:#111!important;
+  border:1px solid #e5e7e9!important;
+  box-shadow:none!important;
+  transform:none!important;
+}
+.price-card.featured{border-color:#cfd3d8!important}
+.price-card .price-desc,.price-card.featured .price-desc{color:#6f747a!important}
+.price-card .price-list,.price-card.featured .price-list{color:#4f555c!important}
+.price-card .btn,.price-card.featured .btn{background:#111!important;color:#fff!important;border-color:#111!important}
+.price-card .price-note,.price-card.featured .price-note{color:#777d5d!important}
+.price-badge{display:none!important}
+
+/* Footer stays dark as the only large contrast block. */
+.site-footer{background:#0e0f10!important;margin-top:40px!important}
+
+@media(max-width:980px){
+  .section{padding-top:96px!important;padding-bottom:96px!important}
+  .product-showcase-shell{grid-template-columns:1fr!important;gap:28px!important}
+}
 
 @media(max-width:760px){
   .site-header{inset:10px 0 auto!important}
-  .header-shell{height:64px!important;padding:7px 8px 7px 14px!important}
-  .site-header.is-scrolled .header-shell{height:60px!important}
+  .site-header .wrap{width:calc(100% - 28px)!important}
+  .header-shell{height:60px!important;padding:6px 7px 6px 14px!important}
+  .site-header.is-scrolled .header-shell{height:58px!important}
   .brand::after{display:none!important}
-  .brand::before{font-size:25px!important}
-  .header-actions .btn.small{width:auto!important;min-height:44px!important;padding:0 16px!important;font-size:15px!important}
-  .menu-btn{width:46px!important;height:46px!important}
-  .menu-panel{top:82px!important}
+  .brand::before{font-size:23px!important}
+  .header-actions .btn.small{width:auto!important;min-height:40px!important;padding:0 15px!important;font-size:14px!important}
+  .menu-btn{width:42px!important;height:42px!important}
+  .menu-panel{top:78px!important}
 
-  .hero{padding-top:88px!important;min-height:auto!important}
-  .hero-inner{padding:72px 0 74px!important}
-  .hero-kicker{margin-bottom:22px!important;font-size:11px!important;line-height:1.45!important;max-width:92%!important}
-  .hero h1{font-size:clamp(43px,12vw,55px)!important;line-height:.98!important;letter-spacing:-.04em!important;max-width:100%!important;padding:0 2px!important}
-  .typed-line{font-size:.92em!important;line-height:1.02!important;min-height:2.05em!important;display:flex!important;align-items:flex-start!important;justify-content:center!important;flex-wrap:wrap!important;padding:0 3px!important}
-  .type-cursor{height:.8em!important;margin-top:.08em!important}
-  .hero-sub{font-size:16px!important;line-height:1.58!important;margin-top:24px!important;padding:0 5px!important}
-  .hero-flow{grid-template-columns:1fr!important;max-width:320px!important;margin-top:28px!important;gap:7px!important}
-  .hero-flow span:not(.arrow){padding:11px 14px!important;font-size:13px!important}
-  .hero-flow .arrow{transform:rotate(90deg)!important;font-size:16px!important;height:18px!important}
-  .hero-actions{display:grid!important;gap:9px!important;margin-top:28px!important}
-  .hero-actions .btn{min-width:0!important}
-  .hero-trust{font-size:12px!important;line-height:1.5!important;gap:6px 10px!important}
-  .hero-down{margin-top:30px!important}
+  .hero{min-height:100svh!important;padding-top:82px!important}
+  .hero-inner{padding:88px 0 88px!important}
+  .hero-kicker{margin-bottom:24px!important;font-size:10px!important;letter-spacing:.11em!important}
+  .hero h1{
+    width:min(100%,360px)!important;
+    max-width:360px!important;
+    font-size:clamp(42px,11.2vw,50px)!important;
+    line-height:.98!important;
+    letter-spacing:-.045em!important;
+    padding:0!important;
+  }
+  .typed-line{
+    min-height:2.08em!important;
+    font-size:.90em!important;
+    line-height:1.02!important;
+    display:flex!important;
+    justify-content:center!important;
+    align-items:flex-start!important;
+    flex-wrap:wrap!important;
+    padding:0 4px!important;
+  }
+  .type-cursor{height:.78em!important;margin-top:.10em!important}
+  .hero-sub{max-width:340px!important;font-size:15px!important;line-height:1.62!important;margin-top:24px!important;padding:0!important}
+  .hero-flow{display:none!important}
+  .hero-actions{display:grid!important;max-width:330px!important;margin:28px auto 0!important;gap:6px!important}
+  .hero-actions .btn{width:100%!important;min-width:0!important;min-height:52px!important}
+  .hero-actions .btn:not(.primary){min-height:44px!important}
+  .hero-trust{max-width:330px!important;margin:16px auto 0!important;font-size:11px!important;line-height:1.45!important}
+  .hero-trust span:first-child,.hero-trust span:nth-child(2){display:none!important}
+  .hero-trust span:last-child::after{display:none!important}
 
-  .problem-grid{gap:34px!important}
-  .problem-table-card{border-radius:24px!important;padding:12px!important}
-  .live-surface{border-radius:24px!important}
-  .demo-copy h2{font-size:44px!important;line-height:1!important}
+  .section{padding:86px 0!important}
+  .problem-grid{gap:32px!important}
+  .problem-table-card{border-radius:22px!important;padding:10px!important}
+  .demo-section{padding-top:36px!important}
+  .demo-copy h2{font-size:42px!important;line-height:1!important}
+  .live-surface{border-radius:22px!important}
   .demo-footer{display:grid!important;gap:5px!important}
-  .local-box,.onpremise-box{padding:24px!important;border-radius:26px!important}
-  .not-auto{border-left:0!important;padding-left:0!important;border-top:1px solid #eceef0!important;padding-top:22px!important}
-  .pricing-grid{gap:12px!important}
-  .price-card{border-radius:24px!important;min-height:auto!important}
+  .product-showcase{padding-top:54px!important;padding-bottom:78px!important}
+  .product-showcase-copy{text-align:left!important}
+
+  .y-section{padding-top:82px!important}
+  .y-stage{min-height:900px!important}
+  .y-title h2{font-size:42px!important}
+  .datatypes-grid{grid-template-columns:1fr 1fr!important;gap:10px!important}
+  .datatype-card{border-radius:18px!important}
+  .datatype-card div{padding:13px 14px 15px!important}
+  .datatype-card b{font-size:14px!important}
+  .datatype-card span{font-size:12px!important}
+
+  .local-box,.onpremise-box{padding:24px!important;border-radius:22px!important}
+  .not-auto{border-top:1px solid #eceef0!important;padding-top:20px!important}
+  .pricing-grid{gap:10px!important}
+  .price-card{border-radius:22px!important;min-height:auto!important}
   .site-footer{margin-top:0!important}
 }
 
 @media(max-width:390px){
-  .hero h1{font-size:41px!important}
+  .hero h1{font-size:41px!important;max-width:340px!important}
   .typed-line{font-size:.88em!important}
-  .hero-kicker{font-size:10px!important}
-  .header-actions .btn.small{padding:0 14px!important}
+  .header-actions .btn.small{padding:0 13px!important}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .typed-line{min-height:auto!important}
 }
