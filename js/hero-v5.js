@@ -1,108 +1,130 @@
 (() => {
-  const typed = document.getElementById('heroTyped');
+  const lineOne = document.getElementById('heroLineOne');
+  const lineTwo = document.getElementById('heroLineTwo');
+  const hero = document.querySelector('.hero');
   const arrowWrap = document.querySelector('.particle-arrow-wrap');
   const canvas = document.getElementById('particleArrow');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const phrase = 'Lokal vorbereitet für KI.';
 
-  function showArrow(){
-    arrowWrap?.classList.add('is-visible');
-    buildArrow();
-  }
+  const textOne = 'Sensible Daten.';
+  const textTwo = 'Lokal vorbereitet für KI.';
 
-  function typeLine(){
-    if(!typed) return showArrow();
-    if(reduced){ typed.textContent = phrase; return showArrow(); }
-    typed.textContent = '';
+  const typeInto = (node, text, delay = 62) => new Promise((resolve) => {
+    if (!node) return resolve();
+    node.textContent = '';
     let i = 0;
     const tick = () => {
-      typed.textContent = phrase.slice(0, i++);
-      if(i <= phrase.length){
-        setTimeout(tick, i < 7 ? 78 : 62);
-      } else {
-        setTimeout(showArrow, 350);
-      }
+      i += 1;
+      node.textContent = text.slice(0, i);
+      if (i < text.length) setTimeout(tick, delay);
+      else resolve();
     };
-    setTimeout(tick, 420);
+    tick();
+  });
+
+  async function runHero(){
+    if(reduced){
+      if(lineOne) lineOne.textContent = textOne;
+      if(lineTwo) lineTwo.textContent = textTwo;
+      hero?.classList.add('second-line-active');
+      showArrow(true);
+      return;
+    }
+
+    if(lineOne) lineOne.textContent = '';
+    if(lineTwo) lineTwo.textContent = '';
+
+    await new Promise(r => setTimeout(r, 420));
+    await typeInto(lineOne, textOne, 78);
+    await new Promise(r => setTimeout(r, 260));
+    hero?.classList.add('second-line-active');
+    await typeInto(lineTwo, textTwo, 64);
+    await new Promise(r => setTimeout(r, 380));
+    showArrow(false);
   }
 
-  function buildArrow(){
+  function showArrow(instant){
+    arrowWrap?.classList.add('is-visible');
+    buildArrow(instant);
+  }
+
+  function buildArrow(instant = false){
     if(!canvas) return;
     const ctx = canvas.getContext('2d');
-    const cssW = canvas.clientWidth || 100;
-    const cssH = canvas.clientHeight || 170;
+    const cssW = canvas.clientWidth || 120;
+    const cssH = canvas.clientHeight || 180;
     const dpr = Math.min(devicePixelRatio || 1, 2);
+
     canvas.width = Math.round(cssW * dpr);
     canvas.height = Math.round(cssH * dpr);
     ctx.setTransform(dpr,0,0,dpr,0,0);
 
     const count = 1000;
-    const points = [];
-    const center = cssW/2;
+    const center = cssW / 2;
     const stemTop = cssH * .08;
-    const stemBottom = cssH * .68;
-    const arrowTipY = cssH * .92;
-    const wingY = cssH * .72;
-    const wingSpan = cssW * .33;
+    const stemBottom = cssH * .62;
+    const tipY = cssH * .92;
+    const shoulderY = cssH * .66;
+    const halfWing = cssW * .34;
+    const points = [];
 
     for(let i=0;i<count;i++){
       let tx,ty;
-      const r = Math.random();
-      if(r < .58){
-        ty = stemTop + Math.random()*(stemBottom-stemTop);
-        tx = center + (Math.random()-.5) * (3 + Math.random()*5);
+      if(i < 610){
+        ty = stemTop + Math.random() * (stemBottom - stemTop);
+        tx = center + (Math.random() - .5) * (4 + Math.random() * 6);
       } else {
         const side = Math.random() < .5 ? -1 : 1;
         const t = Math.random();
-        tx = center + side * wingSpan * t;
-        ty = arrowTipY - (arrowTipY-wingY) * t;
-        tx += (Math.random()-.5)*4;
-        ty += (Math.random()-.5)*4;
+        tx = center + side * halfWing * t + (Math.random()-.5)*4;
+        ty = tipY - (tipY - shoulderY) * t + (Math.random()-.5)*4;
       }
-      const angle = Math.random()*Math.PI*2;
-      const radius = cssW*(.45 + Math.random()*.55);
+
       points.push({
-        x:center + Math.cos(angle)*radius,
-        y:cssH*.5 + Math.sin(angle)*radius,
-        tx,ty,
-        delay:Math.random()*.58,
-        size:.7 + Math.random()*1.25,
-        alpha:.35 + Math.random()*.65
+        sx: Math.random() * cssW,
+        sy: Math.random() * cssH,
+        tx, ty,
+        delay: Math.random() * .48,
+        size: .65 + Math.random() * 1.35,
+        alpha: .42 + Math.random() * .58
       });
     }
-
-    if(reduced){
-      draw(1); return;
-    }
-
-    let start;
-    function frame(now){
-      if(!start) start = now;
-      const t = Math.min(1,(now-start)/1650);
-      draw(t);
-      if(t<1) requestAnimationFrame(frame);
-    }
-    requestAnimationFrame(frame);
 
     function draw(progress){
       ctx.clearRect(0,0,cssW,cssH);
       ctx.fillStyle = '#7f8752';
       for(const p of points){
-        const local = Math.max(0,Math.min(1,(progress-p.delay)/(1-p.delay)));
-        const e = 1-Math.pow(1-local,3);
-        const x = p.x + (p.tx-p.x)*e;
-        const y = p.y + (p.ty-p.y)*e;
-        ctx.globalAlpha = p.alpha * Math.max(.12,e);
+        const local = Math.max(0, Math.min(1, (progress - p.delay) / (1 - p.delay)));
+        const e = 1 - Math.pow(1-local, 3);
+        const x = p.sx + (p.tx-p.sx) * e;
+        const y = p.sy + (p.ty-p.sy) * e;
+        ctx.globalAlpha = p.alpha * (.18 + .82*e);
         ctx.beginPath();
-        ctx.arc(x,y,p.size,0,Math.PI*2);
+        ctx.arc(x, y, p.size, 0, Math.PI*2);
         ctx.fill();
       }
       ctx.globalAlpha = 1;
     }
+
+    if(instant || reduced){ draw(1); return; }
+
+    let start = 0;
+    const animate = (now) => {
+      if(!start) start = now;
+      const t = Math.min(1, (now-start) / 1500);
+      draw(t);
+      if(t < 1) requestAnimationFrame(animate);
+    };
+    requestAnimationFrame(animate);
   }
 
-  typeLine();
+  runHero();
+
+  let resizeTimer;
   addEventListener('resize', () => {
-    if(arrowWrap?.classList.contains('is-visible')) buildArrow();
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      if(arrowWrap?.classList.contains('is-visible')) buildArrow(true);
+    }, 120);
   }, {passive:true});
 })();
