@@ -26,7 +26,7 @@
     if(reduced){
       if(lineOne) lineOne.textContent = textOne;
       if(lineTwo) lineTwo.textContent = textTwo;
-      hero?.classList.add('second-line-active');
+      hero?.classList.add('second-line-active','typing-complete');
       showArrow(true);
       return;
     }
@@ -36,10 +36,11 @@
 
     await new Promise(r => setTimeout(r, 420));
     await typeInto(lineOne, textOne, 78);
-    await new Promise(r => setTimeout(r, 260));
+    await new Promise(r => setTimeout(r, 250));
     hero?.classList.add('second-line-active');
     await typeInto(lineTwo, textTwo, 64);
-    await new Promise(r => setTimeout(r, 380));
+    hero?.classList.add('typing-complete');
+    await new Promise(r => setTimeout(r, 320));
     showArrow(false);
   }
 
@@ -51,8 +52,8 @@
   function buildArrow(instant = false){
     if(!canvas) return;
     const ctx = canvas.getContext('2d');
-    const cssW = canvas.clientWidth || 120;
-    const cssH = canvas.clientHeight || 180;
+    const cssW = canvas.clientWidth || 136;
+    const cssH = canvas.clientHeight || 202;
     const dpr = Math.min(devicePixelRatio || 1, 2);
 
     canvas.width = Math.round(cssW * dpr);
@@ -61,16 +62,16 @@
 
     const count = 1000;
     const center = cssW / 2;
-    const stemTop = cssH * .08;
-    const stemBottom = cssH * .62;
-    const tipY = cssH * .92;
-    const shoulderY = cssH * .66;
-    const halfWing = cssW * .34;
+    const stemTop = cssH * .06;
+    const stemBottom = cssH * .60;
+    const tipY = cssH * .93;
+    const shoulderY = cssH * .65;
+    const halfWing = cssW * .36;
     const points = [];
 
     for(let i=0;i<count;i++){
       let tx,ty;
-      if(i < 610){
+      if(i < 620){
         ty = stemTop + Math.random() * (stemBottom - stemTop);
         tx = center + (Math.random() - .5) * (4 + Math.random() * 6);
       } else {
@@ -85,14 +86,14 @@
         sy: Math.random() * cssH,
         tx, ty,
         delay: Math.random() * .48,
-        size: .65 + Math.random() * 1.35,
-        alpha: .42 + Math.random() * .58
+        size: .65 + Math.random() * 1.45,
+        alpha: .46 + Math.random() * .54
       });
     }
 
     function draw(progress){
       ctx.clearRect(0,0,cssW,cssH);
-      ctx.fillStyle = '#7f8752';
+      ctx.fillStyle = '#2F6BFF';
       for(const p of points){
         const local = Math.max(0, Math.min(1, (progress - p.delay) / (1 - p.delay)));
         const e = 1 - Math.pow(1-local, 3);
