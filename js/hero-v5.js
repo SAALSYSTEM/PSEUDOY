@@ -48,7 +48,7 @@
       if(lineOne) lineOne.textContent = textOne;
       if(lineTwoA) lineTwoA.textContent = textTwoA;
       if(lineTwoB) lineTwoB.textContent = textTwoB;
-      hero?.classList.add('second-line-active','typing-complete');
+      hero?.classList.add('second-line-active','second-part-active','typing-complete');
       showArrow(true);
       return;
     }
@@ -63,6 +63,7 @@
     hero?.classList.add('second-line-active');
     await typeInto(lineTwoA, textTwoA, 64);
     await new Promise(r => setTimeout(r, 90));
+    hero?.classList.add('second-part-active');
     await typeInto(lineTwoB, textTwoB, 64);
     hero?.classList.add('typing-complete');
     await new Promise(r => setTimeout(r, 320));
