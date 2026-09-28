@@ -1,0 +1,54 @@
+/* V18 pricing — clear path from anonymous demo to enterprise */
+.pricing-chapter{padding:clamp(110px,12vw,170px) 18px;background:#F7F5F0;border-top:1px solid #ECE8E0}
+.pricing-inner{width:min(1160px,100%);margin:0 auto}
+.pricing-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.58fr);gap:64px;align-items:end;margin-bottom:50px}
+.pricing-head h2{font-size:clamp(52px,6.4vw,82px);line-height:.95;max-width:850px}
+.pricing-head>p{margin:0 0 6px;color:#687184;font-size:15px;line-height:1.7;max-width:46ch}
+
+.pricing-starter-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.pricing-paid-grid{display:grid;grid-template-columns:1.06fr .98fr .98fr;gap:14px;align-items:stretch}
+.price-card{position:relative;padding:28px;border:1px solid #E0DDD7;border-radius:26px;background:#FFFDFC;display:flex;flex-direction:column;box-shadow:0 18px 46px rgba(13,21,48,.035)}
+.price-card--starter{min-height:300px;background:rgba(255,255,255,.62)}
+.price-card--free{background:#FFFDFC}
+.price-card--paid{min-height:575px}
+.price-card--pro{background:#fff;border-color:#BFD3FA;box-shadow:0 26px 66px rgba(47,107,255,.11)}
+.price-card--pro::before{content:"EMPFOHLEN";position:absolute;top:-10px;right:20px;padding:5px 9px;border-radius:999px;background:#2F6BFF;color:#fff;font-size:8px;font-weight:850;letter-spacing:.12em}
+.price-card--enterprise{background:#111827;border-color:#111827;color:#fff}
+.price-card--enterprise .price-eyebrow,.price-card--enterprise .price-main strong,.price-card--enterprise h3{color:#fff}
+.price-card--enterprise .price-badge{border-color:#344057;background:#1B2435;color:#DCE4F4}
+.price-card--enterprise .price-alt,.price-card--enterprise .price-lines{color:#B8C1D2}
+.price-card--enterprise .price-rule{background:#2C374B}
+.price-card--enterprise .price-lines span::before{color:#7FA6FF}
+.price-card--enterprise .price-cta{border-color:#33405A;background:#1A2538;color:#fff}
+.price-card--enterprise .price-cta span{color:#9EBBFF}
+
+.price-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+.price-eyebrow{display:block;margin-bottom:9px;color:#2F6BFF;font-size:10px;font-weight:850;letter-spacing:.14em;text-transform:uppercase}
+.price-card h3{margin:0;color:#111A31;font-size:21px;letter-spacing:-.035em}
+.price-badge{flex:none;padding:7px 9px;border:1px solid #DFE4EC;border-radius:999px;background:#fff;color:#70798B;font-size:9px;font-weight:760;white-space:nowrap}
+.price-main{display:flex;align-items:flex-end;gap:8px;margin-top:38px;color:#0D1530}.price-main strong{font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Georgia,serif;font-size:50px;line-height:.9;font-weight:400;letter-spacing:-.055em}.price-main span{padding-bottom:5px;color:#737C8D;font-size:12px}.price-main--text strong{font-size:42px}
+.price-alt{min-height:38px;margin-top:12px;color:#737C8D;font-size:11px;line-height:1.5}.price-alt strong{color:#424B5F}
+.price-rule{height:1px;margin:24px 0 20px;background:#E7E4DE}
+.price-matrix{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px}
+.price-metric{padding:13px;border:1px solid #E6E8ED;border-radius:14px;background:#fff}
+.price-card--enterprise .price-metric{border-color:#303C52;background:#172135}
+.price-metric small{display:block;margin-bottom:6px;color:#8A92A2;font-size:9px;font-weight:800;letter-spacing:.09em;text-transform:uppercase}
+.price-card--enterprise .price-metric small{color:#8895AA}
+.price-metric strong{display:block;color:#16203A;font-size:13px;line-height:1.25}
+.price-card--enterprise .price-metric strong{color:#F3F6FC}
+.price-lines{display:grid;gap:10px;color:#535D70;font-size:12px;line-height:1.45}.price-lines span{position:relative;padding-left:18px}.price-lines span::before{content:"✓";position:absolute;left:0;top:0;color:#2F6BFF;font-weight:900}
+.price-cta{display:flex;align-items:center;justify-content:space-between;min-height:50px;margin-top:auto;padding:0 16px;border:1px solid #DDE1E8;border-radius:14px;background:#fff;color:#111A31;text-decoration:none;font-size:12px;font-weight:780;transition:transform .2s ease,border-color .2s ease}.price-cta:hover{transform:translateY(-2px);border-color:#BFCBE1}.price-cta span{font-size:17px;color:#2F6BFF}.price-cta--primary{background:#2F6BFF;color:#fff;border-color:#2F6BFF;box-shadow:0 13px 28px rgba(47,107,255,.16)}.price-cta--primary span{color:#fff}
+.price-note{margin-top:11px;color:#8A92A2;font-size:9px;line-height:1.45}
+.pricing-foot{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:22px;color:#7D8595;font-size:10px}.pricing-foot a{color:#26324C;text-decoration:none;font-weight:760}
+
+@media(max-width:980px){
+  .pricing-paid-grid{grid-template-columns:1fr 1fr}.price-card--enterprise{grid-column:1/-1;min-height:auto}
+}
+@media(max-width:900px){
+  .pricing-head{grid-template-columns:1fr;gap:24px}.pricing-starter-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:700px){
+  .pricing-chapter{padding-left:14px;padding-right:14px}.pricing-head{margin-bottom:34px}.pricing-head>p{font-size:14px}
+  .pricing-starter-grid,.pricing-paid-grid{grid-template-columns:1fr;gap:10px}.price-card--enterprise{grid-column:auto}
+  .price-card{padding:22px;border-radius:21px}.price-card--starter,.price-card--paid{min-height:0}.price-main{margin-top:30px}.price-main strong{font-size:46px}.price-main--text strong{font-size:37px}.price-matrix{grid-template-columns:1fr 1fr}.pricing-foot{align-items:flex-start;flex-direction:column;gap:8px}
+}
