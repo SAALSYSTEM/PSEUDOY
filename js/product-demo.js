@@ -10,6 +10,14 @@
     document.head.appendChild(link);
   }
 
+  if (!document.querySelector('link[data-pricing-v18]')) {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'css/pricing-v18.css?v=1';
+    link.dataset.pricingV18 = '';
+    document.head.appendChild(link);
+  }
+
   /* Product chapter = one static table mockup + one CTA. */
   section.classList.add('product-preview--mockup');
   section.removeAttribute('data-product-preview');
@@ -119,67 +127,109 @@
           <div class="pricing-head">
             <div>
               <div class="section-kicker">Preise</div>
-              <h2 id="pricingTitle">Einfach starten.<br><em>Wenn es passt, produktiv nutzen.</em></h2>
+              <h2 id="pricingTitle">Erst ausprobieren.<br><em>Dann passend skalieren.</em></h2>
             </div>
-            <p>Die App lässt sich direkt im Browser ausprobieren. Für die produktive Nutzung stehen Einzel-, Team- und On-Premise-Optionen bereit.</p>
+            <p>Ohne Account starten, mit einem kostenlosen Konto weiterarbeiten und erst bei produktiver Nutzung auf Pro, Team oder Enterprise wechseln.</p>
           </div>
 
-          <div class="pricing-grid">
-            <article class="price-card price-card--pro">
+          <div class="pricing-starter-grid">
+            <article class="price-card price-card--starter">
               <div class="price-card-top">
-                <div><span class="price-eyebrow">PRO · BETA</span><h3>Für einzelne Nutzer</h3></div>
+                <div><span class="price-eyebrow">DEMO</span><h3>Ohne Account testen</h3></div>
+                <span class="price-badge">0 €</span>
+              </div>
+              <div class="price-main"><strong>Direkt</strong></div>
+              <div class="price-alt">Ideal, um den Workflow einmal mit kleinen Beispieldaten auszuprobieren.</div>
+              <div class="price-rule"></div>
+              <div class="price-matrix">
+                <div class="price-metric"><small>Tabellen</small><strong>max. 200 Zeilen je Export</strong></div>
+                <div class="price-metric"><small>Prompt</small><strong>max. 2 Maskierungen</strong></div>
+              </div>
+              <a class="price-cta" href="app.html">Ohne Account starten <span>→</span></a>
+            </article>
+
+            <article class="price-card price-card--starter price-card--free">
+              <div class="price-card-top">
+                <div><span class="price-eyebrow">FREE ACCOUNT</span><h3>Für wiederkehrende Tests</h3></div>
+                <span class="price-badge">kostenlos</span>
+              </div>
+              <div class="price-main"><strong>0 €</strong></div>
+              <div class="price-alt">Mehr Raum für echte Testfälle – mit kostenlosem PSEUDO-Y-Konto.</div>
+              <div class="price-rule"></div>
+              <div class="price-matrix">
+                <div class="price-metric"><small>Tabellen</small><strong>2.000 Zeilen je Tabelle<br>1 Export / Tag</strong></div>
+                <div class="price-metric"><small>Prompt</small><strong>5 Maskierungen je Prompt<br>3 Vorgänge / Tag</strong></div>
+              </div>
+              <a class="price-cta" href="signup.html">Kostenlos registrieren <span>→</span></a>
+            </article>
+          </div>
+
+          <div class="pricing-paid-grid">
+            <article class="price-card price-card--paid price-card--pro">
+              <div class="price-card-top">
+                <div><span class="price-eyebrow">PRO · 1 LIZENZ</span><h3>Für produktive Einzelnutzer</h3></div>
                 <span class="price-badge">1 Lizenz</span>
               </div>
               <div class="price-main"><strong>19,99 €</strong><span>/ Monat</span></div>
-              <div class="price-alt">oder <strong>191,90 € / Jahr</strong> · entspricht ca. 15,99 € / Monat</div>
+              <div class="price-alt"><strong>191,90 € / Jahr</strong> · 20 % günstiger als monatliche Zahlung</div>
               <div class="price-rule"></div>
-              <div class="price-lines">
-                <span>Tabellen lokal vorbereiten</span>
-                <span>Pseudonymisieren, maskieren, generalisieren</span>
-                <span>Kontrollierter Export</span>
-                <span>Prompt-Werkzeug im Produkt</span>
+              <div class="price-matrix">
+                <div class="price-metric"><small>Tabellen</small><strong>10.000 Zeilen je Tabelle<br>10 Exporte / Tag</strong></div>
+                <div class="price-metric"><small>Prompt</small><strong>50 Maskierungen je Prompt<br>25 Vorgänge / Tag</strong></div>
               </div>
-              <a class="price-cta price-cta--primary" href="app.html">PSEUDO Y starten <span>→</span></a>
+              <div class="price-lines">
+                <span>Lokale Tabellenverarbeitung</span>
+                <span>Pseudonymisieren, maskieren und generalisieren</span>
+                <span>Kontrollierter Export und Mapping</span>
+              </div>
+              <a class="price-cta price-cta--primary" href="signup.html">Pro starten <span>→</span></a>
             </article>
 
-            <article class="price-card">
+            <article class="price-card price-card--paid">
               <div class="price-card-top">
-                <div><span class="price-eyebrow">TEAM</span><h3>Für kleine Finance-Teams</h3></div>
+                <div><span class="price-eyebrow">TEAM · 5 LIZENZEN</span><h3>Für Finance-Teams</h3></div>
                 <span class="price-badge">5 Lizenzen</span>
               </div>
               <div class="price-main"><strong>79 €</strong><span>/ Monat</span></div>
               <div class="price-alt">jede weitere Lizenz <strong>9,99 € / Monat</strong></div>
               <div class="price-rule"></div>
+              <div class="price-matrix">
+                <div class="price-metric"><small>Tabellen</small><strong>100.000 Zeilen je Tabelle<br>100 Exporte / Woche</strong></div>
+                <div class="price-metric"><small>Prompt</small><strong>200 Maskierungen je Prompt<br>250 Vorgänge / Woche</strong></div>
+              </div>
               <div class="price-lines">
-                <span>Fünf einzelne Nutzerlizenzen</span>
-                <span>Für Controlling- und Finance-Teams</span>
-                <span>Gleicher lokaler Workflow</span>
-                <span>Flexibel um weitere Lizenzen erweiterbar</span>
+                <span>+20 Tabellen-Exporte / Woche je Zusatzlizenz</span>
+                <span>+50 Prompt-Vorgänge / Woche je Zusatzlizenz</span>
+                <span>Gleicher lokaler Workflow für alle Lizenzen</span>
               </div>
               <a class="price-cta" href="preise.html">Team ansehen <span>→</span></a>
+              <div class="price-note">Das Zeilenlimit gilt je Tabelle. Die praktische Verarbeitung großer Dateien hängt zusätzlich vom verwendeten Browser und Endgerät ab.</div>
             </article>
 
-            <article class="price-card price-card--enterprise">
+            <article class="price-card price-card--paid price-card--enterprise">
               <div class="price-card-top">
-                <div><span class="price-eyebrow">ON-PREMISE</span><h3>Für eigene Infrastruktur</h3></div>
+                <div><span class="price-eyebrow">ENTERPRISE</span><h3>Für eigene Infrastruktur &amp; Prozesse</h3></div>
                 <span class="price-badge">individuell</span>
               </div>
               <div class="price-main price-main--text"><strong>Auf Anfrage</strong></div>
-              <div class="price-alt">für Unternehmen mit eigenen Betriebs- und Infrastrukturvorgaben</div>
+              <div class="price-alt">Für Unternehmen mit eigenen Betriebs-, Integrations- und Automatisierungsanforderungen.</div>
               <div class="price-rule"></div>
+              <div class="price-matrix">
+                <div class="price-metric"><small>Betrieb</small><strong>On-Premise</strong></div>
+                <div class="price-metric"><small>Integration</small><strong>API &amp; Automation</strong></div>
+              </div>
               <div class="price-lines">
-                <span>Individuelle Bereitstellung</span>
-                <span>Abstimmung auf Ihre Umgebung</span>
-                <span>Für größere Teams und Unternehmen</span>
-                <span>Umfang nach Anforderung</span>
+                <span>Individuelle Volumen und Nutzungslimits</span>
+                <span>Integration in bestehende Datenprozesse</span>
+                <span>Bereitstellung nach Infrastrukturvorgaben</span>
               </div>
               <a class="price-cta" href="preise.html#kontakt">Kontakt aufnehmen <span>→</span></a>
             </article>
           </div>
 
           <div class="pricing-foot">
-            <span>Alle Preise zzgl. gesetzlicher Umsatzsteuer.</span>
-            <a href="preise.html">Alle Details zu den Tarifen →</a>
+            <span>Alle Preise zzgl. gesetzlicher Umsatzsteuer. Demo und Free Account bleiben kostenlos.</span>
+            <a href="preise.html">Alle Tarifdetails →</a>
           </div>
         </div>
       </section>`);
