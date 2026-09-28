@@ -2,66 +2,52 @@
   const section = document.querySelector('[data-product-preview]');
   if (!section) return;
 
-  const columns = {
-    kunde: {
-      title: 'Kundenname',
-      type: 'Text',
-      action: 'Pseudonymisieren',
-      input: 'Anna Müller',
-      output: 'Kunde_001Y',
-      index: 2
-    },
-    email: {
-      title: 'E-Mail-Adresse',
-      type: 'E-Mail',
-      action: 'Maskieren',
-      input: 'anna.mueller@mail.de',
-      output: 'Mail_001Y@example.invalid',
-      index: 3
-    },
-    datum: {
-      title: 'Geburtsdatum',
-      type: 'Datum',
-      action: 'Generalisieren',
-      input: '03.06.1990',
-      output: '30–39 Jahre',
-      index: 4
-    },
-    umsatz: {
-      title: 'Umsatz',
-      type: 'Zahl',
-      action: 'Skalieren',
-      input: '10.000 €',
-      output: '20,0',
-      index: 5
-    }
-  };
+  section.classList.add('is-static-mockup');
 
-  const buttons = [...section.querySelectorAll('[data-column]')];
-  const title = section.querySelector('[data-rule-title]');
-  const type = section.querySelector('[data-rule-type]');
-  const action = section.querySelector('[data-rule-action]');
-  const input = section.querySelector('[data-rule-input]');
-  const output = section.querySelector('[data-rule-output]');
-  const rows = [...section.querySelectorAll('.demo-row:not(.demo-head)')];
+  /* The landing page only previews the product here. The real interaction starts in the app. */
+  const shell = section.querySelector('.product-shell');
+  const head = section.querySelector('.product-preview-head');
+  const intro = head?.querySelector(':scope > div:first-child');
+  const copy = section.querySelector('.product-preview-copy p');
+  const actions = section.querySelector('.product-preview-actions');
+  const primary = actions?.querySelector('.product-btn-primary');
+  const secondary = actions?.querySelector('.product-btn:not(.product-btn-primary)');
+  const trustline = section.querySelector('.product-trustline');
 
-  function selectColumn(key) {
-    const data = columns[key];
-    if (!data) return;
+  intro?.setAttribute('hidden', '');
+  copy?.setAttribute('hidden', '');
+  secondary?.setAttribute('hidden', '');
+  trustline?.setAttribute('hidden', '');
 
-    buttons.forEach(btn => btn.classList.toggle('is-selected', btn.dataset.column === key));
-
-    rows.forEach(row => {
-      [...row.children].forEach((cell, i) => cell.classList.toggle('selected-cell', i === data.index));
-    });
-
-    if (title) title.textContent = data.title;
-    if (type) type.textContent = data.type;
-    if (action) action.textContent = data.action;
-    if (input) input.textContent = data.input;
-    if (output) output.textContent = data.output;
+  if (primary) {
+    primary.textContent = 'PSEUDO Y starten';
+    const arrow = document.createElement('span');
+    arrow.textContent = '→';
+    primary.appendChild(arrow);
   }
 
-  buttons.forEach(btn => btn.addEventListener('click', () => selectColumn(btn.dataset.column)));
-  selectColumn('email');
+  /* Freeze one convincing example state; no landing-page mini app. */
+  section.querySelectorAll('button').forEach(button => {
+    button.tabIndex = -1;
+    button.setAttribute('aria-disabled', 'true');
+  });
+  shell?.setAttribute('aria-label', 'Produktvorschau des Tabellen-Tools');
+
+  const style = document.createElement('style');
+  style.textContent = `
+    .product-preview.is-static-mockup{padding-top:clamp(64px,7vw,92px);padding-bottom:clamp(96px,10vw,140px)}
+    .product-preview.is-static-mockup .product-preview-inner{display:flex;flex-direction:column}
+    .product-preview.is-static-mockup .product-shell{order:1;pointer-events:none}
+    .product-preview.is-static-mockup .product-preview-head{order:2;display:block;margin:28px 0 0;text-align:center}
+    .product-preview.is-static-mockup .product-preview-copy{padding:0;max-width:none}
+    .product-preview.is-static-mockup .product-preview-actions{justify-content:center}
+    .product-preview.is-static-mockup .product-btn-primary{min-height:52px;padding:0 24px;font-size:15px;box-shadow:0 16px 32px rgba(47,107,255,.18)}
+    .product-preview.is-static-mockup [hidden]{display:none!important}
+    @media(max-width:700px){
+      .product-preview.is-static-mockup{padding-top:44px;padding-bottom:96px}
+      .product-preview.is-static-mockup .product-preview-head{margin-top:22px}
+      .product-preview.is-static-mockup .product-btn-primary{width:min(100%,340px);min-height:50px}
+    }
+  `;
+  document.head.appendChild(style);
 })();
