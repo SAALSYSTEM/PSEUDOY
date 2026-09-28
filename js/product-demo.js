@@ -5,7 +5,7 @@
   if (!document.querySelector('link[data-landing-v16]')) {
     const link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = 'css/landing-v16.css?v=1';
+    link.href = 'css/landing-v16.css?v=2';
     link.dataset.landingV16 = '';
     document.head.appendChild(link);
   }
@@ -110,6 +110,76 @@
               <p>Auch Freitext soll lokal vorbereitet werden können: Namen oder interne Begriffe markieren, maskieren und erst danach kontrolliert weiterverwenden.</p>
               <div class="usecase-example"><span>Projekt Phoenix</span><span class="usecase-arrow">→</span><span>Projekt_01Y</span><span>Prompt vorbereiten</span></div>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="pricing-chapter" aria-labelledby="pricingTitle">
+        <div class="pricing-inner">
+          <div class="pricing-head">
+            <div>
+              <div class="section-kicker">Preise</div>
+              <h2 id="pricingTitle">Einfach starten.<br><em>Wenn es passt, produktiv nutzen.</em></h2>
+            </div>
+            <p>Die App lässt sich direkt im Browser ausprobieren. Für die produktive Nutzung stehen Einzel-, Team- und On-Premise-Optionen bereit.</p>
+          </div>
+
+          <div class="pricing-grid">
+            <article class="price-card price-card--pro">
+              <div class="price-card-top">
+                <div><span class="price-eyebrow">PRO · BETA</span><h3>Für einzelne Nutzer</h3></div>
+                <span class="price-badge">1 Lizenz</span>
+              </div>
+              <div class="price-main"><strong>19,99 €</strong><span>/ Monat</span></div>
+              <div class="price-alt">oder <strong>191,90 € / Jahr</strong> · entspricht ca. 15,99 € / Monat</div>
+              <div class="price-rule"></div>
+              <div class="price-lines">
+                <span>Tabellen lokal vorbereiten</span>
+                <span>Pseudonymisieren, maskieren, generalisieren</span>
+                <span>Kontrollierter Export</span>
+                <span>Prompt-Werkzeug im Produkt</span>
+              </div>
+              <a class="price-cta price-cta--primary" href="app.html">PSEUDO Y starten <span>→</span></a>
+            </article>
+
+            <article class="price-card">
+              <div class="price-card-top">
+                <div><span class="price-eyebrow">TEAM</span><h3>Für kleine Finance-Teams</h3></div>
+                <span class="price-badge">5 Lizenzen</span>
+              </div>
+              <div class="price-main"><strong>79 €</strong><span>/ Monat</span></div>
+              <div class="price-alt">jede weitere Lizenz <strong>9,99 € / Monat</strong></div>
+              <div class="price-rule"></div>
+              <div class="price-lines">
+                <span>Fünf einzelne Nutzerlizenzen</span>
+                <span>Für Controlling- und Finance-Teams</span>
+                <span>Gleicher lokaler Workflow</span>
+                <span>Flexibel um weitere Lizenzen erweiterbar</span>
+              </div>
+              <a class="price-cta" href="preise.html">Team ansehen <span>→</span></a>
+            </article>
+
+            <article class="price-card price-card--enterprise">
+              <div class="price-card-top">
+                <div><span class="price-eyebrow">ON-PREMISE</span><h3>Für eigene Infrastruktur</h3></div>
+                <span class="price-badge">individuell</span>
+              </div>
+              <div class="price-main price-main--text"><strong>Auf Anfrage</strong></div>
+              <div class="price-alt">für Unternehmen mit eigenen Betriebs- und Infrastrukturvorgaben</div>
+              <div class="price-rule"></div>
+              <div class="price-lines">
+                <span>Individuelle Bereitstellung</span>
+                <span>Abstimmung auf Ihre Umgebung</span>
+                <span>Für größere Teams und Unternehmen</span>
+                <span>Umfang nach Anforderung</span>
+              </div>
+              <a class="price-cta" href="mailto:hallo@pseudo-y.de">Kontakt aufnehmen <span>→</span></a>
+            </article>
+          </div>
+
+          <div class="pricing-foot">
+            <span>Alle Preise zzgl. gesetzlicher Umsatzsteuer.</span>
+            <a href="preise.html">Alle Details zu den Tarifen →</a>
           </div>
         </div>
       </section>`);
