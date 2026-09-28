@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="css/hero-v5.css?v=12">
   <link rel="stylesheet" href="css/y-story-v1.css?v=3">
   <link rel="stylesheet" href="css/final-polish.css?v=1">
+  <link rel="stylesheet" href="css/product-demo.css?v=1">
 </head>
 <body>
   <header class="site-header">
@@ -185,10 +186,118 @@
         </div>
       </div>
     </section>
+
+    <section class="product-preview" data-product-preview aria-labelledby="productPreviewTitle">
+      <div class="product-preview-inner">
+        <div class="product-preview-head">
+          <div>
+            <div class="product-kicker">Produktansicht</div>
+            <h2 id="productPreviewTitle">Spalte wählen.<br><em>Regel festlegen.</em><br>Ergebnis prüfen.</h2>
+          </div>
+          <div class="product-preview-copy">
+            <p>Keine Blackbox. Sie wählen eine Spalte, legen die Schutzregel fest und sehen direkt, wie sich die Werte im Export verändern.</p>
+            <div class="product-preview-actions">
+              <a class="product-btn product-btn-primary" href="app.html">PSEUDO Y starten <span>→</span></a>
+              <a class="product-btn" href="so-funktionierts.html">So funktioniert’s</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-shell" aria-label="Beispielansicht des Tabellen-Tools">
+          <div class="product-windowbar">
+            <div class="product-file">
+              <span class="product-file-icon">XLSX</span>
+              <span class="product-file-copy"><strong>kunden_export.xlsx</strong><small>Beispieldaten</small></span>
+              <span class="product-local">lokal im Browser</span>
+            </div>
+            <div class="product-window-actions">
+              <button type="button">Vorschau</button>
+              <button class="is-primary" type="button">Export</button>
+            </div>
+          </div>
+
+          <div class="product-workspace">
+            <aside class="product-rail" aria-hidden="true">
+              <div class="product-rail-logo">P|Y</div>
+              <div class="product-rail-btn is-active">▦</div>
+              <div class="product-rail-btn">◇</div>
+              <div class="product-rail-btn">⚙</div>
+              <div class="product-rail-spacer"></div>
+              <div class="product-rail-btn">○</div>
+            </aside>
+
+            <div class="product-canvas">
+              <div class="product-toolbar" aria-hidden="true">
+                <div class="toolbar-field">Spalte oder Wert suchen</div>
+                <div class="toolbar-field">Status: Alle</div>
+                <div class="toolbar-field">Typ: Alle</div>
+                <div class="toolbar-button">Weitere Filter</div>
+              </div>
+
+              <div class="demo-table">
+                <div class="demo-row demo-head" role="row">
+                  <span class="check"></span>
+                  <span>Kunden-Nr.</span>
+                  <button type="button" data-column="kunde">Kundenname</button>
+                  <button type="button" data-column="email">E-Mail-Adresse</button>
+                  <button type="button" data-column="datum">Geburtsdatum</button>
+                  <button type="button" data-column="umsatz">Umsatz</button>
+                </div>
+                <div class="demo-row is-highlighted"><span class="check"><i class="demo-check"></i></span><span>C-0001</span><span>Anna Müller</span><span class="sensitive-cell">anna.mueller@mail.de</span><span>03.06.1990</span><span>10.000 €</span></div>
+                <div class="demo-row"><span class="check"><i class="demo-check"></i></span><span>C-0002</span><span>Max Schmidt</span><span>max.schmidt@web.de</span><span>12.11.1985</span><span>25.450 €</span></div>
+                <div class="demo-row"><span class="check"><i class="demo-check"></i></span><span>C-0003</span><span>Lisa Wagner</span><span>l.wagner@email.de</span><span>28.02.1992</span><span>7.500 €</span></div>
+                <div class="demo-row"><span class="check"><i class="demo-check"></i></span><span>C-0004</span><span>Jonas Becker</span><span>jonas.becker@mail.de</span><span>17.09.1978</span><span>18.300 €</span></div>
+                <div class="demo-row"><span class="check"><i class="demo-check"></i></span><span>C-0005</span><span>Emma Hoffmann</span><span>emma.hoffmann@web.de</span><span>04.12.1995</span><span>12.000 €</span></div>
+                <div class="demo-row"><span class="check"><i class="demo-check"></i></span><span>C-0006</span><span>Thomas Bauer</span><span>thomas.bauer@mail.de</span><span>15.07.1988</span><span>32.500 €</span></div>
+                <div class="demo-row"><span class="check"><i class="demo-check"></i></span><span>C-0007</span><span>Julia Weber</span><span>julia.weber@web.de</span><span>22.01.1991</span><span>21.400 €</span></div>
+                <div class="demo-footer"><span>7 Beispielzeilen</span><span>Spalten anklicken, um die Regel zu wechseln</span><div class="demo-pages"><span class="demo-page">‹</span><span class="demo-page is-current">1</span><span class="demo-page">›</span></div></div>
+              </div>
+            </div>
+
+            <aside class="rule-panel" aria-label="Spalte konfigurieren">
+              <div class="rule-panel-head">
+                <div><span>Spalte konfigurieren</span><strong data-rule-title>E-Mail-Adresse</strong></div>
+                <button class="rule-panel-close" type="button" aria-label="Panel schließen">×</button>
+              </div>
+
+              <div class="rule-block">
+                <div class="rule-label">Datentyp</div>
+                <div class="rule-types">
+                  <span class="rule-chip">Text</span><span class="rule-chip">Schlüssel</span><span class="rule-chip">Datum</span><span class="rule-chip">Zahl</span><span class="rule-chip is-active" data-rule-type>E-Mail</span>
+                </div>
+              </div>
+
+              <div class="rule-block">
+                <div class="rule-label">Transformation</div>
+                <div class="rule-actions">
+                  <button class="rule-action is-active" type="button" data-rule-action>Maskieren</button>
+                  <button class="rule-action" type="button">Unverändert übernehmen</button>
+                  <button class="rule-action" type="button">Entfernen</button>
+                </div>
+              </div>
+
+              <div class="rule-block">
+                <div class="rule-label">Vorschau</div>
+                <div class="rule-preview">
+                  <div class="rule-preview-row"><span class="rule-preview-value" data-rule-input>anna.mueller@mail.de</span><span class="rule-arrow">→</span><span class="rule-preview-value is-output" data-rule-output>Mail_001Y@example.invalid</span></div>
+                </div>
+              </div>
+
+              <div class="rule-note">Die Ansicht arbeitet mit synthetischen Beispieldaten. PSEUDO Y bereitet Daten vor – eine Weitergabe an KI-Dienste erfolgt nicht automatisch.</div>
+            </aside>
+          </div>
+        </div>
+
+        <div class="product-trustline" aria-label="Produktprinzipien">
+          <span>Beispieldaten</span><span>lokale Verarbeitung</span><span>keine automatische KI-Weitergabe</span><span>kontrollierter Export</span>
+        </div>
+      </div>
+    </section>
   </main>
 
   <script src="js/hero-v5.js?v=9" defer></script>
-  <script src="js/y-story-v1.js?v=3" defer></script>
+  <script src="js/y-story-v1.js?v=4" defer></script>
   <script src="js/final-polish.js?v=1" defer></script>
+  <script src="js/product-demo.js?v=1" defer></script>
 </body>
 </html>
