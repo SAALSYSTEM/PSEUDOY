@@ -47,6 +47,11 @@
 .target-strip{width:100%;justify-content:space-evenly}
 .export-cluster p{margin:0;color:#8A91A0;font-size:10px}
 
+/* Keep the typing caret attached to the line currently being written. */
+.hero-cursor-two-a,.hero-cursor-two-b{visibility:hidden}
+.hero.second-line-active:not(.second-part-active):not(.typing-complete) .hero-cursor-two-a{visibility:visible}
+.hero.second-part-active:not(.typing-complete) .hero-cursor-two-b{visibility:visible}
+
 @media (max-width:700px){
   .y-story{height:650svh}
   .story-y,.story-flows{top:50.5%;width:84vw;height:67svh}
