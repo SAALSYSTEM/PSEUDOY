@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#F6F7F9">
+  <title>PSEUDO Y · App</title>
+  <link rel="stylesheet" href="css/app-v1.css?v=1">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="app-sidebar" aria-label="PSEUDO Y Navigation">
+      <a class="app-brand" href="preview-scrollcraft.html" aria-label="PSEUDO Y Startseite">
+        <img src="assets/logo/pseudo-y-wordmark.webp" alt="PSEUDO Y">
+      </a>
+
+      <nav class="app-nav" aria-label="Werkzeuge">
+        <a class="app-nav-item is-active" href="app.html">
+          <span class="nav-icon" aria-hidden="true">▦</span>
+          <span>Tabellen</span>
+        </a>
+        <a class="app-nav-item" href="prompt.html">
+          <span class="nav-icon" aria-hidden="true">◇</span>
+          <span>Prompt</span>
+        </a>
+        <a class="app-nav-item" href="#" aria-disabled="true">
+          <span class="nav-icon" aria-hidden="true">✦</span>
+          <span>Prompt-Vorlage</span>
+          <span class="nav-beta">später</span>
+        </a>
+      </nav>
+
+      <div class="app-sidebar-bottom">
+        <a class="app-nav-item" href="#">
+          <span class="nav-icon" aria-hidden="true">⚙</span>
+          <span>Einstellungen</span>
+        </a>
+        <a class="app-nav-item" href="login.html">
+          <span class="nav-avatar" aria-hidden="true">M</span>
+          <span>Account</span>
+        </a>
+      </div>
+    </aside>
+
+    <main class="app-main">
+      <header class="app-topbar">
+        <div>
+          <div class="app-kicker">Tabellen</div>
+          <h1>Kundendaten vorbereiten</h1>
+        </div>
+        <div class="topbar-actions">
+          <span class="local-pill"><span class="local-dot"></span> lokal im Browser</span>
+          <button class="ghost-btn" type="button">Vorschau</button>
+          <button class="primary-btn" type="button">Exportieren</button>
+        </div>
+      </header>
+
+      <section class="file-strip" aria-label="Geöffnete Datei">
+        <div class="file-info">
+          <span class="file-icon">XLSX</span>
+          <div><strong>kunden_export.xlsx</strong><small>7 Beispielzeilen · Layout-Vorschau</small></div>
+        </div>
+        <div class="file-state"><span></span> Nicht gespeichert</div>
+      </section>
+
+      <section class="workspace">
+        <div class="table-pane">
+          <div class="toolbar">
+            <label class="search-box"><span>⌕</span><input type="search" placeholder="Spalte oder Wert suchen" aria-label="Spalte oder Wert suchen"></label>
+            <button type="button" class="filter-btn">Status <strong>Alle</strong></button>
+            <button type="button" class="filter-btn">Typ <strong>Alle</strong></button>
+            <button type="button" class="filter-btn filter-btn--plain">Weitere Filter</button>
+          </div>
+
+          <div class="table-card">
+            <div class="table-scroll">
+              <table>
+                <thead>
+                  <tr>
+                    <th class="col-check"><input type="checkbox" aria-label="Alle auswählen"></th>
+                    <th>Kunden-Nr.</th>
+                    <th>Kundenname <span class="th-tag">Person</span></th>
+                    <th class="is-selected">E-Mail-Adresse <span class="th-tag">E-Mail</span></th>
+                    <th>Geburtsdatum <span class="th-tag">Datum</span></th>
+                    <th class="num">Umsatz <span class="th-tag">Zahl</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td><input type="checkbox" checked aria-label="Zeile 1 auswählen"></td><td>C-0001</td><td>Anna Müller</td><td class="is-selected sensitive">anna.mueller@mail.de</td><td>03.06.1990</td><td class="num">10.000 €</td></tr>
+                  <tr><td><input type="checkbox" checked aria-label="Zeile 2 auswählen"></td><td>C-0002</td><td>Max Schmidt</td><td class="is-selected">max.schmidt@web.de</td><td>12.11.1985</td><td class="num">25.450 €</td></tr>
+                  <tr><td><input type="checkbox" checked aria-label="Zeile 3 auswählen"></td><td>C-0003</td><td>Lisa Wagner</td><td class="is-selected">l.wagner@email.de</td><td>28.02.1992</td><td class="num">7.500 €</td></tr>
+                  <tr><td><input type="checkbox" checked aria-label="Zeile 4 auswählen"></td><td>C-0004</td><td>Jonas Becker</td><td class="is-selected">jonas.becker@mail.de</td><td>17.09.1978</td><td class="num">18.300 €</td></tr>
+                  <tr><td><input type="checkbox" checked aria-label="Zeile 5 auswählen"></td><td>C-0005</td><td>Emma Hoffmann</td><td class="is-selected">emma.hoffmann@web.de</td><td>04.12.1995</td><td class="num">12.000 €</td></tr>
+                  <tr><td><input type="checkbox" checked aria-label="Zeile 6 auswählen"></td><td>C-0006</td><td>Thomas Bauer</td><td class="is-selected">thomas.bauer@mail.de</td><td>15.07.1988</td><td class="num">32.500 €</td></tr>
+                  <tr><td><input type="checkbox" checked aria-label="Zeile 7 auswählen"></td><td>C-0007</td><td>Julia Weber</td><td class="is-selected">julia.weber@web.de</td><td>22.01.1991</td><td class="num">21.400 €</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <footer class="table-footer">
+              <span>7 von 7 Zeilen</span>
+              <div class="pagination"><button type="button">‹</button><button type="button" class="is-current">1</button><button type="button">›</button></div>
+            </footer>
+          </div>
+        </div>
+
+        <aside class="config-panel" aria-label="Spalte konfigurieren">
+          <div class="config-head">
+            <div><span>Spalte konfigurieren</span><h2>E-Mail-Adresse</h2></div>
+            <button class="icon-btn" type="button" aria-label="Panel schließen">×</button>
+          </div>
+
+          <div class="config-section">
+            <label class="config-label">Datentyp</label>
+            <div class="type-grid">
+              <label><input type="radio" name="dtype"><span>Text</span></label>
+              <label><input type="radio" name="dtype"><span>Schlüssel</span></label>
+              <label><input type="radio" name="dtype"><span>Datum</span></label>
+              <label><input type="radio" name="dtype"><span>Zahl</span></label>
+              <label class="is-active"><input type="radio" name="dtype" checked><span>E-Mail</span></label>
+              <label><input type="radio" name="dtype"><span>Person</span></label>
+            </div>
+          </div>
+
+          <div class="config-section">
+            <label class="config-label">Transformation</label>
+            <div class="segmented">
+              <button class="is-active" type="button">Maskieren</button>
+              <button type="button">Übernehmen</button>
+              <button type="button">Entfernen</button>
+            </div>
+          </div>
+
+          <div class="config-section">
+            <label class="config-label">Einstellung</label>
+            <div class="option-stack">
+              <label class="option-row is-active"><input type="radio" name="preset" checked><span><strong>Standard</strong><small>Mail_001Y@example.invalid</small></span></label>
+              <label class="option-row"><input type="radio" name="preset"><span><strong>Y-Mask</strong><small>a••••@m•••.de</small></span></label>
+              <label class="option-row"><input type="radio" name="preset"><span><strong>Individuell</strong><small>Eigenes Muster definieren</small></span></label>
+            </div>
+          </div>
+
+          <div class="config-section preview-section">
+            <label class="config-label">Vorschau</label>
+            <div class="preview-row"><span>anna.mueller@mail.de</span><b>→</b><strong>Mail_001Y@example.invalid</strong></div>
+          </div>
+
+          <div class="config-footer">
+            <button class="secondary-btn" type="button">Zurücksetzen</button>
+            <button class="primary-btn primary-btn--wide" type="button">Übernehmen</button>
+          </div>
+        </aside>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
