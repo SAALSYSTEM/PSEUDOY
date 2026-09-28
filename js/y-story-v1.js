@@ -3,14 +3,16 @@
   if (!section) return;
 
   const y = section.querySelector('.story-y');
-  const original = section.querySelector('.story-original');
-  const pseudo = section.querySelector('.story-pseudo');
-  const mapping = section.querySelector('.story-mapping');
-  const flow = section.querySelector('.story-flow-transform');
-  const node = section.querySelector('.story-node');
-  const sources = section.querySelector('.story-sources');
-  const targets = section.querySelector('.story-targets');
-  const note = section.querySelector('.story-control-note');
+  const flows = section.querySelector('.story-flows');
+  const flowRed = section.querySelector('.flow-red');
+  const flowMap = section.querySelector('.flow-map');
+  const flowOutput = section.querySelector('.flow-output');
+  const original = section.querySelector('.original-card');
+  const pseudo = section.querySelector('.pseudo-card');
+  const mapping = section.querySelector('.mapping-card');
+  const sources = section.querySelector('.source-strip');
+  const mappingStore = section.querySelector('.mapping-store');
+  const exportCluster = section.querySelector('.export-cluster');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reduced) return;
 
@@ -31,55 +33,73 @@
     el.style.setProperty('--card-opacity', opacity.toFixed(3));
   }
 
+  function drawPath(path, progress, length = 820) {
+    if (!path) return;
+    path.style.strokeDasharray = String(length);
+    path.style.strokeDashoffset = String(length * (1 - clamp(progress)));
+  }
+
   function render() {
     ticking = false;
     const rect = section.getBoundingClientRect();
     const vh = innerHeight || document.documentElement.clientHeight;
+    const vw = innerWidth || document.documentElement.clientWidth;
     const total = Math.max(1, rect.height - vh);
     const p = clamp((-rect.top) / total);
-    const vw = innerWidth || document.documentElement.clientWidth;
     const mobile = vw <= 700;
 
-    const yIn = phase(p, 0.00, 0.14);
-    const yScale = mix(0.34, mobile ? 0.82 : 0.92, yIn);
+    /* 01 — the black Y owns the stage */
+    const yIn = phase(p, 0.00, 0.13);
+    const finalYScale = mobile ? 0.82 : 0.90;
+    const peakYScale = mobile ? 1.03 : 1.08;
+    const ySettle = phase(p, 0.70, 0.88);
+    const yScale = mix(mix(0.36, peakYScale, yIn), finalYScale, ySettle);
     y.style.setProperty('--y-scale', yScale.toFixed(3));
-    y.style.setProperty('--y-opacity', phase(p, 0.01, 0.08).toFixed(3));
+    y.style.setProperty('--y-opacity', phase(p, 0.01, 0.07).toFixed(3));
+    y.style.setProperty('--y-dark', mix(1, 0.12, phase(p, 0.72, 0.91)).toFixed(3));
+    flows.style.setProperty('--y-scale', yScale.toFixed(3));
 
-    const originalIn = phase(p, 0.12, 0.25);
-    const originalMove = phase(p, 0.36, 0.52);
-    const ox = mix(0, mobile ? -0.27 * vw : -0.30 * vw, originalMove);
-    const oy = mix(-10, mobile ? -0.29 * vh : -0.30 * vh, originalMove);
-    const os = mix(1, mobile ? 0.57 : 0.53, originalMove);
-    setCard(original, ox, oy, os, originalIn);
+    /* 02 — sensitive table appears large, then parks top-left */
+    const originalIn = phase(p, 0.13, 0.25);
+    const originalMove = phase(p, 0.29, 0.43);
+    const originalX = mix(0, mobile ? -0.245 * vw : -0.29 * vw, originalMove);
+    const originalY = mix(-18, mobile ? -0.285 * vh : -0.29 * vh, originalMove);
+    const originalScale = mix(0.98, mobile ? 0.52 : 0.69, originalMove);
+    setCard(original, originalX, originalY, originalScale, originalIn);
 
-    const flowIn = phase(p, 0.23, 0.31) * (1 - phase(p, 0.38, 0.47));
-    flow.style.setProperty('--flow-opacity', flowIn.toFixed(3));
-    flow.style.setProperty('--flow-y', `${mix(70, 122, phase(p, 0.23, 0.34))}px`);
+    /* 03 — transformed dataset is the second focus, then settles bottom-center */
+    const pseudoIn = phase(p, 0.29, 0.40);
+    const pseudoMove = phase(p, 0.43, 0.57);
+    const pseudoY = mix(112, mobile ? 0.235 * vh : 0.255 * vh, pseudoMove);
+    const pseudoScale = mix(0.95, mobile ? 0.72 : 0.80, pseudoMove);
+    setCard(pseudo, 0, pseudoY, pseudoScale, pseudoIn);
 
-    const pseudoIn = phase(p, 0.27, 0.38);
-    const pseudoMove = phase(p, 0.38, 0.53);
-    const py = mix(118, mobile ? 0.27 * vh : 0.29 * vh, pseudoMove);
-    const ps = mix(0.96, mobile ? 0.61 : 0.58, pseudoMove);
-    setCard(pseudo, 0, py, ps, pseudoIn);
+    /* 04 — mapping gets its own central focus, then moves top-right */
+    const mappingIn = phase(p, 0.49, 0.61);
+    const mappingMove = phase(p, 0.64, 0.78);
+    const mappingX = mix(0, mobile ? 0.245 * vw : 0.29 * vw, mappingMove);
+    const mappingY = mix(-12, mobile ? -0.285 * vh : -0.29 * vh, mappingMove);
+    const mappingScale = mix(0.98, mobile ? 0.52 : 0.69, mappingMove);
+    setCard(mapping, mappingX, mappingY, mappingScale, mappingIn);
 
-    const mappingIn = phase(p, 0.48, 0.60);
-    const mappingMove = phase(p, 0.61, 0.74);
-    const mx = mix(0, mobile ? 0.27 * vw : 0.30 * vw, mappingMove);
-    const my = mix(5, mobile ? -0.28 * vh : -0.30 * vh, mappingMove);
-    const ms = mix(1.02, mobile ? 0.55 : 0.52, mappingMove);
-    setCard(mapping, mx, my, ms, mappingIn);
+    /* 05 — final directional flow: original -> Y, Y -> output, Y -> mapping */
+    const redDraw = phase(p, 0.72, 0.82);
+    const outDraw = phase(p, 0.77, 0.87);
+    const mapDraw = phase(p, 0.81, 0.91);
+    const flowOpacity = phase(p, 0.70, 0.78);
+    flows.style.setProperty('--flow-opacity', flowOpacity.toFixed(3));
+    drawPath(flowRed, redDraw);
+    drawPath(flowOutput, outDraw, 520);
+    drawPath(flowMap, mapDraw);
+    flows.style.setProperty('--heads-opacity', phase(p, 0.84, 0.93).toFixed(3));
 
-    const nodeIn = phase(p, 0.69, 0.80);
-    node.style.setProperty('--node-opacity', nodeIn.toFixed(3));
-    node.style.setProperty('--node-scale', mix(0.78, 1, nodeIn).toFixed(3));
-
-    const contextIn = phase(p, 0.78, 0.92);
-    [sources, targets, note].forEach(el => el.style.setProperty('--context-opacity', contextIn.toFixed(3)));
-
-    if (p > 0.92) {
-      const settle = phase(p, 0.92, 1);
-      y.style.setProperty('--y-scale', mix(yScale, mobile ? 0.78 : 0.86, settle).toFixed(3));
-    }
+    /* 06 — context only after the diagram is understood */
+    const sourceIn = phase(p, 0.82, 0.91);
+    const mappingStoreIn = phase(p, 0.84, 0.92);
+    const exportIn = phase(p, 0.89, 0.97);
+    sources.style.setProperty('--context-opacity', sourceIn.toFixed(3));
+    mappingStore.style.setProperty('--context-opacity', mappingStoreIn.toFixed(3));
+    exportCluster.style.setProperty('--context-opacity', exportIn.toFixed(3));
   }
 
   function requestRender() {
