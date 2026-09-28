@@ -1,0 +1,87 @@
+/* PSEUDO Y table app — reference-driven desktop refinement */
+html,body{background:#f7f8fa}
+.table-app-shell{grid-template-columns:86px minmax(0,1fr)}
+.table-app-shell .app-sidebar{padding:14px 8px 14px;background:#fff;border-right:1px solid #edf0f4;align-items:stretch}
+.table-app-shell .app-brand{height:58px;padding:0 4px 14px;display:grid;place-items:start center;overflow:hidden}
+.table-app-shell .app-brand img{width:62px;max-width:none;height:42px;object-fit:cover;object-position:left center}
+.table-app-shell .app-nav,.table-app-shell .app-sidebar-bottom{gap:12px}
+.table-app-shell .app-nav-item{min-height:66px;padding:7px 2px;border-radius:12px;display:flex;flex-direction:column;justify-content:center;gap:6px;text-align:center;font-size:10px;font-weight:650;color:#626d80}
+.table-app-shell .app-nav-item:hover{background:#f7f9fc}
+.table-app-shell .app-nav-item.is-active{background:transparent;color:#1f2d48;position:relative}
+.table-app-shell .app-nav-item.is-active::before{content:"";position:absolute;left:-8px;top:12px;bottom:12px;width:3px;border-radius:0 3px 3px 0;background:#2f6bff}
+.table-app-shell .nav-icon{width:30px;height:30px;border:0;background:#f2f4f7;border-radius:8px;color:#778194;font-size:15px}
+.table-app-shell .app-nav-item.is-active .nav-icon{background:#eef4ff;color:#2f6bff;border:0}
+.table-app-shell .nav-beta{display:none!important}
+.table-app-shell .nav-avatar{width:30px;height:30px}
+.reference-workspace{min-height:100vh}
+.reference-topbar,.reference-file-strip{display:none!important}
+.reference-grid{padding:48px 24px 28px 28px;grid-template-columns:minmax(0,1fr) 316px;gap:0;align-items:start}
+.reference-grid .table-pane{padding-right:18px;min-width:0}
+.reference-toolbar{position:sticky;top:0;z-index:8;display:grid;grid-template-columns:minmax(220px,1fr) 118px 118px 130px minmax(12px,1fr) auto auto auto auto;gap:10px;align-items:center;margin:0 0 26px;padding:12px 14px;border:1px solid #e6e9ef;border-radius:10px;background:#fff;box-shadow:0 10px 28px rgba(23,35,58,.08)}
+.reference-toolbar .search-box,.reference-toolbar .filter-btn{height:40px;border-radius:7px;border-color:#e1e5eb;background:#fff}
+.reference-toolbar .search-box{padding:0 12px}
+.reference-toolbar .search-box input{font-size:11px}
+.reference-toolbar .filter-btn{position:relative;padding:0 12px;color:#5f6a7d;font-size:9px;background:#fff}
+.reference-toolbar .filter-btn strong{display:inline;margin-left:5px;color:#1f2d48;font-size:9px;font-weight:700}
+.reference-toolbar .filter-btn--plain{display:flex;align-items:center;justify-content:center;text-align:center;font-size:9px;white-space:nowrap}
+.toolbar-chevron{position:absolute;right:10px;top:50%;transform:translateY(-50%);color:#a0a8b5;font-size:11px}
+.toolbar-spacer{min-width:0}
+.toolbar-action{height:40px;padding:0 12px;border:1px solid #e0e4ea;border-radius:7px;background:#fff;color:#4f5a6e;cursor:pointer;font-size:9px;font-weight:730;white-space:nowrap}
+.toolbar-action:hover{border-color:#c9d3e3;background:#fbfcfe}
+.toolbar-action--primary{background:#2f6bff;border-color:#2f6bff;color:#fff;box-shadow:0 8px 18px rgba(47,107,255,.18)}
+.reference-table-card{border:0;border-radius:0;background:transparent;box-shadow:none;overflow:visible}
+.reference-table-card .table-scroll{max-height:calc(100vh - 180px);overflow:auto;border:0}
+.reference-table-card table{min-width:920px;background:transparent}
+.reference-table-card th,.reference-table-card td{height:42px;padding:0 12px;border-bottom:1px solid #e5e8ed;background:transparent;font-size:10px;color:#243149}
+.reference-table-card th{height:46px;top:0;background:#f7f8fa;color:#5f697b;font-size:9px;font-weight:650;z-index:3}
+.reference-table-card th:hover{background:#f2f5f9}
+.reference-table-card th.is-selected{background:#eaf3ff!important;color:#385f9b}
+.reference-table-card td.is-selected{background:#edf5ff!important}
+.reference-table-card tbody tr:hover td{background:#f8fafc}
+.reference-table-card tbody tr:hover td.is-selected{background:#eaf3ff!important}
+.reference-table-card .th-tag{border-radius:4px;padding:2px 4px;background:transparent;color:#98a1af;font-size:7px;font-weight:650}
+.reference-table-card .col-check{width:34px}
+.reference-table-card .table-footer{margin-top:16px;min-height:46px;padding:0 14px;border:1px solid #e5e8ed;border-radius:6px;background:#fff;box-shadow:0 8px 20px rgba(23,35,58,.05);font-size:8px}
+.reference-table-card .pagination button{width:28px;height:28px;border-radius:6px}
+.reference-config{position:sticky;top:0;min-height:100vh;margin-top:-48px;border:0;border-left:1px solid #e1e5eb;border-radius:0;background:#fff;box-shadow:none;overflow:auto}
+.reference-config .config-empty{padding:28px 22px}
+.reference-config .config-head{position:sticky;top:0;z-index:4;padding:20px 18px 16px;background:#fff;border-bottom:1px solid #e8ebf0}
+.reference-config .config-head>div>span{font-size:0}
+.reference-config .config-head>div>span::after{content:"Spalte konfigurieren";font-size:14px;font-weight:650;color:#1b263d;text-transform:none;letter-spacing:-.02em}
+.reference-config .config-head h2{margin-top:8px;font-size:10px;color:#818a99;font-weight:600}
+.reference-config .icon-btn{background:transparent;font-size:18px}
+.reference-config .config-section{margin:14px 14px 0;padding:14px;border:1px solid #e1e5ea;border-radius:7px;background:#fff}
+.reference-config .config-label{margin-bottom:10px;color:#253147;font-size:11px;font-weight:700;letter-spacing:0;text-transform:none}
+.reference-config .type-grid{display:grid;grid-template-columns:1fr;gap:0}
+.reference-config .type-btn{position:relative;min-height:30px;padding:0 6px 0 28px;border:0;border-radius:0;background:transparent;color:#303a4e;text-align:left;font-size:9px;font-weight:600}
+.reference-config .type-btn::before{content:"";position:absolute;left:5px;top:50%;width:13px;height:13px;transform:translateY(-50%);border:1.5px solid #c6ccd6;border-radius:50%;background:#fff;box-sizing:border-box}
+.reference-config .type-btn.is-active{color:#1f4f8f;background:transparent}
+.reference-config .type-btn.is-active::before{border:4px solid #2f6bff}
+.reference-config .segmented{display:grid;grid-template-columns:1fr;gap:7px;padding:0;background:transparent}
+.reference-config .segmented button{min-height:34px;border:1px solid #dfe3e9;border-radius:5px;background:#fff;color:#4e596c;font-size:8px;font-weight:760;text-transform:uppercase}
+.reference-config .segmented button.is-active{background:#2f6bff;border-color:#2f6bff;color:#fff;box-shadow:0 6px 14px rgba(47,107,255,.14)}
+.reference-config .option-stack{gap:7px}
+.reference-config .option-row{min-height:44px;padding:8px 10px;border-radius:6px;background:#fff}
+.reference-config .option-row.is-active{background:#f7fbff}
+.reference-config .option-row strong{font-size:9px}
+.reference-config .option-row small{font-size:7px;line-height:1.35}
+.reference-config .role-select{height:34px;border-radius:6px;font-size:9px}
+.reference-config .preview-section{background:#fafcff}
+.reference-config .preview-row{grid-template-columns:1fr;gap:5px}
+.reference-config .preview-row b{text-align:center;transform:rotate(90deg)}
+.reference-config .preview-row span,.reference-config .preview-row strong{padding:8px;border-radius:5px;font-size:7.5px}
+.reference-config .config-footer{position:sticky;bottom:0;padding:12px 14px;background:#fff;border-top:1px solid #e8ebf0;grid-template-columns:1fr 1.1fr}
+.reference-config .config-footer button{min-height:36px;border-radius:6px;font-size:9px}
+.drop-screen{padding:0;background:#f7f8fa}
+.drop-card{min-height:100vh;border:0;border-radius:0;background:#f7f8fa}
+.drop-card>div{padding:34px 40px;border:1px dashed #cfd8e7;border-radius:18px;background:#fff;box-shadow:0 16px 44px rgba(23,35,58,.05)}
+.drop-card h2{font-size:24px}
+.drop-card p{font-size:11px}
+@media(max-width:1180px){
+  .reference-toolbar{grid-template-columns:minmax(200px,1fr) 108px 108px 120px auto auto}.toolbar-spacer,.reference-toolbar #mappingBtn,.reference-toolbar #previewBtn{display:none}
+  .reference-grid{grid-template-columns:minmax(0,1fr) 292px}.reference-config{font-size:95%}
+}
+@media(max-width:900px){
+  .table-app-shell{display:block}.table-app-shell .app-sidebar{position:static;width:100%;height:auto;min-height:62px;padding:8px 12px;border-right:0;border-bottom:1px solid #e7eaf0;display:flex;flex-direction:row;align-items:center;gap:8px}.table-app-shell .app-brand{width:70px;height:44px;padding:0;margin-right:auto;place-items:center start}.table-app-shell .app-brand img{width:62px}.table-app-shell .app-nav{display:flex;gap:4px}.table-app-shell .app-sidebar-bottom{display:none}.table-app-shell .app-nav-item{width:44px;height:44px;min-height:44px;padding:0}.table-app-shell .app-nav-item>span:not(.nav-icon){display:none}.table-app-shell .app-nav-item.is-active::before{display:none}
+  .reference-grid{padding:16px;grid-template-columns:1fr;gap:14px}.reference-grid .table-pane{padding-right:0}.reference-toolbar{position:static;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:14px}.reference-toolbar .search-box{grid-column:1/-1}.reference-toolbar .filter-btn--plain,.toolbar-spacer,.reference-toolbar #mappingBtn,.reference-toolbar #previewBtn{display:none}.reference-toolbar #newFileBtn,.reference-toolbar #exportBtn{display:block}.reference-config{position:static;min-height:0;margin-top:0;border:1px solid #e1e5eb;border-radius:12px}.reference-config .config-head{position:static}.reference-config .config-footer{position:static}.reference-table-card .table-scroll{max-height:none}
+}
