@@ -1,1 +1,114 @@
-<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#F7F5F0"><title>Tabellen pseudonymisieren · PSEUDO Y</title><link rel="stylesheet" href="css/page-shell.css?v=1"></head><body><header class="page-header"><div class="page-header-inner"><a class="page-brand" href="preview-scrollcraft.html"><img src="assets/logo/pseudo-y-wordmark.webp" alt="PSEUDO Y"></a><a class="page-back" href="preview-scrollcraft.html">← Zurück</a></div></header><main class="page-main"><section class="page-hero"><div class="eyebrow">Tool 01 · Local-first</div><h1>Tabellen <span class="blue">pseudonymisieren.</span></h1><p>CSV direkt im Browser öffnen, sensible Spalten transformieren und das Ergebnis kontrolliert exportieren.</p><div class="tier-row"><span class="tier"><strong>Ohne Konto</strong> · bis 50 Zeilen</span><span class="tier"><strong>Mit Account</strong> · bis 2.000 Zeilen</span></div></section><section class="surface" aria-label="Tabellen-Tool"><div class="surface-head"><strong id="fileStatus">Noch keine Datei geöffnet</strong><span class="tier">lokale Verarbeitung</span></div><div class="surface-body"><div class="dropzone" id="dropzone"><div><strong>Datei lokal öffnen.</strong><p>Für diesen ersten Browser-Prototyp wird CSV direkt verarbeitet. XLSX wird als nächster Parser ergänzt.</p><label class="primary-btn" for="tableFile">CSV auswählen</label><input id="tableFile" type="file" accept=".csv,text/csv" hidden><div class="mini-note">Die Datei wird für die Vorschau nicht an einen Server gesendet.</div></div></div><div id="tableWorkspace" hidden><div class="two-col"><div class="card"><h3>Vorschau</h3><div style="overflow:auto"><table id="previewTable" style="width:100%;border-collapse:collapse;font-size:13px"></table></div></div><div class="card"><h3>Spalte bearbeiten</h3><p id="activeColumnText">Klicken Sie in der Vorschau auf eine Spaltenüberschrift.</p><div class="tool-actions"><button type="button" data-transform="pseudo">Pseudonymisieren</button><button type="button" data-transform="mask">Maskieren</button><button type="button" data-transform="keep">Unverändert</button></div><button class="primary-btn" id="exportCsv" type="button" style="margin-top:20px;width:100%">CSV exportieren</button></div></div></div></div></section></main><script src="js/table-tool.js?v=1" defer></script></body></html>
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#F4F6F9">
+  <meta name="description" content="PSEUDO Y – Tabellen lokal im Browser pseudonymisieren.">
+  <title>Tabellen · PSEUDO Y</title>
+  <link rel="stylesheet" href="css/app-v2.css?v=1">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="app-sidebar" aria-label="PSEUDO Y Navigation">
+      <a class="app-brand" href="app.html"><img src="assets/logo/pseudo-y-wordmark.webp" alt="PSEUDO Y"></a>
+      <nav class="app-nav" aria-label="Werkzeuge">
+        <a class="app-nav-item is-active" href="tabellen.html"><span class="nav-icon" aria-hidden="true">▦</span><span>Tabellen</span></a>
+        <a class="app-nav-item" href="prompt.html"><span class="nav-icon" aria-hidden="true">◇</span><span>Prompt</span></a>
+        <a class="app-nav-item" href="#" aria-disabled="true"><span class="nav-icon" aria-hidden="true">✦</span><span>Prompt-Vorlage</span><span class="nav-beta">später</span></a>
+      </nav>
+      <div class="app-sidebar-bottom">
+        <a class="app-nav-item" href="app.html"><span class="nav-icon" aria-hidden="true">⌂</span><span>Start</span></a>
+        <a class="app-nav-item" href="login.html"><span class="nav-avatar" aria-hidden="true">D</span><span>Demo / Account</span></a>
+      </div>
+    </aside>
+
+    <main class="app-main">
+      <header class="app-topbar">
+        <div><div class="app-kicker">Tool 01 · Tabellen</div><h1>Daten lokal vorbereiten</h1></div>
+        <div class="topbar-actions">
+          <span class="local-pill"><span class="local-dot"></span> lokal im Browser</span>
+          <span class="plan-pill">Demo · 200 Zeilen Export</span>
+          <button class="ghost-btn" id="previewBtn" type="button">Original ansehen</button>
+          <button class="primary-btn" id="exportBtn" type="button">Exportieren</button>
+        </div>
+      </header>
+
+      <section class="drop-screen" id="dropScreen">
+        <div class="drop-card" id="dropCard">
+          <div>
+            <div class="drop-icon" aria-hidden="true">▦</div>
+            <h2>CSV lokal öffnen.</h2>
+            <p>Die Datei wird im Browser gelesen. Wähle anschließend pro Spalte, ob Werte pseudonymisiert, maskiert, generalisiert, übernommen oder entfernt werden.</p>
+            <label class="primary-btn" for="tableFile" style="display:inline-grid;place-items:center;cursor:pointer">CSV auswählen</label>
+            <input id="tableFile" type="file" accept=".csv,text/csv" hidden>
+            <div class="drop-meta"><span>CSV funktional</span><span>XLSX folgt</span><span>kein automatischer KI-Upload</span></div>
+          </div>
+        </div>
+      </section>
+
+      <div id="appWorkspace" class="hidden">
+        <section class="file-strip" aria-label="Geöffnete Datei">
+          <div class="file-info"><span class="file-icon">CSV</span><div><strong id="fileName">datei.csv</strong><small id="fileMeta">lokal geladen</small></div></div>
+          <div class="file-actions"><button class="secondary-btn" id="mappingBtn" type="button">Mapping exportieren</button><button class="secondary-btn" id="newFileBtn" type="button">Andere Datei</button></div>
+        </section>
+
+        <section class="workspace">
+          <div class="table-pane">
+            <div class="toolbar">
+              <label class="search-box"><span aria-hidden="true">⌕</span><input id="tableSearch" type="search" placeholder="Spalte oder Wert suchen" aria-label="Spalte oder Wert suchen"></label>
+              <button type="button" class="filter-btn">Status <strong>Alle</strong></button>
+              <button type="button" class="filter-btn">Typ <strong>Alle</strong></button>
+              <button type="button" class="filter-btn filter-btn--plain">Weitere Filter</button>
+            </div>
+
+            <div class="table-card">
+              <div class="table-scroll"><table><thead id="tableHead"></thead><tbody id="tableBody"></tbody></table></div>
+              <footer class="table-footer"><span id="rowCount">0 Zeilen</span><div class="table-footer-right"><span id="pageLabel">Seite 1 / 1</span><div class="pagination"><button id="prevPage" type="button" aria-label="Vorherige Seite">‹</button><button class="is-current" type="button">1</button><button id="nextPage" type="button" aria-label="Nächste Seite">›</button></div></div></footer>
+            </div>
+          </div>
+
+          <aside class="config-panel" id="configPanel" aria-label="Spalte konfigurieren">
+            <div class="config-empty" id="configEmpty"><strong>Spalte auswählen</strong>Klicke auf eine Spaltenüberschrift, um Datentyp und Transformation festzulegen.</div>
+            <div id="configContent" class="hidden">
+              <div class="config-head"><div><span>Spalte konfigurieren</span><h2 id="activeColumn">—</h2></div><button class="icon-btn" type="button" aria-label="Panel">⋯</button></div>
+
+              <div class="config-section"><label class="config-label">Datentyp</label><div class="type-grid" id="typeGrid"></div></div>
+
+              <div class="config-section">
+                <label class="config-label">Transformation</label>
+                <div class="segmented" id="transformGrid">
+                  <button type="button" data-mode="pseudo">Pseudo</button>
+                  <button type="button" data-mode="mask">Maskieren</button>
+                  <button type="button" data-mode="generalize">Clustern</button>
+                  <button type="button" data-mode="keep">Übernehmen</button>
+                  <button type="button" data-mode="remove">Entfernen</button>
+                </div>
+              </div>
+
+              <div class="config-section" id="presetStack">
+                <label class="config-label">Prinzip</label>
+                <div class="option-stack">
+                  <div class="option-row is-active"><span><strong>Deterministisch je Tabelle</strong><small>Gleicher Originalwert erhält innerhalb der Datei dasselbe Pseudonym.</small></span></div>
+                </div>
+              </div>
+
+              <div class="config-section hidden" id="roleBlock">
+                <label class="config-label" for="roleSelect">Rolle der Person · optional</label>
+                <select class="role-select" id="roleSelect">
+                  <option>Person</option><option>Kunde</option><option>Mitarbeiter</option><option>Ansprechpartner</option><option>Geschäftsführer</option><option>Controller</option><option>Lieferant</option>
+                </select>
+              </div>
+
+              <div class="config-section preview-section"><label class="config-label">Vorschau</label><div class="preview-row"><span id="previewBefore">—</span><b>→</b><strong id="previewAfter">—</strong></div></div>
+              <div class="config-footer"><button class="secondary-btn" id="resetRuleBtn" type="button">Zurücksetzen</button><button class="primary-btn" id="applyRuleBtn" type="button">Übernehmen</button></div>
+            </div>
+          </aside>
+        </section>
+      </div>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="js/table-app-v2.js?v=1" defer></script>
+</body>
+</html>
