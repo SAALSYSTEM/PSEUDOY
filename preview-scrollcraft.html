@@ -6,8 +6,8 @@
   <meta name="theme-color" content="#F7F5F0">
   <meta name="description" content="PSEUDO Y – sensible Daten lokal für KI vorbereiten.">
   <title>PSEUDO Y · ScrollCraft Preview</title>
-  <link rel="stylesheet" href="css/hero-v5.css?v=11">
-  <link rel="stylesheet" href="css/y-story-v1.css?v=2">
+  <link rel="stylesheet" href="css/hero-v5.css?v=12">
+  <link rel="stylesheet" href="css/y-story-v1.css?v=3">
 </head>
 <body>
   <header class="site-header">
@@ -79,7 +79,8 @@
           <span class="hero-line hero-line-two">
             <span class="hero-line-reserve hero-line-two-reserve" aria-hidden="true"><span>Lokal vorbereitet</span><span class="hero-break-mobile"> für KI.</span></span>
             <span class="hero-line-live hero-line-two-live">
-              <span class="hero-second-a"><span id="heroLineTwoA"></span></span><span class="hero-second-b"><span id="heroLineTwoB"></span></span><span class="hero-cursor hero-cursor-two" aria-hidden="true"></span>
+              <span class="hero-second-a"><span id="heroLineTwoA"></span><span class="hero-cursor hero-cursor-two-a" aria-hidden="true"></span></span>
+              <span class="hero-second-b"><span id="heroLineTwoB"></span><span class="hero-cursor hero-cursor-two-b" aria-hidden="true"></span></span>
             </span>
           </span>
         </h1>
@@ -97,12 +98,18 @@
         </svg>
 
         <svg class="story-flows" viewBox="0 0 500 700" aria-hidden="true">
-          <path class="flow-path flow-red" d="M82 110 C115 150 175 225 250 305" />
-          <path class="flow-path flow-map" d="M250 305 C325 245 382 174 418 110" />
-          <path class="flow-path flow-output" d="M250 305 L250 620" />
-          <path class="flow-head flow-head-red" d="M235 291 L250 305 L232 307" />
-          <path class="flow-head flow-head-map" d="M402 123 L418 110 L416 132" />
-          <path class="flow-head flow-head-output" d="M238 601 L250 620 L262 601" />
+          <defs>
+            <filter id="flowGlow" x="-30%" y="-30%" width="160%" height="160%">
+              <feGaussianBlur stdDeviation="5" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+          <path class="flow-path flow-red" d="M86 112 C128 160 190 242 247 299" />
+          <path class="flow-path flow-map" d="M255 299 C314 248 378 164 416 113" />
+          <path class="flow-path flow-output" d="M250 312 C250 400 250 510 250 614" />
+          <path class="flow-head flow-head-red" d="M229 296 L248 301 L242 282" />
+          <path class="flow-head flow-head-map" d="M398 117 L418 108 L414 129" />
+          <path class="flow-head flow-head-output" d="M239 593 L250 616 L261 593" />
         </svg>
 
         <article class="data-card original-card" data-story="original" aria-label="Sensible Daten">
@@ -121,9 +128,13 @@
         </article>
 
         <div class="source-strip story-context" aria-label="Unterstützte Dateiformate">
-          <div class="format-chip"><span class="format-mark excel">X</span><small>Excel</small></div>
-          <div class="format-chip"><span class="format-mark csv">CSV</span><small>CSV</small></div>
-          <div class="format-chip"><span class="format-mark json">{ }</span><small>JSON</small></div>
+          <div class="format-chip">
+            <span class="brand-icon-shell"><img src="https://cdn.simpleicons.org/microsoftexcel/217346" alt="" loading="lazy"></span><small>Excel</small>
+          </div>
+          <div class="format-chip"><span class="format-mark csv-file">CSV</span><small>CSV</small></div>
+          <div class="format-chip">
+            <span class="brand-icon-shell"><img src="https://cdn.simpleicons.org/json/111111" alt="" loading="lazy"></span><small>JSON</small>
+          </div>
         </div>
 
         <article class="data-card mapping-card" data-story="mapping" aria-label="Getrenntes Mapping">
@@ -142,7 +153,12 @@
         </article>
 
         <div class="mapping-store story-context" aria-label="Mapping separat gespeichert">
-          <span class="db-stack" aria-hidden="true">◉</span><span class="db-lock" aria-hidden="true">▣</span>
+          <svg class="mapping-store-icon" viewBox="0 0 52 52" aria-hidden="true">
+            <ellipse cx="23" cy="13" rx="13" ry="6"></ellipse>
+            <path d="M10 13v9c0 3.5 5.8 6.3 13 6.3 3.6 0 6.8-.7 9.2-1.9M10 22v9c0 3.5 5.8 6.3 13 6.3 2.5 0 4.9-.4 6.9-1.1"></path>
+            <rect x="29" y="29" width="15" height="13" rx="3"></rect>
+            <path d="M33 29v-3.2a3.5 3.5 0 0 1 7 0V29"></path>
+          </svg>
         </div>
 
         <article class="data-card pseudo-card" data-story="pseudo" aria-label="Pseudonymisierter Export">
@@ -163,10 +179,10 @@
         <div class="export-cluster story-context" aria-label="Mögliche Weiterverwendung nach dem Export">
           <div class="export-title">Export für</div>
           <div class="target-strip">
-            <div class="target-chip"><span class="target-mark chatgpt">◎</span><small>ChatGPT</small></div>
-            <div class="target-chip"><span class="target-mark gemini">✦</span><small>Gemini</small></div>
-            <div class="target-chip"><span class="target-mark claude">✳</span><small>Claude</small></div>
-            <div class="target-chip"><span class="target-mark grok">✕</span><small>Grok</small></div>
+            <div class="target-chip"><span class="brand-icon-shell ai-logo"><img src="https://chatgpt.com/favicon.ico" alt="ChatGPT Logo" loading="lazy"></span><small>ChatGPT</small></div>
+            <div class="target-chip"><span class="brand-icon-shell ai-logo"><img src="https://gemini.google.com/favicon.ico" alt="Gemini Logo" loading="lazy"></span><small>Gemini</small></div>
+            <div class="target-chip"><span class="brand-icon-shell ai-logo"><img src="https://claude.ai/favicon.ico" alt="Claude Logo" loading="lazy"></span><small>Claude</small></div>
+            <div class="target-chip"><span class="brand-icon-shell ai-logo"><img src="https://grok.com/favicon.ico" alt="Grok Logo" loading="lazy"></span><small>Grok</small></div>
           </div>
           <p>Sie entscheiden, was danach passiert.</p>
         </div>
@@ -174,7 +190,7 @@
     </section>
   </main>
 
-  <script src="js/hero-v5.js?v=8" defer></script>
-  <script src="js/y-story-v1.js?v=2" defer></script>
+  <script src="js/hero-v5.js?v=9" defer></script>
+  <script src="js/y-story-v1.js?v=3" defer></script>
 </body>
 </html>
