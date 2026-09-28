@@ -48,7 +48,6 @@
     const p = clamp((-rect.top) / total);
     const mobile = vw <= 700;
 
-    /* 01 — the black Y owns the stage */
     const yIn = phase(p, 0.00, 0.13);
     const finalYScale = mobile ? 0.82 : 0.90;
     const peakYScale = mobile ? 1.03 : 1.08;
@@ -56,10 +55,9 @@
     const yScale = mix(mix(0.36, peakYScale, yIn), finalYScale, ySettle);
     y.style.setProperty('--y-scale', yScale.toFixed(3));
     y.style.setProperty('--y-opacity', phase(p, 0.01, 0.07).toFixed(3));
-    y.style.setProperty('--y-dark', mix(1, 0.12, phase(p, 0.72, 0.91)).toFixed(3));
+    y.style.setProperty('--y-dark', mix(1, 0.11, phase(p, 0.72, 0.91)).toFixed(3));
     flows.style.setProperty('--y-scale', yScale.toFixed(3));
 
-    /* 02 — sensitive table appears large, then parks top-left */
     const originalIn = phase(p, 0.13, 0.25);
     const originalMove = phase(p, 0.29, 0.43);
     const originalX = mix(0, mobile ? -0.245 * vw : -0.29 * vw, originalMove);
@@ -67,14 +65,12 @@
     const originalScale = mix(0.98, mobile ? 0.52 : 0.69, originalMove);
     setCard(original, originalX, originalY, originalScale, originalIn);
 
-    /* 03 — transformed dataset is the second focus, then settles bottom-center */
     const pseudoIn = phase(p, 0.29, 0.40);
     const pseudoMove = phase(p, 0.43, 0.57);
-    const pseudoY = mix(112, mobile ? 0.235 * vh : 0.255 * vh, pseudoMove);
-    const pseudoScale = mix(0.95, mobile ? 0.72 : 0.80, pseudoMove);
+    const pseudoY = mix(112, mobile ? 0.19 * vh : 0.235 * vh, pseudoMove);
+    const pseudoScale = mix(0.96, mobile ? 0.93 : 0.86, pseudoMove);
     setCard(pseudo, 0, pseudoY, pseudoScale, pseudoIn);
 
-    /* 04 — mapping gets its own central focus, then moves top-right */
     const mappingIn = phase(p, 0.49, 0.61);
     const mappingMove = phase(p, 0.64, 0.78);
     const mappingX = mix(0, mobile ? 0.245 * vw : 0.29 * vw, mappingMove);
@@ -82,7 +78,6 @@
     const mappingScale = mix(0.98, mobile ? 0.52 : 0.69, mappingMove);
     setCard(mapping, mappingX, mappingY, mappingScale, mappingIn);
 
-    /* 05 — final directional flow: original -> Y, Y -> output, Y -> mapping */
     const redDraw = phase(p, 0.72, 0.82);
     const outDraw = phase(p, 0.77, 0.87);
     const mapDraw = phase(p, 0.81, 0.91);
@@ -91,9 +86,8 @@
     drawPath(flowRed, redDraw);
     drawPath(flowOutput, outDraw, 520);
     drawPath(flowMap, mapDraw);
-    flows.style.setProperty('--heads-opacity', phase(p, 0.84, 0.93).toFixed(3));
+    flows.style.setProperty('--heads-opacity', phase(p, 0.86, 0.93).toFixed(3));
 
-    /* 06 — context only after the diagram is understood */
     const sourceIn = phase(p, 0.82, 0.91);
     const mappingStoreIn = phase(p, 0.84, 0.92);
     const exportIn = phase(p, 0.89, 0.97);
