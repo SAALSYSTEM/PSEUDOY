@@ -18,6 +18,14 @@
     document.head.appendChild(link);
   }
 
+  if (!document.querySelector('link[data-landing-final]')) {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'css/landing-final.css?v=1';
+    link.dataset.landingFinal = '';
+    document.head.appendChild(link);
+  }
+
   /* Product chapter = one static table mockup + one CTA. */
   section.classList.add('product-preview--mockup');
   section.removeAttribute('data-product-preview');
@@ -232,6 +240,70 @@
             <a href="preise.html">Alle Tarifdetails →</a>
           </div>
         </div>
-      </section>`);
+      </section>
+
+      <section class="faq-chapter" aria-labelledby="faqTitle">
+        <div class="faq-inner">
+          <div class="faq-head">
+            <div><div class="section-kicker">FAQ</div><h2 id="faqTitle">Die Fragen vor dem <em>ersten Einsatz.</em></h2></div>
+            <p>Datenfluss, Mapping und Limits klar erklärt – ohne aus Pseudonymisierung ein Sicherheitsversprechen zu machen.</p>
+          </div>
+          <div class="faq-list">
+            <article class="faq-item is-open"><button class="faq-question" type="button" aria-expanded="true"><strong>Werden meine Tabellen automatisch an eine KI gesendet?</strong><span class="faq-plus">+</span></button><div class="faq-answer"><div><p>Nein. PSEUDO Y bereitet die Daten im Browser vor. Erst nach Vorschau und Export entscheidest du selbst, ob und wo du die aufbereiteten Daten anschließend verwendest.</p></div></div></article>
+            <article class="faq-item"><button class="faq-question" type="button" aria-expanded="false"><strong>Ist Pseudonymisierung dasselbe wie Anonymisierung?</strong><span class="faq-plus">+</span></button><div class="faq-answer"><div><p>Nein. Bei einer Pseudonymisierung kann über zusätzliche Informationen wie ein Mapping grundsätzlich wieder ein Bezug hergestellt werden. Deshalb behandelt PSEUDO Y das Mapping als separaten, sensiblen Bereich.</p></div></div></article>
+            <article class="faq-item"><button class="faq-question" type="button" aria-expanded="false"><strong>Was passiert mit dem Mapping?</strong><span class="faq-plus">+</span></button><div class="faq-answer"><div><p>Das Mapping gehört nicht in den Datensatz, den du an ein externes Analyse- oder KI-System weitergibst. Es bleibt getrennt und soll nur dort genutzt oder gespeichert werden, wo du es bewusst benötigst.</p></div></div></article>
+            <article class="faq-item"><button class="faq-question" type="button" aria-expanded="false"><strong>Warum gibt es unterschiedliche Zeilen- und Nutzungslimits?</strong><span class="faq-plus">+</span></button><div class="faq-answer"><div><p>Demo und Free machen den Workflow realistisch testbar. Pro richtet sich an einzelne regelmäßige Nutzer, Team an größere Tabellen und höheres Nutzungsvolumen. Enterprise deckt individuelle Infrastruktur, API und Automationen ab.</p></div></div></article>
+            <article class="faq-item"><button class="faq-question" type="button" aria-expanded="false"><strong>Kann ich im Team-Tarif immer 100.000 Zeilen verarbeiten?</strong><span class="faq-plus">+</span></button><div class="faq-answer"><div><p>Der Tarif ist für bis zu 100.000 Zeilen je Tabelle vorgesehen. Da die Verarbeitung lokal im Browser erfolgt, können Dateiaufbau, Arbeitsspeicher, Browser und Endgerät die praktische Performance beeinflussen.</p></div></div></article>
+            <article class="faq-item"><button class="faq-question" type="button" aria-expanded="false"><strong>Was bringt Enterprise zusätzlich?</strong><span class="faq-plus">+</span></button><div class="faq-answer"><div><p>Enterprise ist für Unternehmen gedacht, die PSEUDO Y in eigener Infrastruktur betreiben, per API anbinden oder wiederkehrende Prozesse automatisieren möchten. Umfang und Limits werden dafür individuell abgestimmt.</p></div></div></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="final-cta" aria-labelledby="finalCtaTitle">
+        <div class="final-cta-inner">
+          <div>
+            <div class="section-kicker">Jetzt ausprobieren</div>
+            <h2 id="finalCtaTitle">Nimm eine Tabelle.<br><em>Sieh dir den Unterschied an.</em></h2>
+            <p>Die Demo funktioniert ohne Account mit bis zu 200 Zeilen je Export. Für mehr Volumen kannst du anschließend kostenlos einen Account anlegen.</p>
+          </div>
+          <div class="final-actions">
+            <a class="final-primary" href="app.html">Demo starten <span>→</span></a>
+            <a class="final-secondary" href="signup.html">Free Account <span>→</span></a>
+            <small>Keine automatische Weitergabe an einen KI-Dienst.</small>
+          </div>
+        </div>
+      </section>
+
+      <section class="resource-strip" aria-labelledby="resourceTitle">
+        <div class="resource-inner">
+          <div class="resource-head"><h2 id="resourceTitle">Mehr zu PSEUDO Y</h2><a href="blog.html">Alle Ressourcen →</a></div>
+          <div class="resource-grid">
+            <a class="resource-card" href="security.html"><span>Datenfluss</span><strong>Was lokal bleibt – und was du selbst exportierst.</strong><small>Der technische Datenfluss und die Trennung des Mappings.</small></a>
+            <a class="resource-card" href="docs.html"><span>Docs</span><strong>Transformationen verständlich dokumentiert.</strong><small>Pseudonymisieren, maskieren, generalisieren und skalieren.</small></a>
+            <a class="resource-card" href="blog.html"><span>Praxis</span><strong>KI mit Finance-Daten kontrollierter nutzen.</strong><small>Beispiele und Arbeitsweisen für Controlling und Finance.</small></a>
+          </div>
+        </div>
+      </section>
+
+      <footer class="site-footer-final">
+        <div class="footer-final-inner">
+          <div class="footer-final-top">
+            <div><div class="footer-brand">P|Y&nbsp;&nbsp;PSEUDO Y</div><div class="footer-brand-copy">Die lokale Schutzschicht zwischen Tabellen, Prompts und der KI-Nutzung, die du selbst kontrollierst.</div></div>
+            <div class="footer-col"><strong>Produkt</strong><a href="app.html">PSEUDO Y starten</a><a href="tabellen.html">Tabellen</a><a href="prompt.html">Prompt</a><a href="preise.html">Preise</a></div>
+            <div class="footer-col"><strong>Wissen</strong><a href="security.html">Datenfluss &amp; Sicherheit</a><a href="docs.html">Docs</a><a href="blog.html">Blog</a></div>
+            <div class="footer-col"><strong>Account</strong><a href="login.html">Login</a><a href="signup.html">Sign up</a><a href="preise.html#kontakt">Kontakt</a></div>
+          </div>
+          <div class="footer-final-bottom"><span>© 2026 PSEUDO Y</span><div><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></div></div>
+        </div>
+      </footer>`);
   }
+
+  document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', () => {
+      const item = button.closest('.faq-item');
+      if (!item) return;
+      const open = item.classList.toggle('is-open');
+      button.setAttribute('aria-expanded', String(open));
+    });
+  });
 })();
