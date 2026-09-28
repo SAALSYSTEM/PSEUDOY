@@ -1,0 +1,61 @@
+/* Final visual polish for the ScrollCraft preview */
+
+/* Keep the Y elegant in the final composition. */
+.story-y .y-base{stroke-width:64 !important;filter:drop-shadow(0 10px 22px rgb(13 21 48 / .035)) !important}
+.story-flows .flow-path{stroke-width:7.5 !important;filter:drop-shadow(0 0 9px rgb(47 107 255 / .13)) !important}
+.story-flows .flow-head{display:none !important}
+
+/* The transformed output is the main final card: give it enough room for the full e-mail values. */
+.pseudo-card{width:min(97vw,780px) !important}
+.pseudo-card .mini-row{grid-template-columns:.90fr 1.66fr 1fr .58fr !important}
+.pseudo-card .mini-row span{overflow:visible;text-overflow:clip}
+
+/* Crisp, self-contained format marks — no fragile remote icon dependency. */
+.format-mark-local,.brand-fallback{display:grid;place-items:center;width:40px;height:40px;border-radius:11px;border:1px solid #E5EAF4;background:#fff;overflow:hidden}
+.format-mark-local svg{display:block;width:27px;height:27px}
+.format-mark-local.excel-local{background:#E8F5ED;color:#107C41}
+.format-mark-local.json-local{background:#EEF1FF;color:#5146D8;font-weight:900;font-size:17px;letter-spacing:-.08em}
+.format-mark-local.csv-local{background:#E7F7EE;color:#087A3E;font-size:10px;font-weight:900;letter-spacing:.03em}
+
+/* Provider marks use the official site favicons when available, with a deliberate fallback underneath. */
+.ai-logo-final{position:relative;width:42px;height:42px;border-radius:12px;background:#fff;border:1px solid #E5EAF4;overflow:hidden;display:grid;place-items:center}
+.ai-logo-final img{position:absolute;inset:7px;width:28px;height:28px;object-fit:contain;z-index:2}
+.ai-logo-final .brand-fallback{position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:inherit;font-size:20px;font-weight:800;z-index:1}
+.brand-fallback.chatgpt-fallback{color:#111;background:#fff;font-size:17px}
+.brand-fallback.gemini-fallback{color:#4285F4;background:#fff;font-size:20px}
+.brand-fallback.claude-fallback{color:#D97757;background:#fff;font-size:22px}
+.brand-fallback.grok-fallback{color:#111;background:#fff;font-size:20px}
+
+/* Give the final cluster a little more breathing room. */
+.export-cluster{bottom:1.9% !important;width:min(92vw,580px) !important}
+.target-strip{padding:7px 8px !important}
+.export-title{margin-bottom:1px}
+
+/* Header/card details: softer and slightly more premium. */
+.data-card-head{background:rgba(255,255,255,.965) !important}
+.data-card::after{box-shadow:0 18px 48px rgb(13 21 48 / .065) !important}
+.source-strip,.target-strip{box-shadow:0 12px 30px rgb(13 21 48 / .055) !important}
+
+@media (max-width:700px){
+  .story-y .y-base{stroke-width:66 !important}
+  .story-flows .flow-path{stroke-width:6.5 !important}
+  .pseudo-card{width:97vw !important}
+  .pseudo-card .mini-row{grid-template-columns:.88fr 1.72fr 1fr .56fr !important;font-size:8.8px !important}
+  .pseudo-card .mini-row span:nth-child(2){font-size:.84em !important;letter-spacing:-.025em}
+  .format-mark-local{width:31px;height:31px;border-radius:8px}
+  .format-mark-local svg{width:21px;height:21px}
+  .format-mark-local.json-local{font-size:14px}
+  .format-mark-local.csv-local{font-size:8px}
+  .ai-logo-final{width:32px;height:32px;border-radius:8px}
+  .ai-logo-final img{inset:5px;width:22px;height:22px}
+  .ai-logo-final .brand-fallback{font-size:16px}
+  .export-cluster{bottom:1.55% !important;width:88vw !important}
+}
+
+/* Hero cursor: never leave a stray bar beneath the active blue line. */
+.hero-cursor{position:relative}
+.hero.typing-complete .hero-cursor{display:none !important}
+.hero-cursor-two-a,.hero-cursor-two-b{display:none}
+.hero.typing-line-two-a .hero-cursor-two-a{display:inline-block}
+.hero.typing-line-two-b .hero-cursor-two-b{display:inline-block}
+.hero.typing-complete .hero-cursor-two-a,.hero.typing-complete .hero-cursor-two-b{display:none !important}
