@@ -1,0 +1,125 @@
+/* V20 — mobile polish for the complete landing page */
+@media (max-width:700px){
+  html,body{overflow-x:hidden}
+  body{background:#F7F5F0}
+
+  /* Header / hero */
+  .site-header{padding:10px 10px 0}
+  .header-inner{min-height:58px;padding:0 14px;border-radius:18px}
+  .brand-wordmark{max-width:142px}
+  .menu-button{width:42px;height:42px}
+  .hero{min-height:100dvh;padding-left:14px;padding-right:14px}
+  .hero-copy{width:100%;max-width:none}
+  .hero h1{font-size:clamp(48px,13vw,68px);line-height:.93;letter-spacing:-.055em}
+  .particle-arrow-wrap{width:min(72vw,300px);height:min(72vw,300px);bottom:5vh}
+
+  /* Signature Y story */
+  .y-story{min-height:auto}
+  .y-stage{min-height:930px;padding-inline:8px}
+  .original-card,.mapping-card,.pseudo-card{max-width:calc(100vw - 28px)}
+  .data-card{border-radius:20px}
+  .data-card-head{padding:14px 14px 11px}
+  .data-card-head h2{font-size:13px}
+  .mini-row{font-size:8.5px}
+  .source-strip,.target-strip{gap:7px}
+  .format-chip,.target-chip{min-width:54px}
+  .export-cluster{width:calc(100vw - 28px);max-width:350px}
+
+  /* Product mockup */
+  .product-preview.product-preview--mockup{padding:72px 10px 82px}
+  .product-preview--mockup .product-preview-inner{width:100%}
+  .product-preview--mockup .product-shell{border-radius:20px;box-shadow:0 20px 50px rgba(13,21,48,.08)}
+  .product-preview--mockup .product-windowbar{min-height:54px;padding-inline:11px}
+  .product-preview--mockup .product-file-icon{width:34px;height:34px;font-size:8px}
+  .product-preview--mockup .product-file-copy strong{font-size:11px}
+  .product-preview--mockup .product-file-copy small{font-size:8px}
+  .product-preview--mockup .product-canvas{padding:10px 7px 12px}
+  .product-preview--mockup .demo-table{border-radius:14px;overflow:hidden}
+  .product-preview--mockup .demo-row{min-height:38px;padding-inline:8px;grid-template-columns:1fr 1.45fr .72fr!important;font-size:8.5px}
+  .product-preview--mockup .demo-head{font-size:8px}
+  .product-preview--mockup .demo-footer{min-height:38px;padding:0 8px;font-size:8px}
+  .mockup-cta-wrap{margin-top:24px}
+  .mockup-cta{width:100%;max-width:320px;min-height:52px;padding:0 22px;font-size:13px}
+
+  /* Shared chapter rhythm */
+  .trust-chapter,.usecases,.pricing-chapter,.faq-chapter,.resources-chapter{padding-top:82px!important;padding-bottom:82px!important;padding-left:14px!important;padding-right:14px!important}
+  .trust-inner,.usecases-inner,.pricing-inner,.faq-inner,.resources-inner{width:100%}
+  .section-kicker{font-size:9px;letter-spacing:.14em;margin-bottom:14px}
+  .trust-copy h2,.usecases-head h2,.pricing-head h2,.faq-head h2,.resources-head h2{font-size:clamp(42px,12.2vw,58px)!important;line-height:.96!important;letter-spacing:-.05em!important}
+  .trust-copy>p,.usecases-intro,.pricing-head>p,.faq-head>p,.resources-head>p{font-size:13.5px!important;line-height:1.62!important}
+
+  /* Trust */
+  .trust-inner{gap:38px}
+  .trust-points{grid-template-columns:1fr;gap:8px;margin-top:26px}
+  .trust-point{padding:14px;border-radius:14px;font-size:11.5px}
+  .local-flow{min-height:auto;padding:20px 14px;border-radius:22px;gap:18px}
+  .local-flow-main{grid-template-columns:1fr;gap:7px}
+  .local-node{min-height:82px;padding:15px 12px;border-radius:16px}
+  .local-node strong{font-size:14px}.local-node small{font-size:9px}
+  .local-arrow{height:20px;transform:rotate(90deg);font-size:18px}
+  .local-branch{width:88%;padding-top:28px;margin-top:2px}
+  .local-branch-card{padding:13px 14px;border-radius:14px;font-size:10px}
+
+  /* Use cases */
+  .usecases-head{grid-template-columns:1fr;gap:20px;margin-bottom:28px}
+  .usecase-grid{grid-template-columns:1fr;gap:9px}
+  .usecase-card{min-height:0;padding:20px;border-radius:18px}
+  .usecase-num{width:30px;height:30px;border-radius:9px;font-size:10px}
+  .usecase-card h3{margin:18px 0 8px;font-size:21px}
+  .usecase-card p{font-size:12px;line-height:1.58}
+  .usecase-example{gap:6px;margin-top:18px;padding-top:15px;font-size:9px}
+  .usecase-example span{padding:6px 8px}
+
+  /* Pricing */
+  .pricing-head{grid-template-columns:1fr;gap:20px;margin-bottom:30px}
+  .pricing-starter-grid,.pricing-paid-grid{grid-template-columns:1fr!important;gap:10px!important}
+  .price-card,.price-card--starter,.price-card--paid,.price-card--enterprise{min-height:0!important;padding:20px;border-radius:20px}
+  .price-card-top{gap:10px}
+  .price-card h3{font-size:19px}
+  .price-badge{font-size:8px;padding:6px 8px}
+  .price-main{margin-top:28px}
+  .price-main strong{font-size:44px}.price-main--text strong{font-size:35px}
+  .price-alt{min-height:0;margin-top:10px;font-size:10px}
+  .price-rule{margin:20px 0 17px}
+  .price-matrix{grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}
+  .price-metric{padding:11px;border-radius:12px}
+  .price-metric small{font-size:8px}.price-metric strong{font-size:11.5px}
+  .price-lines{gap:8px;font-size:11px}
+  .price-cta{min-height:48px;margin-top:22px}
+  .price-note{font-size:8px}
+  .pricing-foot{align-items:flex-start;flex-direction:column;gap:7px;font-size:9px}
+
+  /* FAQ */
+  .faq-head{grid-template-columns:1fr!important;gap:18px!important;margin-bottom:28px!important}
+  .faq-list{gap:8px!important}
+  .faq-item{border-radius:16px!important}
+  .faq-item summary{padding:16px 17px!important;font-size:13px!important;line-height:1.35!important}
+  .faq-item p{padding:0 17px 16px!important;font-size:11.5px!important;line-height:1.6!important}
+
+  /* Final CTA */
+  .final-cta{padding:86px 14px!important}
+  .final-cta-inner{padding:30px 20px!important;border-radius:24px!important}
+  .final-cta h2{font-size:clamp(44px,12.5vw,60px)!important;line-height:.96!important}
+  .final-cta p{font-size:13px!important;line-height:1.6!important}
+  .final-cta-actions{display:grid!important;grid-template-columns:1fr!important;gap:9px!important;width:100%!important}
+  .final-cta-actions a{width:100%!important;min-height:50px!important}
+
+  /* Resources + footer */
+  .resources-head{grid-template-columns:1fr!important;gap:18px!important;margin-bottom:28px!important}
+  .resource-grid{grid-template-columns:1fr!important;gap:9px!important}
+  .resource-card{padding:20px!important;border-radius:18px!important;min-height:0!important}
+  .site-footer{padding:54px 14px 28px!important}
+  .footer-inner{grid-template-columns:1fr!important;gap:28px!important}
+  .footer-groups{grid-template-columns:1fr 1fr!important;gap:24px 16px!important}
+  .footer-bottom{align-items:flex-start!important;flex-direction:column!important;gap:10px!important}
+
+  /* Comfortable tap targets */
+  a,button,summary{touch-action:manipulation}
+}
+
+@media (max-width:390px){
+  .hero h1{font-size:clamp(44px,12vw,56px)}
+  .price-matrix{grid-template-columns:1fr}
+  .footer-groups{grid-template-columns:1fr}
+  .trust-copy h2,.usecases-head h2,.pricing-head h2,.faq-head h2,.resources-head h2{font-size:clamp(39px,11.7vw,52px)!important}
+}
