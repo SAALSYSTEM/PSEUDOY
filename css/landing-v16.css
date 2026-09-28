@@ -28,9 +28,9 @@
 .trust-inner{width:min(1160px,100%);margin:0 auto;display:grid;grid-template-columns:minmax(0,.9fr) minmax(430px,1.1fr);gap:clamp(56px,8vw,110px);align-items:center}
 .section-kicker{display:inline-flex;align-items:center;gap:10px;margin-bottom:18px;color:#6F7788;font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:800}
 .section-kicker::before{content:"";width:24px;height:1px;background:#2F6BFF}
-.trust-copy h2,.usecases-head h2{margin:0;font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Georgia,serif;font-weight:400;color:#0D1530;letter-spacing:-.055em}
+.trust-copy h2,.usecases-head h2,.pricing-head h2{margin:0;font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Georgia,serif;font-weight:400;color:#0D1530;letter-spacing:-.055em}
 .trust-copy h2{max-width:690px;font-size:clamp(52px,6.6vw,82px);line-height:.94}
-.trust-copy h2 em,.usecases-head h2 em{font-style:normal;color:#2F6BFF}
+.trust-copy h2 em,.usecases-head h2 em,.pricing-head h2 em{font-style:normal;color:#2F6BFF}
 .trust-copy>p{max-width:54ch;margin:28px 0 0;color:#626B7D;font-size:16px;line-height:1.72}
 .trust-points{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:34px}
 .trust-point{padding:15px 16px;border:1px solid #E3DFD7;border-radius:16px;background:rgba(255,255,255,.55);color:#4F586B;font-size:12px;line-height:1.42}
@@ -66,10 +66,35 @@
 .usecase-example .usecase-arrow{padding:0;border:0;background:none;color:#2F6BFF;font-size:15px;font-weight:900}
 .usecase-card.is-prompt{background:#F8FAFF;border-color:#DDE8FD}
 
+/* Pricing: premium, restrained, no generic SaaS comparison table. */
+.pricing-chapter{padding:clamp(110px,12vw,170px) 18px;background:#F7F5F0;border-top:1px solid #ECE8E0}
+.pricing-inner{width:min(1160px,100%);margin:0 auto}
+.pricing-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.58fr);gap:64px;align-items:end;margin-bottom:58px}
+.pricing-head h2{font-size:clamp(52px,6.4vw,82px);line-height:.95;max-width:850px}
+.pricing-head>p{margin:0 0 6px;color:#687184;font-size:15px;line-height:1.7;max-width:44ch}
+.pricing-grid{display:grid;grid-template-columns:1.08fr .96fr .96fr;gap:14px;align-items:stretch}
+.price-card{position:relative;min-height:520px;padding:28px;border:1px solid #E0DDD7;border-radius:26px;background:#FFFDFC;display:flex;flex-direction:column;box-shadow:0 18px 46px rgba(13,21,48,.035)}
+.price-card--pro{background:#fff;border-color:#C8D9FB;box-shadow:0 24px 62px rgba(47,107,255,.10)}
+.price-card--pro::before{content:"";position:absolute;inset:-1px;border-radius:26px;border:1px solid rgba(47,107,255,.20);pointer-events:none}
+.price-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+.price-eyebrow{display:block;margin-bottom:9px;color:#2F6BFF;font-size:10px;font-weight:850;letter-spacing:.14em}
+.price-card h3{margin:0;color:#111A31;font-size:21px;letter-spacing:-.035em}
+.price-badge{flex:none;padding:7px 9px;border:1px solid #DFE4EC;border-radius:999px;background:#fff;color:#70798B;font-size:9px;font-weight:760}
+.price-main{display:flex;align-items:flex-end;gap:8px;margin-top:44px;color:#0D1530}.price-main strong{font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Georgia,serif;font-size:50px;line-height:.9;font-weight:400;letter-spacing:-.055em}.price-main span{padding-bottom:5px;color:#737C8D;font-size:12px}.price-main--text strong{font-size:42px}
+.price-alt{min-height:38px;margin-top:12px;color:#737C8D;font-size:11px;line-height:1.5}.price-alt strong{color:#424B5F}
+.price-rule{height:1px;margin:26px 0 22px;background:#E7E4DE}
+.price-lines{display:grid;gap:11px;color:#535D70;font-size:12px;line-height:1.45}.price-lines span{position:relative;padding-left:18px}.price-lines span::before{content:"✓";position:absolute;left:0;top:0;color:#2F6BFF;font-weight:900}
+.price-cta{display:flex;align-items:center;justify-content:space-between;min-height:50px;margin-top:auto;padding:0 16px;border:1px solid #DDE1E8;border-radius:14px;background:#fff;color:#111A31;text-decoration:none;font-size:12px;font-weight:780;transition:transform .2s ease,border-color .2s ease}.price-cta:hover{transform:translateY(-2px);border-color:#BFCBE1}.price-cta span{font-size:17px;color:#2F6BFF}.price-cta--primary{background:#2F6BFF;color:#fff;border-color:#2F6BFF;box-shadow:0 13px 28px rgba(47,107,255,.16)}.price-cta--primary span{color:#fff}
+.pricing-foot{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:22px;color:#7D8595;font-size:10px}.pricing-foot a{color:#26324C;text-decoration:none;font-weight:760}
+
+@media (max-width:980px){
+  .pricing-grid{grid-template-columns:1fr 1fr}.price-card--enterprise{grid-column:1/-1;min-height:auto}
+}
+
 @media (max-width:900px){
   .trust-inner{grid-template-columns:1fr;gap:48px}
   .local-flow{min-height:440px}
-  .usecases-head{grid-template-columns:1fr;gap:24px}
+  .usecases-head,.pricing-head{grid-template-columns:1fr;gap:24px}
 }
 
 @media (max-width:700px){
@@ -95,17 +120,18 @@
   .product-preview--mockup .demo-footer{justify-content:space-between}.product-preview--mockup .demo-footer>span:nth-child(2){display:none}
   .mockup-cta-wrap{margin-top:27px}.mockup-cta{min-height:51px;padding:0 22px}
 
-  .trust-chapter,.usecases{padding-left:14px;padding-right:14px}
-  .trust-copy h2,.usecases-head h2{font-size:clamp(46px,13vw,62px)}
+  .trust-chapter,.usecases,.pricing-chapter{padding-left:14px;padding-right:14px}
+  .trust-copy h2,.usecases-head h2,.pricing-head h2{font-size:clamp(46px,13vw,62px)}
   .trust-copy>p{font-size:14px}
   .trust-points{grid-template-columns:1fr;gap:8px}
   .local-flow{min-height:auto;padding:25px 16px;border-radius:24px}
   .local-flow-main{grid-template-columns:1fr;gap:9px}
   .local-node{min-height:92px;border-radius:18px}.local-arrow{transform:rotate(90deg);height:24px}
   .local-branch{padding-top:32px;margin-top:5px}.local-branch::before{height:23px}.local-branch::after{top:22px}
-  .usecases-head{margin-bottom:34px}.usecases-intro{font-size:14px}
+  .usecases-head,.pricing-head{margin-bottom:34px}.usecases-intro,.pricing-head>p{font-size:14px}
   .usecase-grid{grid-template-columns:1fr;gap:10px}
   .usecase-card{min-height:0;padding:22px;border-radius:20px}.usecase-card h3{font-size:22px;margin-top:20px}.usecase-example{margin-top:22px}
+  .pricing-grid{grid-template-columns:1fr;gap:10px}.price-card,.price-card--enterprise{grid-column:auto;min-height:auto;padding:23px;border-radius:21px}.price-card--pro::before{border-radius:21px}.price-main{margin-top:34px}.price-main strong{font-size:46px}.price-lines{margin-bottom:28px}.pricing-foot{align-items:flex-start;flex-direction:column;gap:8px}
 }
 
-@media (prefers-reduced-motion:reduce){.mockup-cta,.usecase-card{transition:none}}
+@media (prefers-reduced-motion:reduce){.mockup-cta,.usecase-card,.price-cta{transition:none}}
