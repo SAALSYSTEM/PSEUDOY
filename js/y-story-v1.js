@@ -67,8 +67,11 @@
 
     const pseudoIn = phase(p, 0.29, 0.40);
     const pseudoMove = phase(p, 0.43, 0.57);
-    const pseudoY = mix(112, mobile ? 0.19 * vh : 0.235 * vh, pseudoMove);
-    const pseudoScale = mix(0.96, mobile ? 0.93 : 0.86, pseudoMove);
+    const pseudoSettle = phase(p, 0.73, 0.90);
+    const pseudoYFocus = mix(112, mobile ? 0.19 * vh : 0.235 * vh, pseudoMove);
+    const pseudoY = mix(pseudoYFocus, mobile ? 0.235 * vh : 0.255 * vh, pseudoSettle);
+    const pseudoFocusScale = mix(0.96, mobile ? 0.93 : 0.86, pseudoMove);
+    const pseudoScale = mix(pseudoFocusScale, mobile ? 0.72 : 0.76, pseudoSettle);
     setCard(pseudo, 0, pseudoY, pseudoScale, pseudoIn);
 
     const mappingIn = phase(p, 0.49, 0.61);
