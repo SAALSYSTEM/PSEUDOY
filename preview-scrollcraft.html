@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#F7F5F0">
   <meta name="description" content="PSEUDO Y – sensible Daten lokal für KI vorbereiten.">
-  <title>PSEUDO Y · Hero Preview</title>
-  <link rel="stylesheet" href="css/hero-v5.css?v=10">
-  <link rel="stylesheet" href="css/y-story-v1.css?v=1">
+  <title>PSEUDO Y · ScrollCraft Preview</title>
+  <link rel="stylesheet" href="css/hero-v5.css?v=11">
+  <link rel="stylesheet" href="css/y-story-v1.css?v=2">
 </head>
 <body>
   <header class="site-header">
@@ -90,57 +90,91 @@
       </div>
     </section>
 
-    <section class="y-story" id="yStory" aria-label="So trennt PSEUDO Y Originalwerte, Pseudonyme und Mapping">
+    <section class="y-story" id="yStory" aria-label="Vom sensiblen Datensatz zum kontrollierten Export">
       <div class="y-stage">
         <svg class="story-y" viewBox="0 0 500 700" aria-hidden="true">
-          <path d="M82 110 L250 305 L418 110 M250 305 L250 620" />
+          <path class="y-base" d="M82 110 L250 305 L418 110 M250 305 L250 620" />
         </svg>
 
-        <div class="story-card story-original" data-story="original">
-          <div class="story-label story-label-red">SENSIBLE DATEN</div>
-          <div class="story-card-surface">
-            <div class="story-kicker">Kundenname</div>
-            <div class="story-value">Baufirma ABC GmbH</div>
+        <svg class="story-flows" viewBox="0 0 500 700" aria-hidden="true">
+          <path class="flow-path flow-red" d="M82 110 C115 150 175 225 250 305" />
+          <path class="flow-path flow-map" d="M250 305 C325 245 382 174 418 110" />
+          <path class="flow-path flow-output" d="M250 305 L250 620" />
+          <path class="flow-head flow-head-red" d="M235 291 L250 305 L232 307" />
+          <path class="flow-head flow-head-map" d="M402 123 L418 110 L416 132" />
+          <path class="flow-head flow-head-output" d="M238 601 L250 620 L262 601" />
+        </svg>
+
+        <article class="data-card original-card" data-story="original" aria-label="Sensible Daten">
+          <header class="data-card-head">
+            <span class="data-icon data-icon-red" aria-hidden="true">▣</span>
+            <h2>Sensible Daten</h2>
+          </header>
+          <div class="mini-table" role="table" aria-label="Beispiel sensible Daten">
+            <div class="mini-row mini-row-head" role="row"><span>Name</span><span>E-Mail</span><span>Geburtsdatum</span><span>Umsatz</span></div>
+            <div class="mini-row" role="row"><span>Anna Müller</span><span>anna@mail.de</span><span class="sensitive">03.06.1990</span><span class="sensitive">10.000 €</span></div>
+            <div class="mini-row" role="row"><span>Max Schmidt</span><span>max@web.de</span><span class="sensitive">12.11.1985</span><span class="sensitive">25.450 €</span></div>
+            <div class="mini-row" role="row"><span>Lisa Wagner</span><span>lisa@company.de</span><span class="sensitive">28.02.1992</span><span class="sensitive">7.500 €</span></div>
+            <div class="mini-row" role="row"><span>Jonas Becker</span><span>jonas@mail.de</span><span class="sensitive">17.09.1978</span><span class="sensitive">18.300 €</span></div>
+            <div class="mini-row" role="row"><span>Emma Hoffmann</span><span>emma@web.de</span><span class="sensitive">04.12.1995</span><span class="sensitive">12.000 €</span></div>
           </div>
+        </article>
+
+        <div class="source-strip story-context" aria-label="Unterstützte Dateiformate">
+          <div class="format-chip"><span class="format-mark excel">X</span><small>Excel</small></div>
+          <div class="format-chip"><span class="format-mark csv">CSV</span><small>CSV</small></div>
+          <div class="format-chip"><span class="format-mark json">{ }</span><small>JSON</small></div>
         </div>
 
-        <div class="story-flow story-flow-transform" aria-hidden="true">
-          <span class="flow-arrow">↓</span>
-          <span class="flow-caption">Pseudonymisierung</span>
-          <span class="flow-arrow">↓</span>
-        </div>
-
-        <div class="story-card story-pseudo" data-story="pseudo">
-          <div class="story-label story-label-blue">PSEUDONYMISIERT</div>
-          <div class="story-card-surface">
-            <div class="story-kicker">Kundenname</div>
-            <div class="story-value">KUNDE_Y_001</div>
+        <article class="data-card mapping-card" data-story="mapping" aria-label="Getrenntes Mapping">
+          <header class="data-card-head">
+            <span class="data-icon data-icon-blue" aria-hidden="true">▣</span>
+            <h2>Mapping <small>(getrennt gespeichert)</small></h2>
+          </header>
+          <div class="mini-table mapping-table" role="table" aria-label="Mapping Originalwert zu Pseudowert">
+            <div class="mini-row mini-row-head mapping-row" role="row"><span>Originalwert</span><span>Pseudowert</span></div>
+            <div class="mini-row mapping-row" role="row"><span>Anna Müller</span><span>Kunde_001Y</span></div>
+            <div class="mini-row mapping-row" role="row"><span>anna@mail.de</span><span>Mail_001Y@example.invalid</span></div>
+            <div class="mini-row mapping-row" role="row"><span>03.06.1990</span><span>30–39 Jahre</span></div>
+            <div class="mini-row mapping-row" role="row"><span>10.000 €</span><span>20,0</span></div>
+            <div class="mini-row mapping-row" role="row"><span>…</span><span>…</span></div>
           </div>
+        </article>
+
+        <div class="mapping-store story-context" aria-label="Mapping separat gespeichert">
+          <span class="db-stack" aria-hidden="true">◉</span><span class="db-lock" aria-hidden="true">▣</span>
         </div>
 
-        <div class="story-card story-mapping" data-story="mapping">
-          <div class="story-label">MAPPING · VERSCHLÜSSELT</div>
-          <div class="story-card-surface mapping-surface">
-            <div class="mapping-row"><span>Baufirma ABC GmbH</span><b>↔</b><span>KUNDE_Y_001</span></div>
-            <div class="mapping-note">getrennt gespeichert</div>
+        <article class="data-card pseudo-card" data-story="pseudo" aria-label="Pseudonymisierter Export">
+          <header class="data-card-head">
+            <span class="data-icon data-icon-blue" aria-hidden="true">✦</span>
+            <h2>Pseudonymisierte Daten</h2>
+          </header>
+          <div class="mini-table" role="table" aria-label="Beispiel pseudonymisierte Daten">
+            <div class="mini-row mini-row-head" role="row"><span>Name</span><span>E-Mail</span><span>Alter</span><span>Umsatz</span></div>
+            <div class="mini-row" role="row"><span>Kunde_001Y</span><span>Mail_001Y@example.invalid</span><span>30–39 Jahre</span><span>20,0</span></div>
+            <div class="mini-row" role="row"><span>Kunde_002Y</span><span>Mail_002Y@example.invalid</span><span>30–39 Jahre</span><span>50,0</span></div>
+            <div class="mini-row" role="row"><span>Kunde_003Y</span><span>Mail_003Y@example.invalid</span><span>20–29 Jahre</span><span>10,0</span></div>
+            <div class="mini-row" role="row"><span>Kunde_004Y</span><span>Mail_004Y@example.invalid</span><span>40–49 Jahre</span><span>30,0</span></div>
+            <div class="mini-row" role="row"><span>Kunde_005Y</span><span>Mail_005Y@example.invalid</span><span>30–39 Jahre</span><span>20,0</span></div>
           </div>
-        </div>
+        </article>
 
-        <div class="story-node" aria-hidden="true">
-          <div class="node-arrows">↙ <span>↓</span> ↘</div>
-          <div class="node-icon">P|Y</div>
+        <div class="export-cluster story-context" aria-label="Mögliche Weiterverwendung nach dem Export">
+          <div class="export-title">Export für</div>
+          <div class="target-strip">
+            <div class="target-chip"><span class="target-mark chatgpt">◎</span><small>ChatGPT</small></div>
+            <div class="target-chip"><span class="target-mark gemini">✦</span><small>Gemini</small></div>
+            <div class="target-chip"><span class="target-mark claude">✳</span><small>Claude</small></div>
+            <div class="target-chip"><span class="target-mark grok">✕</span><small>Grok</small></div>
+          </div>
+          <p>Sie entscheiden, was danach passiert.</p>
         </div>
-
-        <div class="story-sources">CSV · XLSX · EXCEL</div>
-        <div class="story-targets" aria-label="Mögliche Weiterverwendung nach dem Export">
-          <span>ChatGPT</span><span>Claude</span><span>Gemini</span><span>Grok</span>
-        </div>
-        <div class="story-control-note">Sie entscheiden, was danach passiert.</div>
       </div>
     </section>
   </main>
 
   <script src="js/hero-v5.js?v=8" defer></script>
-  <script src="js/y-story-v1.js?v=1" defer></script>
+  <script src="js/y-story-v1.js?v=2" defer></script>
 </body>
 </html>
