@@ -173,7 +173,7 @@
                 <span>Für größere Teams und Unternehmen</span>
                 <span>Umfang nach Anforderung</span>
               </div>
-              <a class="price-cta" href="mailto:hallo@pseudo-y.de">Kontakt aufnehmen <span>→</span></a>
+              <a class="price-cta" href="preise.html#kontakt">Kontakt aufnehmen <span>→</span></a>
             </article>
           </div>
 
